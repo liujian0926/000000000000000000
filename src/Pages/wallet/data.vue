@@ -39,7 +39,7 @@ export default {
     
 }
 </script>
-<style lang="less">
+<style lang="less" scoped>
     .container{
         height: 100%;
         padding:24px;

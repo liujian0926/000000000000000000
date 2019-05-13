@@ -17,84 +17,53 @@ export default {
   data() {
     return {
       dataList: [1, 2, 3, 4],
-       option3: {
-         color: [
-          "#2ec7c9",
-          "#b6a2de",
-          "#5ab1ef",
-          "#ffb980",
-          "#d87a80",
-          "#8d98b3",
-          "#e5cf0d",
-          "#97b552",
-          "#95706d",
-          "#dc69aa",
-          "#07a2a4",
-          "#9a7fd1",
-          "#588dd5",
-          "#f5994e",
-          "#c05050",
-          "#59678c",
-          "#c9ab00",
-          "#7eb00a",
-          "#6f5553",
-          "#c14089"
-        ],
+      option: {
         title: {
-          text: "某楼盘销售情况",
-          subtext: "纯属虚构"
+          text: "世界人口总量",
         },
         tooltip: {
           trigger: "axis"
         },
         legend: {
-          data: ["预购"]
+          data: ["2011年"]
         },
         toolbox: {
           show: true,
-          feature: {
-            myTool : {
-                show : true,
-                title : '自定义扩展方法',
-                icon : 'image://http://echarts.baidu.com/images/favicon.png',
-                onclick : function (){
-                    loadDrugs();
-                }
-             },
-
-            // mark: { show: true },
-            // dataView: { show: true, readOnly: false },
-            // magicType: { show: true, type: ["line", "bar", "stack", "tiled"] },
-            // restore: { show: true },
-            // saveAsImage: { show: true }
-            
-          }
+          // feature: {
+          //   mark: { show: true },
+          //   dataView: { show: true, readOnly: false },
+          //   magicType: { show: true, type: ["line", "bar"] },
+          //   restore: { show: true },
+          //   saveAsImage: { show: true }
+          // }
         },
         calculable: true,
         xAxis: [
           {
-            type: "category",
-            boundaryGap: false,
-            data: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"]
+            type: "value",
+            boundaryGap: [0, 0.01]
           }
         ],
         yAxis: [
           {
-            type: "value"
+            type: "category",
+            data: ["巴西", "印尼", "美国", "印度", "中国", "世界人口(万)"]
           }
         ],
         series: [
           {
-            name: "预购",
-            type: "line",
-            smooth: true,
-            itemStyle: { normal: { areaStyle: { type: "default" } } },
-            data: [30, 182, 434, 791, 390, 30, 10]
-          }
+            name: "2011年",
+            type: "bar",
+            data: [18203, 23489, 29034, 104970, 131744, 630230]
+          },
+          // {
+          //   name: "2012年",
+          //   type: "bar",
+          //   data: [19325, 23438, 31000, 121594, 134141, 681807]
+          // }
         ]
       }
-     
-    }
+    };
   },
   mounted() {
     // 基于准备好的dom，初始化echarts实例
@@ -107,14 +76,14 @@ export default {
 
     // this.option.xAxis[0].boundaryGap = false;
     // 使用刚指定的配置项和数据显示图表。
-    myChart1.setOption(this.option3);
-    myChart2.setOption(this.option3);
-    myChart3.setOption(this.option3);
+    myChart1.setOption(this.option);
+    myChart2.setOption(this.option);
+    myChart3.setOption(this.option);
   }
 };
 </script>
 <style lang="less" scoped>
-  .container {
+.container {
   height: 1635px;
   padding: 24px;
   box-sizing: border-box;
@@ -161,6 +130,5 @@ export default {
     padding: 16px 24px 24px 24px;
     box-sizing: border-box;
   }
- 
 }
 </style>

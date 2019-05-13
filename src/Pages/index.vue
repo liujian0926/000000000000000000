@@ -30,7 +30,7 @@
           <span>终端管理</span>
         </div>
       </router-link>
-      <router-link :to="{path:'/home'}" class="text">
+      <router-link :to="{path:'/users_home'}" class="text">
         <div class="box">
           <img src="../assets/images/user.png" alt>
           <span>用户管理</span>
@@ -54,7 +54,7 @@
           <span>申诉管理</span>
         </div>
       </router-link>
-      <router-link :to="{path:'/home'}" class="text">
+      <router-link :to="{path:'/query_home'}" class="text">
         <div class="box">
           <img src="../assets/images/deal_data.png" alt>
           <span>交易数据查询</span>

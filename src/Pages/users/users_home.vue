@@ -1,56 +1,23 @@
 <template>
-  <el-container class="my-container">
+  <el-container class="container">
+    <!-- 侧边栏 -->
     <el-aside width="210px">
-      <div class="title">钱包管理</div>
+      <div class="title">用户管理</div>
       <el-menu class="el-menu" router default-active="data">
-        <el-menu-item index="data">
+        <el-menu-item index="A_userManager">
           <!-- <i class="el-icon-document"></i> -->
           <img src="../../assets/images/blue.png" alt>
-          <span slot="title">平台钱包数据</span>
+          <span slot="title">A端用户管理</span>
         </el-menu-item>
-        <el-menu-item index="income">
+        <el-menu-item index="B_userManager">
           <img src="../../assets/images/white.png" alt>
-          <span slot="title">平台USDT收入支出</span>
-        </el-menu-item>
-        <el-menu-item index="platform_cash">
-          <img src="../../assets/images/white.png" alt>
-          <span slot="title">平台USDT提现记录</span>
-        </el-menu-item>
-        <el-menu-item index="platform_earnings">
-          <img src="../../assets/images/white.png" alt>
-          <span slot="title">平台积分收益记录</span>
-        </el-menu-item>
-        <el-menu-item index="project_usdt">
-          <img src="../../assets/images/white.png" alt>
-          <span slot="title">项目方USDT充提记录</span>
-        </el-menu-item>
-        <el-menu-item index="project_exchange">
-          <img src="../../assets/images/white.png" alt>
-          <span slot="title">项目方积分兑换记录</span>
-        </el-menu-item>
-        <el-menu-item index="project_recharge">
-          <img src="../../assets/images/white.png" alt>
-          <span slot="title">项目方积分充提记录</span>
-        </el-menu-item>
-        <el-menu-item index="B_usdt">
-          <img src="../../assets/images/white.png" alt>
-          <span slot="title">B端USDT充提记录</span>
-        </el-menu-item>
-        <el-menu-item index="B_exchange">
-          <img src="../../assets/images/white.png" alt>
-          <span slot="title">B端积分兑换记录</span>
-        </el-menu-item>
-        <el-menu-item index="B_deal">
-          <img src="../../assets/images/white.png" alt>
-          <span slot="title">B端积分买卖记录</span>
-        </el-menu-item>
-        <el-menu-item index="platform_usdt">
-          <img src="../../assets/images/white.png" alt>
-          <span slot="title">平台USDT提现</span>
+          <span slot="title">B端用户管理</span>
         </el-menu-item>
       </el-menu>
     </el-aside>
+
     <el-container>
+      <!-- 头部 -->
       <el-header style="height:64px;">
         <div class="left">
           <img src="../../assets/images/contr.png" alt>
@@ -62,6 +29,7 @@
           <img class="out" src="../../assets/images/out.png" alt>
         </div>
       </el-header>
+      <!-- 面包屑导航 -->
       <div class="nav">
         <template>
           <el-breadcrumb separator-class="el-icon-arrow-right">
@@ -72,9 +40,13 @@
           </el-breadcrumb>
         </template>
       </div>
+      
+      <!-- 主体部分 -->
+
       <el-main id="main">
         <router-view></router-view>
       </el-main>
+
     </el-container>
   </el-container>
 </template>
@@ -88,12 +60,16 @@ export default {
 };
 </script>
 <style lang="less" scope>
-.my-container {
-  height: 100%;
+.container {
+  height: 800px;
+  width: 100%;
   padding: 0;
   .el-header {
+    padding: 0 35px;
     background-color: #fff;
-    color: #333;
+    height: 64px;
+    width: 100%;
+    color: #979DAC;
     height: 100%;
     display: flex;
     justify-content: space-between;
@@ -101,7 +77,6 @@ export default {
       height: 100%;
       line-height: 64px;
       font-size: 14px;
-      color: #333333;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -115,7 +90,6 @@ export default {
       height: 64px;
       line-height: 64px;
       font-size: 14px;
-      color: #333333;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -130,11 +104,12 @@ export default {
     }
   }
   .nav {
-    height: 34px;
-    padding: 0 24px;
+    height: 40px;
+    width: 100%;
+    padding: 0 35px;
     display: flex;
     align-items: center;
-    background-color: #fff;
+    background-color: #FBFBFC;
   }
   .el-aside {
     background-color: #304156;
@@ -171,34 +146,12 @@ export default {
   }
 
   #main {
-    padding: 0;
-    margin-top: 1px;
+    height: 696px;
+    width: 100%;
     background-color: #fff;
+    padding: 0 23px;
   }
 
-  .el-form-item__label {
-    line-height: 36px;
-    font-size: 14px;
-  }
-
-  .el-form-item__content {
-    height: 36px;
-
-    #rmb {
-      font-size: 12px;
-      line-height: 17px;
-      color: #999999;
-      padding: 8px 0;
-    }
-
-    .el-input {
-      height: 36px;
-
-      .el-input__inner {
-        height: 36px;
-        line-height: 36px;
-      }
-    }
-  }
+  
 }
 </style>

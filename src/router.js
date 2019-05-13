@@ -7,6 +7,8 @@ Vue.use(Router);
 import index from './Pages/index.vue';
 // 登录页组件
 import login from './Pages/login.vue';
+
+// 平台钱包管理模块
 import home from './Pages/wallet/home.vue';
 // 钱包数据组件
 import data from './Pages/wallet/data.vue';
@@ -30,6 +32,7 @@ import Bexchange from './Pages/wallet/B_exchange.vue';
 import Bdeal from './Pages/wallet/B_deal.vue';
 // 平台usdt组件
 import platformUsdt from './Pages/wallet/platform_usdt.vue';
+
 // 运营模块
 import runHome from './Pages/run/run_home.vue';
 // 数据观察模块
@@ -45,7 +48,19 @@ import orderData from './Pages/run/order_data.vue';
 // B端保证金
 import Bdeposit from './Pages/run/B_deposit.vue';
 // 交易习惯
-import habit from './Pages/run/habit.vue'
+import habit from './Pages/run/habit.vue';
+
+// 用户管理模块
+import usersHome from './Pages/users/users_home.vue';
+// A用户管理
+import AuserManager from './Pages/users/A_userManager.vue'
+// B用户管理
+import BuserManager from './Pages/users/B_userManager.vue'
+
+// 交易数据查询模块
+import queryHome from './Pages/query/query_home.vue';
+// a端数据详情页
+import Adetail from './Pages/users/A_detail.vue';
 
 
 
@@ -79,6 +94,21 @@ const routes = [
     {path:'/order_data',component:orderData},
     {path:'/B_deposit',component:Bdeposit},
     {path:'/habit',component:habit},
+  ]
+},
+// 用户管理模块
+{path:'/users_home',component:usersHome,
+children:[
+  {path:'/A_userManager',component:AuserManager},
+  {path:'/B_userManager',component:BuserManager},
+  {path:'/A_detail',component:Adetail},
+]
+
+},
+// 用户管理模块
+{path:'/query_home',component:queryHome,
+  children:[
+    
   ]
 }
   

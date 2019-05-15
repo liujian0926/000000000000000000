@@ -4,20 +4,20 @@
     <el-aside width="210px">
       <div class="title">交易数据查询</div>
       <el-menu class="el-menu" router default-active="data">
-        <el-menu-item index="A_userManager">
+        <el-menu-item index="buy_order">
           <!-- <i class="el-icon-document"></i> -->
           <img src="../../assets/images/blue.png" alt>
           <span slot="title">买入订单记录</span>
         </el-menu-item>
-        <el-menu-item index="B_userManager">
+        <el-menu-item index="sale_order">
           <img src="../../assets/images/white.png" alt>
           <span slot="title">卖出订单记录</span>
         </el-menu-item>
-        <el-menu-item index="B_userManager">
+        <el-menu-item index="recharge_order">
           <img src="../../assets/images/white.png" alt>
           <span slot="title">充值订单记录</span>
         </el-menu-item>
-        <el-menu-item index="B_userManager">
+        <el-menu-item index="cash_order">
           <img src="../../assets/images/white.png" alt>
           <span slot="title">提现订单记录</span>
         </el-menu-item>
@@ -48,13 +48,12 @@
           </el-breadcrumb>
         </template>
       </div>
-      
+
       <!-- 主体部分 -->
 
       <el-main id="main">
         <router-view></router-view>
       </el-main>
-
     </el-container>
   </el-container>
 </template>
@@ -77,7 +76,7 @@ export default {
     background-color: #fff;
     height: 64px;
     width: 100%;
-    color: #979DAC;
+    color: #979dac;
     height: 100%;
     display: flex;
     justify-content: space-between;
@@ -117,7 +116,7 @@ export default {
     padding: 0 35px;
     display: flex;
     align-items: center;
-    background-color: #FBFBFC;
+    background-color: #fbfbfc;
   }
   .el-aside {
     background-color: #304156;
@@ -156,10 +155,7 @@ export default {
   #main {
     height: 696px;
     width: 100%;
-    background-color: #fff;
     padding: 0 23px;
   }
-
-  
 }
 </style>

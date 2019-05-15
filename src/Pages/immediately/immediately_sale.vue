@@ -7,17 +7,7 @@
       <el-form-item>
         <el-button type="warning">返回</el-button>
       </el-form-item>
-      <el-form-item label="日期">
-        <el-input
-          placeholder="请选择日期"
-          suffix-icon="el-icon-date"
-          v-model="form.date1"
-          type="datetime"
-        ></el-input>
-      </el-form-item>
-      <el-form-item>
-        <el-input placeholder="请选择日期" suffix-icon="el-icon-date" v-model="input2"></el-input>
-      </el-form-item>
+
       <!--类型选择 -->
       <el-form-item>
         <el-input v-model="input" placeholder="请输入内容"></el-input>
@@ -25,13 +15,7 @@
       <el-form-item>
         <el-input v-model="input" placeholder="请输入内容"></el-input>
       </el-form-item>
-      <el-form-item>
-        <el-input v-model="input" placeholder="请输入内容"></el-input>
-      </el-form-item>
 
-      <el-form-item>
-        <el-button @click="resetForm">重置</el-button>
-      </el-form-item>
       <el-form-item>
         <el-button type="primary">查询</el-button>
       </el-form-item>
@@ -45,19 +29,18 @@
       style="width: 100% ;"
       :header-cell-style="{background:'#eef1f6',color:'#606266'}"
     >
-      <el-table-column prop="username" label="用户名" align="center"></el-table-column>
-      <el-table-column prop="user_id" label="用户ID" align="center"></el-table-column>
-      <el-table-column prop="tel" label="电话" align="center"></el-table-column>
-      <el-table-column prop="time" label="加入时间" align="center"></el-table-column>
-      <el-table-column prop="pro_name" label="项目方名称" align="center"></el-table-column>
-      <el-table-column prop="pro_id" label="项目方ID" align="center"></el-table-column>
-      <el-table-column prop="dl_name" label="代理名称" align="center"></el-table-column>
-      <el-table-column prop="dl_id" label="代理ID" align="center"></el-table-column>
-      <el-table-column prop="real_name" label="是否实名" align="center"></el-table-column>
-      <el-table-column prop="status" label="账户状态" align="center"></el-table-column>
-      <el-table-column prop="operation" label="操作" align="center">
+      <el-table-column prop="username" label="用户名"></el-table-column>
+      <el-table-column prop="user_id" label="用户ID"></el-table-column>
+      <el-table-column prop="tel" label="电话"></el-table-column>
+      <el-table-column prop="time" label="加入时间"></el-table-column>
+      <el-table-column prop="pro_name" label="项目方名称"></el-table-column>
+      <el-table-column prop="pro_id" label="项目方ID"></el-table-column>
+      <el-table-column prop="dl_name" label="代理名称"></el-table-column>
+      <el-table-column prop="dl_id" label="代理ID"></el-table-column>
+      <el-table-column prop="real_name" label="是否实名"></el-table-column>
+      <el-table-column prop="operation" label="操作">
         <template scope="scope">
-          <router-link :to="{path:'/B_detail'}">
+          <router-link :to="{path:'/immediately_sale_detail'}">
             <span style="color:#419EFF">{{ scope.row.operation }}</span>
           </router-link>
         </template>
@@ -261,7 +244,8 @@ export default {
 .container {
   height: 100%;
   background-color: #fff;
-  color: #333;
+  padding: 0 30px;
+  box-sizing: border-box;
   a {
     text-decoration: none;
   }
@@ -281,6 +265,7 @@ export default {
       width: 100px !important;
       height: 28px;
       padding: 0;
+      margin-left: 46px;
     }
     .el-button--default {
       margin-left: 46px;

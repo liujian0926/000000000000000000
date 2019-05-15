@@ -1,6 +1,6 @@
 <template>
   <el-container class="container">
-    <el-aside width="210px" style="height:1635px">
+    <el-aside width="210px">
       <div class="title">运营数据分析</div>
       <el-menu class="el-menu" router default-active="data">
         <el-menu-item index="observer" @click="getinfo($event)" class="active">
@@ -12,7 +12,7 @@
           <img src="../../assets/images/white.png" alt>
           <span slot="title">平台收益分析</span>
         </el-menu-item>
-        <el-menu-item index="users">
+        <el-menu-item index="B_users">
           <img src="../../assets/images/white.png" alt>
           <span slot="title">B端用户分析</span>
         </el-menu-item>
@@ -47,7 +47,14 @@
         </div>
       </el-header>
       <div class="nav">
-        <my-bread/>
+        <template>
+          <el-breadcrumb separator-class="el-icon-arrow-right">
+            <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+            <el-breadcrumb-item :to="{ path: '/' }">活动管理</el-breadcrumb-item>
+            <el-breadcrumb-item :to="{ path: '/' }">活动列表</el-breadcrumb-item>
+            <el-breadcrumb-item :to="{ path: '/' }">活动详情</el-breadcrumb-item>
+          </el-breadcrumb>
+        </template>
       </div>
       <el-main id="main">
         <router-view></router-view>
@@ -76,16 +83,10 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-html,
-body {
-  height: 100%;
-  margin: 0;
-  background-color: #f0f2f5;
-}
-
 .container {
-  height: 1635px;
   padding: 0;
+  height: 100%;
+  background-color: #fff;
   .el-header {
     background-color: #fff;
     color: #333;
@@ -134,9 +135,8 @@ body {
   }
 
   .el-aside {
+    height: 1697px;
     background-color: #304156;
-    height: 1635px;
-
     .title {
       color: #fff;
       text-align: center;

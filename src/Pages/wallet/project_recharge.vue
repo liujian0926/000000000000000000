@@ -1,35 +1,17 @@
-
 <template>
   <div class="container">
-    <el-form :inline="true" class="demo-form-inline form">
+    <el-form :inline="true" class="demo-form-inline my-form-users">
       <!--时间日期-->
+      <!-- <div class="title">日期</div> -->
       <el-form-item label="日期">
-        <el-col :span="11">
-          <el-date-picker
-            type="date"
-            placeholder="请选择日期"
-            v-model="form.date1"
-            style="height:40px;width:100%;"
-          ></el-date-picker>
-        </el-col>
-        <el-col class="line" :span="2">-</el-col>
-        <el-col :span="11">
-          <el-date-picker
-            type="date"
-            placeholder="请选择日期"
-            v-model="form.date2"
-            style="height: 40px;width:100%;"
-          ></el-date-picker>
-        </el-col>
+        <el-input placeholder="请选择日期" suffix-icon="el-icon-date" v-model="form.date1"  type="datetime"></el-input>
       </el-form-item>
-
       <el-form-item>
-          <el-input v-model="input" placeholder="项目方ID/名称"></el-input>
+        <el-input placeholder="请选择日期" suffix-icon="el-icon-date" v-model="input2"></el-input>
       </el-form-item>
-      
       <!--类型选择 -->
       <el-form-item>
-        <el-select v-model="value" placeholder="业务类型" style="height: 40px;" >
+        <el-select v-model="value" placeholder="请选择">
           <el-option
             v-for="item in options"
             :key="item.value"
@@ -39,36 +21,40 @@
         </el-select>
       </el-form-item>
 
-      
-      <el-form-item>
-        <el-button type="primary" @click="onSubmit">查询</el-button>
-      </el-form-item>
       <el-form-item>
         <el-button @click="resetForm">重置</el-button>
       </el-form-item>
+      <el-form-item>
+        <el-button type="primary">查询</el-button>
+      </el-form-item>
     </el-form>
     <!-- 表格-->
-    <el-table :data="tableData" border style="width: 100% ;" :header-cell-style="{background:'#eef1f6',color:'#606266'}">
-      <el-table-column prop="date" label="日期" align="center" ></el-table-column>
-      <el-table-column prop="zd" label="终端类型" align="center" ></el-table-column>
-      <el-table-column prop="id" label="ID" align="center" ></el-table-column>
-      <el-table-column prop="type" label="类型" align="center" ></el-table-column>
-      <el-table-column prop="usdt" label="USDT" align="center" ></el-table-column>
-      <el-table-column prop="num" label="交易单号" align="center" ></el-table-column>
+    <el-table
+      :data="tableData"
+      border
+      style="width: 100% ;"
+      :header-cell-style="{background:'#eef1f6',color:'#606266'}"
+    >
+      <el-table-column prop="date" label="日期" align="center"></el-table-column>
+      <el-table-column prop="zd" label="终端类型" align="center"></el-table-column>
+      <el-table-column prop="id" label="ID" align="center"></el-table-column>
+      <el-table-column prop="type" label="类型" align="center"></el-table-column>
+      <el-table-column prop="usdt" label="USDT" align="center"></el-table-column>
+      <el-table-column prop="num" label="交易单号" align="center"></el-table-column>
     </el-table>
     <!--分页 -->
     <div class="page">
       <div class="pagination">
         <el-pagination
-        background
-        @size-change="handleSizeChange"
-        @current-change="handleCurrentChange"
-        :current-page="currentPage4"
-        :page-sizes="[10, 20, 30, 40]"
-        :page-size="100"
-        layout="total, sizes, prev, pager, next, jumper"
-        :total="100"
-      ></el-pagination>
+          background
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+          :current-page="currentPage4"
+          :page-sizes="[10, 20, 30, 40]"
+          :page-size="100"
+          layout="total, sizes, prev, pager, next, jumper"
+          :total="100"
+        ></el-pagination>
       </div>
     </div>
   </div>
@@ -201,49 +187,36 @@ export default {
 
 <style lang="less" scoped>
 .container {
-  height: 100%;
-  background-color: #fff;
+  height: 700px;
+  background-color: #f5f6fa;
   color: #333;
   padding: 0 24px;
-  .form {
+  .my-form-users {
     height: 75px;
     display: flex;
     align-items: center;
-    .el-form-item__content {
-      height: 100%;
-    }
     .el-form-item {
-      margin-bottom: 0;
-      margin-right: 24px;
-      height: 36px;
-      &:nth-child(2) {
-        width: 145px;
-      }
-      &:nth-child(3) {
-        width: 192px;
-        color: #333333;
-      }
-      .el-col {
-        width: 132px;
-        &:nth-child(2) {
-          width: 26px;
-          text-align: center;
-        }
-      }
+      margin-right: 18px;
+    }
+    .title {
+      font-size: 13px;
+      color: #253444;
+      margin-right: 8px;
     }
     .el-button--primary {
-      width: 80px!important;
-      height: 32px;
+      width: 100px !important;
+      height: 28px;
       padding: 0;
     }
-    .el-button--default{
-      width: 80px!important;
-      height: 32px;
+    .el-button--default {
+      margin-left: 46px;
+      width: 50px !important;
+      height: 28px;
       padding: 0;
     }
   }
   .page {
-    height: 81px;
+    height: 104px;
     display: flex;
     flex-direction: row-reverse;
     padding-right: 4px;

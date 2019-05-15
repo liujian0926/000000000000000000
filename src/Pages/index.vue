@@ -2,11 +2,12 @@
   <div class="container">
     <div class="title">
       <div class="left">
-        <img src="../assets/images/man.png" alt>
-        Hank（002）
+        <img src="../assets/images/index.png" alt>
+        <span>盾付宝运营后台</span>
       </div>
       <div class="right">
-        退出登录
+        <img src="../assets/images/man.png" alt>
+        <span>Hank（002）</span>
         <img src="../assets/images/out.png" alt>
       </div>
     </div>
@@ -36,7 +37,7 @@
           <span>用户管理</span>
         </div>
       </router-link>
-      <router-link :to="{path:'/home'}" class="text">
+      <router-link :to="{path:'/immediately_home'}" class="text">
         <div class="box">
           <img src="../assets/images/deal.png" alt>
           <span>即时交易数据</span>
@@ -71,16 +72,13 @@
 </template>
 
 <script>
-export default {
-  
-};
+export default {};
 </script>
 
 <style lang="less" scoped>
 .container {
-  display: flex;
-  flex-direction: column;
-  padding: 0;
+  height: 100%;
+  width: 100%;
   .title {
     width: 100%;
     height: 64px;
@@ -88,7 +86,7 @@ export default {
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
-    padding: 0 40px;
+    padding: 0 27px 0 40px;
     .left {
       display: flex;
       justify-content: center;
@@ -98,7 +96,6 @@ export default {
       color: #333333;
       font-weight: bold;
       font-size: 14px;
-      letter-spacing: 1px;
       img {
         margin-right: 10px;
       }
@@ -110,43 +107,52 @@ export default {
       height: 100%;
       color: #666666;
       font-size: 14px;
-      letter-spacing: 1px;
       line-height: 64px;
-      img {
-        margin-left: 6px;
+      span {
+        margin-right: 17px;
+        margin-left: 10px;
       }
     }
   }
 
   .content {
     height: 100%;
-    padding: 36px 0 0 70px;
+    width: 100%;
+    padding: 35px;
     box-sizing: border-box;
-    background-color: #f0f2f5;
-    #active{
-      background-color: #304156;
+    background-color: #f5f6fa;
+    #active {
+      background-color: #419eff;
       color: #fff;
     }
     .box {
-      width: 250px;
-      height: 148px;
+      width: 320px;
+      height: 180px;
       float: left;
-      padding: 0;
+      // padding: 0;
       background-color: #fff;
       box-sizing: border-box;
-      margin-right: 100px;
-      margin-bottom: 60px;
+      margin-right: 30px;
+      margin-bottom: 30px;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      color: #333333;
+      font-size: 18px;
+      color: #253444;
       img {
         margin-bottom: 27px;
       }
+      span {
+        display: inline-block;
+        width: 114px;
+        height: 25px;
+        text-align: center;
+        line-height: 25px;
+      }
     }
     .box:hover {
-      background-color: #304156;
+      background-color: #419eff;
       color: #fff;
     }
   }

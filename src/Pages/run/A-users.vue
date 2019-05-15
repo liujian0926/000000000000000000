@@ -120,7 +120,6 @@ export default {
   box-sizing: border-box;
   background-color: #f0f2f5;
   .title {
-    overflow: hidden;
     .box {
       width: 276px;
       height: 128px;

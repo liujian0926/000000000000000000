@@ -40,7 +40,7 @@ import observer from './Pages/run/observer.vue';
 // 收益分析
 import analysis from './Pages/run/analysis.vue';
 // B端用户
-import users from './Pages/run/B_users.vue';
+import Busers from './Pages/run/B_users.vue';
 // A端用户
 import Ausers from './Pages/run/A-users.vue';
 // 订单数据
@@ -53,16 +53,36 @@ import habit from './Pages/run/habit.vue';
 // 用户管理模块
 import usersHome from './Pages/users/users_home.vue';
 // A用户管理
-import AuserManager from './Pages/users/A_userManager.vue'
+import AuserManager from './Pages/users/A_userManager.vue';
 // B用户管理
-import BuserManager from './Pages/users/B_userManager.vue'
+import BuserManager from './Pages/users/B_userManager.vue';
+// a端数据详情页
+import Adetail from './Pages/users/A_detail.vue';
+// b端数据详情
+import Bdetail from './Pages/users/B_detail.vue';
+
 
 // 交易数据查询模块
 import queryHome from './Pages/query/query_home.vue';
-// a端数据详情页
-import Adetail from './Pages/users/A_detail.vue';
+import buyOrder from './Pages/query/buy_order.vue';
+import saleOrder from './Pages/query/sale_order.vue';
+import rechargeOrder from './Pages/query/recharge_order.vue';
+import cashOrder from './Pages/query/cash_order.vue';
+import buyDetail from './Pages/query/buy_detail.vue';
+import buyCancel from './Pages/query/buy_cancel.vue';
+import saleDetail from './Pages/query/sale_detail.vue';
+import saleCancel from './Pages/query/sale_cancel.vue';
+import rechargeDetail from './Pages/query/recharge_detail.vue';
+import rechargeCancel from './Pages/query/recharge_cancel.vue';
+import cashDetail from './Pages/query/cash_detail.vue';
+import cashCancel from './Pages/query/cash_cancel.vue';
 
-
+// 即时交易数据模块
+import immediatelyHome from './Pages/immediately/immediately_home.vue';
+import immediatelyBuy from './Pages/immediately/immediately_buy.vue';
+import immediatelySale from './Pages/immediately/immediately_sale.vue';
+import immediatelyBuyDetail from './Pages/immediately/immediately_buy_detail.vue';
+import immediatelySaleDetail from './Pages/immediately/immediately_sale_detail.vue';
 
 const routes = [
   {path:'/', component: index},
@@ -89,7 +109,7 @@ const routes = [
   children:[
     {path:'/observer',component:observer},
     {path:'/analysis',component:analysis},
-    {path:'/users',component:users},
+    {path:'/B_users',component:Busers},
     {path:'/A-users',component:Ausers},
     {path:'/order_data',component:orderData},
     {path:'/B_deposit',component:Bdeposit},
@@ -102,13 +122,34 @@ children:[
   {path:'/A_userManager',component:AuserManager},
   {path:'/B_userManager',component:BuserManager},
   {path:'/A_detail',component:Adetail},
+  {path:'/B_detail',component:Bdetail},
 ]
 
 },
-// 用户管理模块
+// 交易数据查询块
 {path:'/query_home',component:queryHome,
   children:[
-    
+    {path:'/buy_order',component:buyOrder},
+    {path:'/sale_order',component:saleOrder},
+    {path:'/recharge_order',component:rechargeOrder},
+    {path:'/cash_order',component:cashOrder},
+    {path:'/buy_detail',component:buyDetail},
+    {path:'/buy_cancel',component:buyCancel},
+    {path:'/sale_detail',component:saleDetail},
+    {path:'/sale_cancel',component:saleCancel},
+    {path:'/recharge_detail',component:rechargeDetail},
+    {path:'/recharge_cancel',component:rechargeCancel},
+    {path:'/cash_detail',component:cashDetail},
+    {path:'/cash_cancel',component:cashCancel},
+  ]
+},
+// 即时交易数据模块
+{path:'/immediately_home',component:immediatelyHome,
+  children:[
+    {path:'/immediately_buy',component:immediatelyBuy},
+    {path:'/immediately_sale',component:immediatelySale},
+    {path:'/immediately_buy_detail',component:immediatelyBuyDetail},
+    {path:'/immediately_sale_detail',component:immediatelySaleDetail},
   ]
 }
   

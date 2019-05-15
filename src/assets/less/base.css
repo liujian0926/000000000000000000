@@ -8,40 +8,69 @@ body {
   overflow-x: hidden;
   overflow-y: hidden;
 }
+.my-form-users .el-form--inline .el-form-item {
+  margin-right: 18px;
+}
+.my-form-users .el-form-item {
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.my-form-users .el-form-item .el-form-item__content {
+  line-height: 28px;
+}
+.my-form-users .el-form-item .el-form-item__content .el-input {
+  width: 120px;
+  line-height: 28px;
+}
+.my-form-users .el-form-item .el-form-item__content .el-input .el-input__inner {
+  line-height: 28px;
+  height: 28px;
+}
+.my-form-users .el-form-item .el-form-item__content .el-input--suffix .el-input__inner {
+  height: 28px;
+  line-height: 28px;
+  width: 120px;
+}
+.my-form-users .el-form-item .el-form-item__content .el-input--suffix .el-input__suffix-inner .el-input__icon {
+  line-height: 28px;
+}
 .my-form-users .el-form-item__label {
   line-height: 28px;
 }
-.my-form-users .el-form-item__content {
-  height: 28px;
-  line-height: 28px;
+.login-form {
+  width: 400px;
+  height: 280px;
+  background-color: white;
+  border-radius: 2px;
+  box-shadow: 0px 4px 20px 0px rgba(24, 33, 43, 0.38);
+  box-sizing: border-box;
+  padding: 60px 32px 40px 32px;
 }
-.my-form-users .el-form-item__content .el-input__inner {
-  height: 28px;
-  line-height: 28px;
+.login-form .el-form-item {
+  margin-bottom: 30px;
+  line-height: 36px;
 }
-.my-form-users .el-form-item__content .el-col {
-  height: 28px;
-  width: 120px;
+.login-form .el-form-item .el-form-item__label {
+  line-height: 36px;
+  font-size: 16px;
+  color: #304156;
 }
-.my-form-users .el-form-item__content .el-col .el-input {
-  height: 28px;
-  line-height: 28px;
+.login-form .el-form-item .el-form-item__content {
+  line-height: 26px;
 }
-.my-form-users .el-form-item__content .el-col .el-input .el-input__inner {
-  height: 28px;
-  line-height: 28px;
+.login-form .el-form-item .el-form-item__content .el-input {
+  width: 242px;
 }
-.my-form-users .el-form-item__content .el-col .el-input .el-input__prefix {
-  height: 28px;
+.login-form .el-form-item .el-form-item__content .el-input .el-input__inner {
+  height: 36px;
+  line-height: 26px;
 }
-.my-form-users .el-form-item__content .el-col .el-input .el-input__prefix .el-input__icon {
-  height: 28px;
-  line-height: 28px;
-}
-.my-form-users .el-form-item__content .el-col .el-input .el-input__suffix-inner .el-input__inner {
-  padding-right: 0;
-}
-.my-form-users .el-form-item__content .el-col .el-input .el-input__suffix-inner .el-input__icon {
-  height: 28px;
-  line-height: 28px;
+.login-form .login-btn {
+  width: 100%;
+  height: 48px;
+  background-color: #419EFF;
+  font-size: 16px;
+  margin-left: 0;
 }

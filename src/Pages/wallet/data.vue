@@ -1,37 +1,37 @@
 <template>
    <div class="container">
        <div class="box">
-           <div>平台持有USDT</div>
+           <span>平台持有USDT</span>
            <div>18,035,20</div>
        </div>
        <div class="box">
-           <div>平台持有USDT</div>
+           <span>平台持有USDT</span>
            <div>18,035,20</div>
        </div>
        <div class="box">
-           <div>平台持有USDT</div>
+           <span>平台持有USDT</span>
            <div>18,035,20</div>
        </div>
        <div class="box">
-           <div>平台持有USDT</div>
+           <span>平台持有USDT</span>
            <div>18,035,20</div>
        </div>
-        <div class="box">
-           <div>平台持有USDT</div>
+       <div class="box">
+           <span>平台持有USDT</span>
            <div>18,035,20</div>
        </div>
-        <div class="box">
-           <div>平台持有USDT</div>
+       <div class="box">
+           <span>平台持有USDT</span>
            <div>18,035,20</div>
        </div>
-        <div class="box">
-           <div>平台持有USDT</div>
+       <div class="box">
+           <span>平台持有USDT</span>
            <div>18,035,20</div>
        </div>
-        <div class="box">
-           <div>平台持有USDT</div>
+       <div class="box">
+           <span>平台持有USDT</span>
            <div>18,035,20</div>
-       </div>
+       </div> 
    </div>
 </template>
 <script>
@@ -41,40 +41,50 @@ export default {
 </script>
 <style lang="less" scoped>
     .container{
-        height: 100%;
-        padding:24px;
+        height: 700px;
+        padding:20px 0 0 30px;
         box-sizing: border-box;
-        background-color: #F0F2F5;
+        background-color: #F5F6FA;
         
         .box {
             width: 276px;
-            height: 128px;
+            height: 148px;
             float: left;
             background-color: #fff;
-            padding: 27px 0 0 40px;
+            padding: 30px 0 0 40px;
             box-sizing: border-box;
-            margin-right: 26px;
-            margin-bottom: 26px;
-            // &:nth-child(4n){
-            //     margin-right: 0;
-            // }
-           div {
-
-               &:nth-child(1){
+            margin-right: 22px;
+            margin-bottom: 20px;
+               span{
+                   display: block;
                    height: 20px;
+                   width: 100px;
                    font-size: 14px;
                    line-height: 20px;
-                   color: #666666;
+                   color: #979DAC;
+                   margin-left: 5px;
+                   position: relative;
+               }
+               span::before {
+                   position: absolute;
+                   top:3px;
+                   left: -9px;
+                   content: '';
+                   display: block;
+                   width: 4px;
+                   height: 15px;
+                   background-color: #419EFF;
+                   
+               }
+               div{
+                   height: 37px;
+                   font-size: 32px;
+                   line-height: 37px;
+                   color: #1E2C3C;
+                   margin-top: 20px;
                    font-weight: bold;
                }
-               &:nth-child(2){
-                   margin-top: 1px;
-                   height: 40px;
-                   font-size: 32px;
-                   color: #333333;
-                   margin-top: 4px;
-               }
            }
-        }
+        
     }
 </style>

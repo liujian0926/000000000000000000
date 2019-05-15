@@ -1,17 +1,20 @@
  
 <template>
   <div class="container">
-    <img src="../assets/images/logo.png" alt>
-    <div class="title">盾付宝运营后台</div>
+    <div class="title">
+      <img src="../assets/images/logo.png" alt>
+      <span>盾付宝运营后台</span>
+    </div>
+
     <el-form
-      class="form"
+      class="login-form"
       label-width="80px"
       label-position="right"
       :model="loginForm"
       :rules="rules"
       ref="loginForm"
     >
-      <el-form-item label="用户名" prop="username">
+      <el-form-item label="账号" prop="username">
         <el-input v-model="loginForm.username" placeholder="请输入您的账号"></el-input>
       </el-form-item>
       <el-form-item label="密码" prop="password">
@@ -73,36 +76,29 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #304156;
+  background: linear-gradient(
+    134deg,
+    rgba(13, 36, 64, 1) 0%,
+    rgba(22, 36, 54, 1) 100%
+  );
   .title {
-    height: 53px;
-    letter-spacing: 1px;
-    padding: 26px 0;
-    font-size: 38px;
-    color: #ffffff;
-    font-weight: bold;
-    line-height: 53px;
-  }
-
-  .form {
-    width: 400px;
-    height: 336px;
-    background-color: white;
-    border-radius: 2px;
-    // 怪异盒模型
+    height: 58px;
+    margin-bottom: 30px;
     box-sizing: border-box;
-    padding: 83px 32px 57px 32px;
-    .el-form-item {
-      margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      width: 46px;
+      height: 58px;
     }
-
-    .login-btn {
-      width: 100%;
-      background-color: #304156;
-      font-size: 16px;
+    span {
+      color: #fff;
+      // background:linear-gradient(137deg,rgba(78,228,255,1) 0%,rgba(35,143,255,1) 100%);
+      margin-left: 21px;
+      font-size: 44px;
       font-weight: bold;
-      margin-left: 0;
-      margin-top: 28px;
+      line-height: 58px;
     }
   }
 }

@@ -1,36 +1,34 @@
 <template>
   <div class="container">
-    <el-form :inline="true" class="demo-form-inline form my-form-users">
+    <el-form :inline="true" class="demo-form-inline my-form-users">
       <!--时间日期-->
-      <el-form-item label="加入时间">
-        <el-col :span="11">
-          <el-date-picker type="date" v-model="form.date1" style="width:100%;"></el-date-picker>
-        </el-col>
-        <el-col class="line" :span="2">-</el-col>
-        <el-col :span="11">
-          <el-date-picker type="date" v-model="form.date2" style="width:100%;"></el-date-picker>
-        </el-col>
+      <!-- <div class="title">日期</div> -->
+      <el-form-item label="日期">
+        <el-input placeholder="请选择日期" suffix-icon="el-icon-date" v-model="form.date1"  type="datetime"></el-input>
+      </el-form-item>
+      <el-form-item>
+        <el-input placeholder="请选择日期" suffix-icon="el-icon-date" v-model="input2"></el-input>
       </el-form-item>
       <!--类型选择 -->
       <el-form-item>
-        <el-input v-model="input" placeholder="用户名称"></el-input>
+       <el-input v-model="input" placeholder="请输入内容"></el-input>
       </el-form-item>
-      <el-form-item>
-        <el-input v-model="input" placeholder="用户ID"></el-input>
+       <el-form-item>
+       <el-input v-model="input" placeholder="请输入内容"></el-input>
       </el-form-item>
-      <el-form-item>
-        <el-input v-model="input" placeholder="项目方ID"></el-input>
-      </el-form-item>
-      <el-form-item>
-        <el-input v-model="input" placeholder="代理ID"></el-input>
+       <el-form-item>
+       <el-input v-model="input" placeholder="请输入内容"></el-input>
       </el-form-item>
 
       <el-form-item>
-        <el-button type="primary" @click="onSubmit">查询</el-button>
+        <el-button @click="resetForm">重置</el-button>
+      </el-form-item>
+      <el-form-item>
+        <el-button type="primary">查询</el-button>
       </el-form-item>
     </el-form>
 
-    <div>
+    
       <!-- 表格-->
       <el-table
         class="table"
@@ -49,7 +47,11 @@
         <el-table-column prop="dl_id" label="代理ID" align="center"></el-table-column>
         <el-table-column prop="real_name" label="是否实名" align="center"></el-table-column>
         <el-table-column prop="status" label="账户状态" align="center"></el-table-column>
-        <el-table-column prop="operation" label="操作" align="center"></el-table-column>
+        <el-table-column prop="operation" label="操作" align="center">
+          <template scope="scope">
+            <router-link :to="{path:'/A_detail'}"><span style="color:#419EFF" >{{ scope.row.operation }}</span></router-link>
+          </template>
+        </el-table-column>
       </el-table>
 
       <!--分页 -->
@@ -68,7 +70,7 @@
         </div>
       </div>
     </div>
-  </div>
+  
 </template>
 
 <script>
@@ -252,27 +254,29 @@ export default {
 .container {
   height: 100%;
   background-color: #fff;
-  color: #333;
-  .form {
-    height: 70px;
+  a {
+    text-decoration: none;
+  }
+   .my-form-users {
+    height: 75px;
     display: flex;
     align-items: center;
     .el-form-item {
-      margin-bottom: 0;
-      margin-right: 20px;
-      .el-col-2 {
-        width: 20px;
-        text-align: center;
-      }
+      margin-right: 18px;
     }
-     .el-form-item:nth-child(5){
-        margin-right: 60px;
-      }
-    .el-form-item:nth-child(n + 2) {
-      width: 120px;
+    .title {
+      font-size: 13px;
+      color: #253444;
+      margin-right: 8px;
     }
     .el-button--primary {
       width: 100px !important;
+      height: 28px;
+      padding: 0;
+    }
+    .el-button--default {
+      margin-left: 46px;
+      width: 50px !important;
       height: 28px;
       padding: 0;
     }

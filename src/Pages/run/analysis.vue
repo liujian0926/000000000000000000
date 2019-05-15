@@ -1,16 +1,19 @@
 <template>
   <div class="container">
-    <div class="title">
-      <div class="box" v-for="(item,index) in dataList" :key="index">
+    <div class="title-box">
+      <div class="title" v-for="(item,index) in dataList" :key="index">
         <div>本周总利润</div>
         <div>38,035,20</div>
       </div>
     </div>
-    <div class="echart" id="echart1"></div>
-    <div class="echart" id="echart2"></div>
-    <div class="echart" id="echart3"></div>
-    <div class="echart" id="echart4"></div>
-    <div class="echart" id="echart5"></div>
+    <div class="charts-box">
+      <!-- 图表 -->
+      <div class="echart" id="echart1"></div>
+      <div class="echart" id="echart2"></div>
+      <div class="echart" id="echart3"></div>
+      <div class="echart" id="echart4"></div>
+      <div class="echart" id="echart5"></div>
+    </div>
   </div>
 </template>
 <script>
@@ -22,7 +25,7 @@ export default {
       option1: {
         color: [
           "#2ec7c9",
-          "#b6a2de",
+          "#b6a2de"
           // "#5ab1ef",
           // "#ffb980",
           // "#d87a80",
@@ -151,10 +154,7 @@ export default {
         ]
       },
       option2: {
-         color: [
-          "#2ec7c9",
-          "#b6a2de"
-        ],
+        color: ["#2ec7c9", "#b6a2de"],
         title: {
           text: "项目方买卖金额排行"
         },
@@ -203,7 +203,7 @@ export default {
         ]
       },
       option3: {
-         color: [
+        color: [
           "#95706d",
           "#2ec7c9",
           "#b6a2de",
@@ -237,7 +237,7 @@ export default {
           data: ["意向", "预购", "成交"]
         },
         toolbox: {
-          show: true,
+          show: true
           // feature: {
           //   mark: { show: true },
           //   dataView: { show: true, readOnly: false },
@@ -269,7 +269,7 @@ export default {
           }
         ]
       }
-    }
+    };
   },
   mounted() {
     // 基于准备好的dom，初始化echarts实例
@@ -279,9 +279,7 @@ export default {
     var myChart4 = echarts.init(document.getElementById("echart4"));
     var myChart5 = echarts.init(document.getElementById("echart5"));
     // console.log(myChart);
-
     // 设置图想置顶  this.option.xAxis.boundaryGap 留白项 默认为true
-
     // this.option.xAxis[0].boundaryGap = false;
     // 使用刚指定的配置项和数据显示图表。
     myChart1.setOption(this.option1);
@@ -292,59 +290,64 @@ export default {
   }
 };
 </script>
-<style lang="less" scope>
+<style lang="less" scoped>
 .container {
-  height: 1635px;
+  height: 1697px;
   padding: 24px;
   box-sizing: border-box;
-  background-color: #f0f2f5;
-  .title {
+  background-color: #f5f6fa; 
+  .title-box {
     overflow: hidden;
-    .box {
-      width: 276px;
-      height: 128px;
-      float: left;
-      background-color: #fff;
-      padding: 27px 0 0 40px;
-      box-sizing: border-box;
-      margin-right: 26px;
-      margin-bottom: 26px;
-      // &:nth-child(4n){
-      //     margin-right: 0;
-      // }
-      div {
-        &:nth-child(1) {
-          height: 20px;
-          font-size: 14px;
-          line-height: 20px;
-          color: #666666;
-          font-weight: bold;
-        }
-        &:nth-child(2) {
-          margin-top: 1px;
-          height: 40px;
-          font-size: 32px;
-          color: #333333;
-          margin-top: 4px;
-        }
+     .title {
+    width: 276px;
+    height: 128px;
+    float: left;
+    background-color: #fff;
+    padding: 27px 0 0 40px;
+    box-sizing: border-box;
+    margin-right: 26px;
+    margin-bottom: 26px;
+    // &:nth-child(4n){
+    //     margin-right: 0;
+    // }
+    div {
+      &:nth-child(1) {
+        height: 20px;
+        font-size: 14px;
+        line-height: 20px;
+        color: #666666;
+        font-weight: bold;
+      }
+      &:nth-child(2) {
+        margin-top: 1px;
+        height: 40px;
+        font-size: 32px;
+        color: #333333;
+        margin-top: 4px;
       }
     }
   }
-  .echart {
-    float: left;
-    width: 578px;
-    height: 379px;
-    margin-right: 26px;
-    margin-bottom: 24px;
-    background-color: #fff;
-    padding: 16px 24px 24px 24px;
-    box-sizing: border-box;
   }
-  #echart5 {
-    float: left;
-    width: 1182px;
-    height: 379px;
-    background-color: #fff;
+ 
+  .charts-box {
+    width: 100%;
+    height: 100%;
+    .echart {
+      float: left;
+      width: 578px;
+      height: 379px;
+      margin-right: 26px;
+      margin-bottom: 24px;
+      background-color: #fff;
+      padding: 16px 24px 24px 24px;
+      box-sizing: border-box;
+    }
+    // #echart5 {
+    //   float: left;
+    //   width: 1182px;
+    //   height: 379px;
+    //   background-color: #fff;
+    // }
   }
 }
 </style>

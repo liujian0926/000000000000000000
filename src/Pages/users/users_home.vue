@@ -149,7 +149,6 @@ export default {
     height: 696px;
     width: 100%;
     background-color: #fff;
-    padding: 0 23px;
   }
 
   

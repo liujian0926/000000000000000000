@@ -84,6 +84,12 @@ import immediatelySale from './Pages/immediately/immediately_sale.vue';
 import immediatelyBuyDetail from './Pages/immediately/immediately_buy_detail.vue';
 import immediatelySaleDetail from './Pages/immediately/immediately_sale_detail.vue';
 
+// 终端管理
+import terminalHome from './Pages/terminal/terminal_home.vue';
+import Bmanager from './Pages/terminal/B_manager.vue';
+import projectManager from './Pages/terminal/project_manager.vue';
+import agentManager from './Pages/terminal/agent_manager.vue'
+
 const routes = [
   {path:'/', component: index},
   {path: '/login', component: login },
@@ -151,8 +157,15 @@ children:[
     {path:'/immediately_buy_detail',component:immediatelyBuyDetail},
     {path:'/immediately_sale_detail',component:immediatelySaleDetail},
   ]
+},
+// 终端管理
+{path:'/terminal_home',component:terminalHome,
+  children:[
+    {path:'/B_manager',component:Bmanager},
+    {path:'/projectManager',component:projectManager},
+    {path:'/agent_manager',component:agentManager}
+  ]
 }
-  
 
 ]
 

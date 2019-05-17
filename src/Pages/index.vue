@@ -25,7 +25,7 @@
           <span>运营数据分析</span>
         </div>
       </router-link>
-      <router-link :to="{path:'/home'}" class="text">
+      <router-link :to="{path:'/terminal_home'}" class="text">
         <div class="box">
           <img src="../assets/images/terminal.png" alt>
           <span>终端管理</span>

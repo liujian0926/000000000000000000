@@ -3,7 +3,6 @@
   <div class="container">
     <div class="title">
       <img src="../assets/images/logo.png" alt>
-      <span>盾付宝运营后台</span>
     </div>
 
     <el-form
@@ -89,16 +88,8 @@ export default {
     align-items: center;
     justify-content: center;
     img {
-      width: 46px;
-      height: 58px;
-    }
-    span {
-      color: #fff;
-      // background:linear-gradient(137deg,rgba(78,228,255,1) 0%,rgba(35,143,255,1) 100%);
-      margin-left: 21px;
-      font-size: 44px;
-      font-weight: bold;
-      line-height: 58px;
+     width: 400px;
+     height: 58px;
     }
   }
 }

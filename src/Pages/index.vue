@@ -61,7 +61,7 @@
           <span>交易数据查询</span>
         </div>
       </router-link>
-      <router-link :to="{path:'/home'}" class="text">
+      <router-link :to="{path:'/system_home'}" class="text">
         <div class="box">
           <img src="../assets/images/system.png" alt>
           <span>系统管理</span>

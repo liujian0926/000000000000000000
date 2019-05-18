@@ -88,7 +88,17 @@ import immediatelySaleDetail from './Pages/immediately/immediately_sale_detail.v
 import terminalHome from './Pages/terminal/terminal_home.vue';
 import Bmanager from './Pages/terminal/B_manager.vue';
 import projectManager from './Pages/terminal/project_manager.vue';
-import agentManager from './Pages/terminal/agent_manager.vue'
+import agentManager from './Pages/terminal/agent_manager.vue';
+import projectDetail from './Pages/terminal/project_detail.vue';
+import agentDetail from './Pages/terminal/agent_detail.vue';
+
+// 系统管理模块
+import systemHome from './Pages/system/system_home.vue';
+import send from './Pages/system/send.vue'
+import member from './Pages/system/member.vue'
+import role from './Pages/system/role.vue'
+import password from './Pages/system/password.vue'
+
 
 const routes = [
   {path:'/', component: index},
@@ -149,7 +159,7 @@ children:[
     {path:'/cash_cancel',component:cashCancel},
   ]
 },
-// 即时交易数据模块
+// 即时交易数据
 {path:'/immediately_home',component:immediatelyHome,
   children:[
     {path:'/immediately_buy',component:immediatelyBuy},
@@ -163,7 +173,18 @@ children:[
   children:[
     {path:'/B_manager',component:Bmanager},
     {path:'/projectManager',component:projectManager},
-    {path:'/agent_manager',component:agentManager}
+    {path:'/agent_manager',component:agentManager},
+    {path:'/project_detail',component:projectDetail},
+    {path:'/agent_detail',component:agentDetail},
+  ]
+},
+//系统管理模块
+{path:'/system_home',component:systemHome,
+  children:[
+    {path:'/send',component:send},
+    {path:'/member',component:member},
+    {path:'/role',component:role},
+    {path:'/password',component:password}
   ]
 }
 

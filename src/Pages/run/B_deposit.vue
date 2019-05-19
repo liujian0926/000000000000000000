@@ -17,8 +17,8 @@ export default {
   data() {
     return {
       dataList: [1, 2, 3, 4],
-      option3: {
-        color: [
+       option3: {
+         color: [
           "#2ec7c9",
           "#b6a2de",
           "#5ab1ef",
@@ -42,36 +42,15 @@ export default {
         ],
         title: {
           text: "某楼盘销售情况",
-        //   subtext: "纯属虚构"
+          subtext: "纯属虚构"
         },
         tooltip: {
           trigger: "axis"
         },
         legend: {
-          orient: "vertical",
-          left: "center",
-          top: "top",
           data: ["预购"]
         },
-        toolbox: {
-          show: true,
-          feature: {
-            myTool: {
-              show: true,
-              title: "自定义扩展方法",
-              icon: "image://http://echarts.baidu.com/images/favicon.png",
-              onclick: function() {
-                loadDrugs();
-              }
-            }
-
-            // mark: { show: true },
-            // dataView: { show: true, readOnly: false },
-            // magicType: { show: true, type: ["line", "bar", "stack", "tiled"] },
-            // restore: { show: true },
-            // saveAsImage: { show: true }
-          }
-        },
+      
         calculable: true,
         xAxis: [
           {
@@ -95,7 +74,8 @@ export default {
           }
         ]
       }
-    };
+     
+    }
   },
   mounted() {
     // 基于准备好的dom，初始化echarts实例
@@ -115,13 +95,14 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+
 .container {
-  height: 1635px;
-  padding: 24px;
+  height: 1593px;
+  padding: 30px;
   box-sizing: border-box;
   background-color: #f0f2f5;
   .title {
-    overflow: hidden;
+    width: 100%;
     .box {
       width: 276px;
       height: 128px;
@@ -131,9 +112,6 @@ export default {
       box-sizing: border-box;
       margin-right: 26px;
       margin-bottom: 26px;
-      // &:nth-child(4n){
-      //     margin-right: 0;
-      // }
       div {
         &:nth-child(1) {
           height: 20px;
@@ -154,7 +132,7 @@ export default {
   }
   .echart {
     float: left;
-    width: 1182px;
+    width: 100%;
     height: 379px;
     margin-right: 26px;
     margin-bottom: 24px;

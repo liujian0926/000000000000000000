@@ -50,26 +50,7 @@ export default {
         legend: {
           data: ["预购"]
         },
-        toolbox: {
-          show: true,
-          feature: {
-            myTool : {
-                show : true,
-                title : '自定义扩展方法',
-                icon : 'image://http://echarts.baidu.com/images/favicon.png',
-                onclick : function (){
-                    loadDrugs();
-                }
-             },
-
-            // mark: { show: true },
-            // dataView: { show: true, readOnly: false },
-            // magicType: { show: true, type: ["line", "bar", "stack", "tiled"] },
-            // restore: { show: true },
-            // saveAsImage: { show: true }
-            
-          }
-        },
+      
         calculable: true,
         xAxis: [
           {
@@ -114,12 +95,14 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-  .container {
-  height: 1635px;
-  padding: 24px;
+
+.container {
+  height: 1593px;
+  padding: 30px;
   box-sizing: border-box;
   background-color: #f0f2f5;
   .title {
+    width: 100%;
     .box {
       width: 276px;
       height: 128px;
@@ -129,9 +112,6 @@ export default {
       box-sizing: border-box;
       margin-right: 26px;
       margin-bottom: 26px;
-      // &:nth-child(4n){
-      //     margin-right: 0;
-      // }
       div {
         &:nth-child(1) {
           height: 20px;
@@ -152,7 +132,7 @@ export default {
   }
   .echart {
     float: left;
-    width: 1182px;
+    width: 100%;
     height: 379px;
     margin-right: 26px;
     margin-bottom: 24px;
@@ -160,6 +140,5 @@ export default {
     padding: 16px 24px 24px 24px;
     box-sizing: border-box;
   }
- 
 }
 </style>

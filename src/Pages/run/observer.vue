@@ -19,7 +19,7 @@ export default {
 <style lang="less" scoped>
     .container{
         height: 700px;
-        padding:24px;
+        padding:30px;
         box-sizing: border-box;
         background-color: #F0F2F5;
          .box {

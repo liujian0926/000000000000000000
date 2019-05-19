@@ -17,53 +17,65 @@ export default {
   data() {
     return {
       dataList: [1, 2, 3, 4],
-      option: {
+       option3: {
+         color: [
+          "#2ec7c9",
+          "#b6a2de",
+          "#5ab1ef",
+          "#ffb980",
+          "#d87a80",
+          "#8d98b3",
+          "#e5cf0d",
+          "#97b552",
+          "#95706d",
+          "#dc69aa",
+          "#07a2a4",
+          "#9a7fd1",
+          "#588dd5",
+          "#f5994e",
+          "#c05050",
+          "#59678c",
+          "#c9ab00",
+          "#7eb00a",
+          "#6f5553",
+          "#c14089"
+        ],
         title: {
-          text: "世界人口总量",
+          text: "某楼盘销售情况",
+          subtext: "纯属虚构"
         },
         tooltip: {
           trigger: "axis"
         },
         legend: {
-          data: ["2011年"]
+          data: ["预购"]
         },
-        toolbox: {
-          show: true,
-          // feature: {
-          //   mark: { show: true },
-          //   dataView: { show: true, readOnly: false },
-          //   magicType: { show: true, type: ["line", "bar"] },
-          //   restore: { show: true },
-          //   saveAsImage: { show: true }
-          // }
-        },
+      
         calculable: true,
         xAxis: [
           {
-            type: "value",
-            boundaryGap: [0, 0.01]
+            type: "category",
+            boundaryGap: false,
+            data: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"]
           }
         ],
         yAxis: [
           {
-            type: "category",
-            data: ["巴西", "印尼", "美国", "印度", "中国", "世界人口(万)"]
+            type: "value"
           }
         ],
         series: [
           {
-            name: "2011年",
-            type: "bar",
-            data: [18203, 23489, 29034, 104970, 131744, 630230]
-          },
-          // {
-          //   name: "2012年",
-          //   type: "bar",
-          //   data: [19325, 23438, 31000, 121594, 134141, 681807]
-          // }
+            name: "预购",
+            type: "line",
+            smooth: true,
+            itemStyle: { normal: { areaStyle: { type: "default" } } },
+            data: [30, 182, 434, 791, 390, 30, 10]
+          }
         ]
       }
-    };
+     
+    }
   },
   mounted() {
     // 基于准备好的dom，初始化echarts实例
@@ -76,20 +88,21 @@ export default {
 
     // this.option.xAxis[0].boundaryGap = false;
     // 使用刚指定的配置项和数据显示图表。
-    myChart1.setOption(this.option);
-    myChart2.setOption(this.option);
-    myChart3.setOption(this.option);
+    myChart1.setOption(this.option3);
+    myChart2.setOption(this.option3);
+    myChart3.setOption(this.option3);
   }
 };
 </script>
 <style lang="less" scoped>
+
 .container {
-  height: 1635px;
-  padding: 24px;
+  height: 1593px;
+  padding: 30px;
   box-sizing: border-box;
   background-color: #f0f2f5;
   .title {
-    overflow: hidden;
+    width: 100%;
     .box {
       width: 276px;
       height: 128px;
@@ -99,9 +112,6 @@ export default {
       box-sizing: border-box;
       margin-right: 26px;
       margin-bottom: 26px;
-      // &:nth-child(4n){
-      //     margin-right: 0;
-      // }
       div {
         &:nth-child(1) {
           height: 20px;
@@ -122,7 +132,7 @@ export default {
   }
   .echart {
     float: left;
-    width: 1182px;
+    width: 100%;
     height: 379px;
     margin-right: 26px;
     margin-bottom: 24px;

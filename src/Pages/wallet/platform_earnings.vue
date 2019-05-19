@@ -190,7 +190,8 @@ export default {
   height: 700px;
   background-color: #f5f6fa;
   color: #333;
-  padding: 0 24px;
+  padding: 0 30px;
+   box-sizing: border-box;
   .my-form-users {
     height: 75px;
     display: flex;

@@ -214,7 +214,8 @@ export default {
   height: 100%;
   background-color: #fff;
   color: #333;
-  padding: 0 24px;
+  padding: 0 30px;
+  box-sizing: border-box;
   .form {
     height: 75px;
     display: flex;

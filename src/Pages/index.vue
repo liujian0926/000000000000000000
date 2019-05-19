@@ -2,8 +2,8 @@
   <div class="container">
     <div class="title">
       <div class="left">
-        <img src="../assets/images/index.png" alt>
-        <span>盾付宝运营后台</span>
+        <img src="../assets/images/title.png" alt>
+        <!-- <span>盾付宝运营后台</span> -->
       </div>
       <div class="right">
         <img src="../assets/images/man.png" alt>
@@ -21,49 +21,49 @@
       </router-link>
       <router-link :to="{path:'/run_home'}" class="text">
         <div class="box">
-          <img src="../assets/images/run.png" alt>
+          <img src="../assets/images/run-1.png" alt>
           <span>运营数据分析</span>
         </div>
       </router-link>
       <router-link :to="{path:'/terminal_home'}" class="text">
         <div class="box">
-          <img src="../assets/images/terminal.png" alt>
+          <img src="../assets/images/terminal_1.png" alt>
           <span>终端管理</span>
         </div>
       </router-link>
       <router-link :to="{path:'/users_home'}" class="text">
         <div class="box">
-          <img src="../assets/images/user.png" alt>
+          <img src="../assets/images/user_1.png" alt>
           <span>用户管理</span>
         </div>
       </router-link>
       <router-link :to="{path:'/immediately_home'}" class="text">
         <div class="box">
-          <img src="../assets/images/deal.png" alt>
+          <img src="../assets/images/deal_1.png" alt>
           <span>即时交易数据</span>
         </div>
       </router-link>
       <router-link :to="{path:'/home'}" class="text">
         <div class="box">
-          <img src="../assets/images/info.png" alt>
+          <img src="../assets/images/info_1.png" alt>
           <span>信息审核管理</span>
         </div>
       </router-link>
       <router-link :to="{path:'/home'}" class="text">
         <div class="box">
-          <img src="../assets/images/appeal.png" alt>
+          <img src="../assets/images/appeal_1.png" alt>
           <span>申诉管理</span>
         </div>
       </router-link>
       <router-link :to="{path:'/query_home'}" class="text">
         <div class="box">
-          <img src="../assets/images/deal_data.png" alt>
+          <img src="../assets/images/deal_data_1.png" alt>
           <span>交易数据查询</span>
         </div>
       </router-link>
       <router-link :to="{path:'/system_home'}" class="text">
         <div class="box">
-          <img src="../assets/images/system.png" alt>
+          <img src="../assets/images/system_1.png" alt>
           <span>系统管理</span>
         </div>
       </router-link>
@@ -116,11 +116,12 @@ export default {};
   }
 
   .content {
-    height: 100%;
+    height: 800px;
     width: 100%;
     padding: 35px;
     box-sizing: border-box;
     background-color: #f5f6fa;
+    overflow: hidden;
     #active {
       background-color: #419eff;
       color: #fff;

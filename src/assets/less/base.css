@@ -39,6 +39,80 @@ body {
 .my-form-users .el-form-item__label {
   line-height: 28px;
 }
+.self-form {
+  margin-top: 20px;
+}
+.self-form .el-form-item {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+.self-form .el-form-item .el-form-item__content {
+  line-height: 28px;
+}
+.self-form .el-form-item .el-form-item__content .el-input {
+  width: 280px;
+  line-height: 28px;
+}
+.self-form .el-form-item .el-form-item__content .el-input .el-input__inner {
+  line-height: 28px;
+  height: 28px;
+}
+.self-form .el-form-item .el-form-item__content .el-input--suffix .el-input__inner {
+  height: 28px;
+  line-height: 28px;
+  width: 280px;
+}
+.self-form .el-form-item .el-form-item__content .el-input--suffix .el-input__suffix-inner .el-input__icon {
+  line-height: 28px;
+}
+.self-form .el-form-item__label {
+  width: 60px;
+  margin-right: 20px;
+  text-align: right;
+  font-size: 14px;
+  padding: 0;
+  line-height: 28px;
+  color: #979DAC;
+}
+.send-form {
+  margin-top: 20px;
+  width: 100%;
+}
+.send-form .el-form-item {
+  width: 100%;
+  margin-bottom: 10px;
+  display: flex;
+}
+.send-form .el-form-item .el-form-item__content {
+  width: 100%;
+  line-height: 28px;
+}
+.send-form .el-form-item .el-form-item__content .el-input {
+  width: 100%;
+  line-height: 28px;
+}
+.send-form .el-form-item .el-form-item__content .el-input .el-input__inner {
+  line-height: 28px;
+  height: 28px;
+}
+.send-form .el-form-item .el-form-item__content .el-input--suffix .el-input__inner {
+  height: 28px;
+  line-height: 28px;
+  width: 280px;
+}
+.send-form .el-form-item .el-form-item__content .el-input--suffix .el-input__suffix-inner .el-input__icon {
+  line-height: 28px;
+}
+.send-form .el-form-item__label {
+  width: 63px;
+  margin-right: 20px;
+  text-align: right;
+  font-size: 14px;
+  padding: 0;
+  line-height: 28px;
+  color: #979DAC;
+}
 .login-form {
   width: 400px;
   height: 280px;

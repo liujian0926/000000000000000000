@@ -11,31 +11,38 @@ body {
 }
 
 .my-form-users {
-  .el-form--inline .el-form-item{
+  .el-form--inline .el-form-item {
     margin-right: 18px;
   }
+
   .el-form-item {
     margin-bottom: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    .el-form-item__content{
+
+    .el-form-item__content {
       line-height: 28px;
-      .el-input{
+
+      .el-input {
         width: 120px;
         line-height: 28px;
-        .el-input__inner{
+
+        .el-input__inner {
           line-height: 28px;
           height: 28px;
         }
       }
-      .el-input--suffix{
-        .el-input__inner{
+
+      .el-input--suffix {
+        .el-input__inner {
           height: 28px;
-          line-height: 28px;;
+          line-height: 28px;
+          ;
           width: 120px;
         }
-        .el-input__suffix-inner{
+
+        .el-input__suffix-inner {
           .el-input__icon {
             line-height: 28px;
           }
@@ -48,9 +55,106 @@ body {
     line-height: 28px;
   }
 }
-  
-  
 
+.self-form {
+  margin-top: 20px;
+
+  .el-form-item {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+
+    .el-form-item__content {
+      line-height: 28px;
+
+      .el-input {
+        width: 280px;
+        line-height: 28px;
+
+        .el-input__inner {
+          line-height: 28px;
+          height: 28px;
+        }
+      }
+
+      .el-input--suffix {
+        .el-input__inner {
+          height: 28px;
+          line-height: 28px;
+          ;
+          width: 280px;
+        }
+
+        .el-input__suffix-inner {
+          .el-input__icon {
+            line-height: 28px;
+          }
+        }
+      }
+    }
+  }
+
+  .el-form-item__label {
+    width: 60px;
+    margin-right: 20px;
+    text-align: right;
+    font-size: 14px;
+    padding: 0;
+    line-height: 28px;
+    color: #979DAC;
+  }
+}
+
+.send-form {
+  margin-top: 20px;
+  width: 100%;
+  .el-form-item {
+    width: 100%;
+    margin-bottom: 10px;
+    display: flex;
+    .el-form-item__content {
+      width: 100%;
+      line-height: 28px;
+
+      .el-input {
+        width: 100%;
+        // width: 1130px;
+        line-height: 28px;
+
+        .el-input__inner {
+          line-height: 28px;
+          height: 28px;
+        }
+      }
+
+      .el-input--suffix {
+        .el-input__inner {
+          height: 28px;
+          line-height: 28px;
+          ;
+          width: 280px;
+        }
+
+        .el-input__suffix-inner {
+          .el-input__icon {
+            line-height: 28px;
+          }
+        }
+      }
+    }
+  }
+
+  .el-form-item__label {
+    width: 63px;
+    margin-right: 20px;
+    text-align: right;
+    font-size: 14px;
+    padding: 0;
+    line-height: 28px;
+    color: #979DAC;
+  }
+
+}
 
 .login-form {
   width: 400px;

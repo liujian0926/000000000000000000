@@ -2,16 +2,13 @@
   <div class="container">
     <el-button type="warning">返回</el-button>
     <el-form :label-position="right" class="self-form">
-      <el-form-item label="账号:">
-        <el-input v-model="value" placeholder="请输入内容"></el-input>
+      <el-form-item label="原密码:">
+        <el-input></el-input>
       </el-form-item>
-      <el-form-item label="密码:">
-        <el-input v-model="value" placeholder="请输入内容"></el-input>
+      <el-form-item label="新密码:">
+        <el-input></el-input>
       </el-form-item>
-        <router-link :to="{path:'/visit'}">
-            <el-button type="primary">访问资金密码</el-button>
-        </router-link>
-      
+      <el-button type="primary">保存修改</el-button>
     </el-form>
   </div>
 </template>
@@ -20,7 +17,6 @@
 export default {
   data() {
     return {
-      value:'',
       labelPosition: "right"
     };
   }
@@ -44,7 +40,7 @@ export default {
     .el-button--primary {
       margin-top: 20px;
       margin-left: 80px;
-      width: 126px;
+      width: 80px;
       height: 32px;
       padding: 0;
       border-radius: 2px;

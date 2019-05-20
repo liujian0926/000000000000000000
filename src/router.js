@@ -94,10 +94,19 @@ import agentDetail from './Pages/terminal/agent_detail.vue';
 
 // 系统管理模块
 import systemHome from './Pages/system/system_home.vue';
-import send from './Pages/system/send.vue'
-import member from './Pages/system/member.vue'
-import role from './Pages/system/role.vue'
-import password from './Pages/system/password.vue'
+import send from './Pages/system/send.vue';
+import member from './Pages/system/member.vue';
+import role from './Pages/system/role.vue';
+import password from './Pages/system/password.vue';
+import memberAdd from './Pages/system/member_add.vue';
+import memberDetail from './Pages/system/member_detail.vue';
+import roleDetail from './Pages/system/role_detail.vue';
+import visit from './Pages/system/visit.vue';
+
+// 信息审核模块
+import informationHome from './Pages/information/information_home.vue';
+import informationCash from './Pages/information/information_cash.vue';
+import ArealName from './Pages/information/A_real_name.vue';
 
 
 const routes = [
@@ -184,7 +193,18 @@ children:[
     {path:'/send',component:send},
     {path:'/member',component:member},
     {path:'/role',component:role},
-    {path:'/password',component:password}
+    {path:'/password',component:password},
+    {path:'/member_add',component:memberAdd},
+    {path:'/member_detail',component:memberDetail},
+    {path:'/role_detail',component:roleDetail},
+    {path:'/visit',component:visit},
+  ]
+},
+// 信息审核模块
+{path:'/information_home',component:informationHome,
+  children:[
+    {path:'/information_cash',component:informationCash},
+    {path:'/A_real_name',component:ArealName}
   ]
 }
 

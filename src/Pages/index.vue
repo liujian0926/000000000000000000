@@ -43,7 +43,7 @@
           <span>即时交易数据</span>
         </div>
       </router-link>
-      <router-link :to="{path:'/home'}" class="text">
+      <router-link :to="{path:'/information_home'}" class="text">
         <div class="box">
           <img src="../assets/images/info_1.png" alt>
           <span>信息审核管理</span>

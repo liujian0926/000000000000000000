@@ -3,6 +3,8 @@ import Vue from 'vue';
 import Router from 'vue-router';
 Vue.use(Router);
 
+// const Foo = () => import('./Foo.vue')
+
 // 首页模块组件
 import index from './Pages/index.vue';
 // 登录页组件

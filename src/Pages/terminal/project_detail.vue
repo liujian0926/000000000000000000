@@ -3,7 +3,7 @@
     <div class="section1">
       <el-button type="warning">返回</el-button>
       <template>
-        <el-tabs v-model="activeName" @tab-click="handleClick">
+        <el-tabs v-model="activeName" @tab-click="handleClick" class="my-tab">
           <el-tab-pane label="基本信息" name="first">
             <div style="height:439px;borderBottom:1px solid #ccc;">
               <div class="content">

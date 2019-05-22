@@ -61,7 +61,7 @@ export default {
 </script>
 <style lang="less" scope>
 .container {
-  height: 800px;
+  height: 100%;
   width: 100%;
   padding: 0;
   .el-header {
@@ -113,11 +113,13 @@ export default {
   }
   .el-aside {
     background-color: #304156;
-    height: 800px;
+    height: 1600px;
 
     .title {
       color: #fff;
-      text-align: center;
+      text-align: left;
+      padding-left: 20px;
+      box-sizing: border-box;
       height: 64px;
       line-height: 64px;
       font-size: 24px;

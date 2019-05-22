@@ -3,7 +3,7 @@
     <el-form :inline="true" class="demo-form-inline my-form-users">
       <!--类型选择 -->
       <el-form-item>
-        <el-input v-model="input" placeholder="请输入内容"></el-input>
+        <el-input v-model="value1" type="" placeholder="请输入时间"></el-input>
       </el-form-item>
       <el-form-item>
         <el-input v-model="input" placeholder="请输入内容"></el-input>
@@ -52,7 +52,9 @@
           <router-link :to="{path:'/takeOver'}">
             <span style="color:#419EFF">{{ scope.row.operation }}</span>
           </router-link>
-          <router-link><span style="color:#419EFF;marginLeft:10px;">{{ scope.row.check }}</span></router-link>
+          <router-link>
+            <span style="color:#419EFF;marginLeft:10px;">{{ scope.row.check }}</span>
+          </router-link>
         </template>
       </el-table-column>
     </el-table>
@@ -79,6 +81,7 @@
 export default {
   data() {
     return {
+      value1:'',
       tableData: [
         {
           username: "xxxxx",
@@ -92,7 +95,7 @@ export default {
           real_name: "是",
           status: "正常",
           operation: "接管处理",
-          check:'查看'
+          check: "查看"
         },
         {
           username: "xxxxx",
@@ -106,7 +109,7 @@ export default {
           real_name: "是",
           status: "正常",
           operation: "接管处理",
-          check:'查看'
+          check: "查看"
         },
         {
           username: "xxxxx",
@@ -120,7 +123,7 @@ export default {
           real_name: "是",
           status: "正常",
           operation: "接管处理",
-          check:'查看'
+          check: "查看"
         },
         {
           username: "xxxxx",
@@ -134,7 +137,7 @@ export default {
           real_name: "是",
           status: "正常",
           operation: "接管处理",
-          check:'查看'
+          check: "查看"
         },
         {
           username: "xxxxx",
@@ -148,7 +151,7 @@ export default {
           real_name: "是",
           status: "正常",
           operation: "接管处理",
-          check:'查看'
+          check: "查看"
         },
         {
           username: "xxxxx",
@@ -162,7 +165,7 @@ export default {
           real_name: "是",
           status: "正常",
           operation: "接管处理",
-          check:'查看'
+          check: "查看"
         },
         {
           username: "xxxxx",
@@ -176,7 +179,7 @@ export default {
           real_name: "是",
           status: "正常",
           operation: "接管处理",
-          check:'查看'
+          check: "查看"
         },
         {
           username: "xxxxx",
@@ -190,7 +193,7 @@ export default {
           real_name: "是",
           status: "正常",
           operation: "接管处理",
-          check:'查看'
+          check: "查看"
         },
         {
           username: "xxxxx",
@@ -204,7 +207,7 @@ export default {
           real_name: "是",
           status: "正常",
           operation: "接管处理",
-          check:'查看'
+          check: "查看"
         },
         {
           username: "xxxxx",
@@ -218,7 +221,7 @@ export default {
           real_name: "是",
           status: "正常",
           operation: "接管处理",
-          check:'查看'
+          check: "查看"
         }
       ],
       form: {
@@ -287,7 +290,6 @@ export default {
       padding: 0;
       margin-left: 42px;
     }
-   
   }
 
   .page {

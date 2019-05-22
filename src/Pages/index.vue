@@ -116,12 +116,12 @@ export default {};
   }
 
   .content {
-    height: 800px;
+    height: 100%;
     width: 100%;
     padding: 35px;
     box-sizing: border-box;
     background-color: #f5f6fa;
-    overflow: hidden;
+    overflow: auto;
     #active {
       background-color: #419eff;
       color: #fff;

@@ -2,12 +2,11 @@
   <div class="container">
     <el-form :inline="true" class="demo-form-inline my-form-users">
       <!--时间日期-->
-      <!-- <div class="title">日期</div> -->
       <el-form-item label="日期">
-        <el-input placeholder="请选择日期" suffix-icon="el-icon-date" v-model="form.date1"  type="datetime"></el-input>
+         <el-date-picker type="date" placeholder="选择日期" v-model="form.date1" style="width: 100%;"></el-date-picker>
       </el-form-item>
       <el-form-item>
-        <el-input placeholder="请选择日期" suffix-icon="el-icon-date" v-model="input2"></el-input>
+         <el-date-picker type="date" placeholder="选择日期" v-model="form.date1" style="width: 100%;"></el-date-picker>
       </el-form-item>
       <!--类型选择 -->
       <el-form-item>
@@ -196,6 +195,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
+
 .container {
   height: 700px;
   background-color: #f5f6fa;

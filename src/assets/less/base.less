@@ -10,7 +10,38 @@ body {
   overflow-y: hidden;
 }
 
+.my-tab {
+  /deep/ .el-tabs__item {
+    width: 120px !important;
+    height: 49px;
+    line-height: 49px;
+    color: #979dac;
+    padding-left: 20px;
+    text-align: center;
+  }
+
+}
+.my-tab-big {
+  /deep/ .el-tabs__item {
+    width: 216px !important;
+    height: 49px;
+    line-height: 49px;
+    color: #979dac;
+    padding-left: 20px;
+    text-align: center;
+  }
+
+}
+
 .my-form-users {
+  /deep/ .el-input__prefix {
+    display: none;
+  }
+
+  /deep/ .el-input--prefix .el-input__inner {
+    padding-left: 10px !important;
+  }
+
   .el-form--inline .el-form-item {
     margin-right: 18px;
   }
@@ -108,10 +139,12 @@ body {
 .send-form {
   margin-top: 20px;
   width: 100%;
+
   .el-form-item {
     width: 100%;
     margin-bottom: 10px;
     display: flex;
+
     .el-form-item__content {
       width: 100%;
       line-height: 28px;

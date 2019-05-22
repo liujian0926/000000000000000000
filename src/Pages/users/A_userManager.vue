@@ -4,10 +4,10 @@
       <!--时间日期-->
       <!-- <div class="title">日期</div> -->
       <el-form-item label="日期">
-        <el-input placeholder="请选择日期" suffix-icon="el-icon-date" v-model="form.date1"  type="datetime"></el-input>
+        <el-date-picker type="date" placeholder="选择日期"  v-model="form.date1" style="width: 100%;"></el-date-picker>
       </el-form-item>
       <el-form-item>
-        <el-input placeholder="请选择日期" suffix-icon="el-icon-date" v-model="input2"></el-input>
+        <el-date-picker type="date" placeholder="选择日期"  v-model="form.date1" style="width: 100%;"></el-date-picker>
       </el-form-item>
       <!--类型选择 -->
       <el-form-item>
@@ -35,7 +35,7 @@
         :data="tableData"
         border
         style="width: 100% ;"
-        :header-cell-style="{background:'#eef1f6',color:'#606266'}"
+        
       >
         <el-table-column prop="username" label="用户名" align="center"></el-table-column>
         <el-table-column prop="user_id" label="用户ID" align="center"></el-table-column>
@@ -252,7 +252,8 @@ export default {
 
 <style lang="less" scoped>
 .container {
-  height: 100%;
+  height: 696px;
+  width: 100%;
   background-color: #fff;
   a {
     text-decoration: none;

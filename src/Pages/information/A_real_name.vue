@@ -1,18 +1,13 @@
 <template>
   <div class="container">
-    <el-tabs v-model="activeName" @tab-click="handleClick">
+    <el-tabs v-model="activeName" @tab-click="handleClick" class="my-tab">
       <el-tab-pane label="未审核" name="first">
         <el-form :inline="true" class="demo-form-inline my-form-users">
           <el-form-item label="申请时间">
-            <el-input
-              placeholder="请选择日期"
-              suffix-icon="el-icon-date"
-              v-model="form.date1"
-              type="datetime"
-            ></el-input>
+           <el-date-picker type="date" placeholder="选择日期"  v-model="form.date1" style="width: 100%;"></el-date-picker>
           </el-form-item>
           <el-form-item>
-            <el-input placeholder="请选择日期" suffix-icon="el-icon-date" v-model="input2"></el-input>
+            <el-date-picker type="date" placeholder="选择日期"  v-model="form.date1" style="width: 100%;"></el-date-picker>
           </el-form-item>
           <!--类型选择 -->
           <el-form-item>
@@ -81,15 +76,10 @@
       <el-tab-pane label="已拒绝" name="second">
         <el-form :inline="true" class="demo-form-inline my-form-users">
           <el-form-item label="申请时间">
-            <el-input
-              placeholder="请选择日期"
-              suffix-icon="el-icon-date"
-              v-model="form.date1"
-              type="datetime"
-            ></el-input>
+            <el-date-picker type="date" placeholder="选择日期"  v-model="form.date1" style="width: 100%;"></el-date-picker>
           </el-form-item>
           <el-form-item>
-            <el-input placeholder="请选择日期" suffix-icon="el-icon-date" v-model="input2"></el-input>
+            <el-date-picker type="date" placeholder="选择日期"  v-model="form.date1" style="width: 100%;"></el-date-picker>
           </el-form-item>
           <!--类型选择 -->
           <el-form-item>
@@ -157,15 +147,10 @@
       <el-tab-pane label="已通过" name="third">
         <el-form :inline="true" class="demo-form-inline my-form-users">
           <el-form-item label="申请时间">
-            <el-input
-              placeholder="请选择日期"
-              suffix-icon="el-icon-date"
-              v-model="form.date1"
-              type="datetime"
-            ></el-input>
+            <el-date-picker type="date" placeholder="选择日期"  v-model="form.date1" style="width: 100%;"></el-date-picker>
           </el-form-item>
           <el-form-item>
-            <el-input placeholder="请选择日期" suffix-icon="el-icon-date" v-model="input2"></el-input>
+            <el-date-picker type="date" placeholder="选择日期"  v-model="form.date1" style="width: 100%;"></el-date-picker>
           </el-form-item>
           <!--类型选择 -->
           <el-form-item>

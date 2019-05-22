@@ -123,7 +123,9 @@ export default {
     background-color: #304156;
     .title {
       color: #fff;
-      text-align: center;
+      text-align: left;
+      padding-left: 20px;
+      box-sizing: border-box;
       height: 64px;
       line-height: 64px;
       font-size: 24px;

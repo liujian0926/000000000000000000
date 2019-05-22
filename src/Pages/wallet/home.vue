@@ -3,12 +3,13 @@
     <!--侧边栏 -->
     <el-aside width="210px">
       <div class="title">钱包管理</div>
-      <el-menu class="el-menu" router default-active="data">
-        <el-menu-item index="data">
-          <!-- <i class="el-icon-document"></i> -->
+      <el-menu class="el-menu-vertical-demo" router default-active="data">
+
+        <el-menu-item index="data" @click="addTag('平台钱包数据')">
           <img src="../../assets/images/wallet_blue .png" alt>
           <span slot="title">平台钱包数据</span>
         </el-menu-item>
+        
         <el-menu-item index="income">
           <img src="../../assets/images/wallet_white.png" alt>
           <span slot="title">平台USDT收入支出</span>
@@ -66,10 +67,18 @@
       <div class="nav">
         <template>
           <el-breadcrumb separator-class="el-icon-arrow-right">
-            <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-            <el-breadcrumb-item :to="{ path: '/' }">活动管理</el-breadcrumb-item>
-            <el-breadcrumb-item :to="{ path: '/' }">活动列表</el-breadcrumb-item>
-            <el-breadcrumb-item :to="{ path: '/' }">活动详情</el-breadcrumb-item>
+            <el-breadcrumb-item :to="{ path:'/' }" v-for="(item,index) in tagList" :key="index">
+              <el-tag
+                @click="get(index)"
+                @close="handleClose(item)"
+                size="small"
+                closable
+                :type="item.type"
+              >{{item.name}}</el-tag>
+            </el-breadcrumb-item>
+            <!-- <el-breadcrumb-item :to="{ path: '/' }"><el-tag size="small" closable>活动管理</el-tag></el-breadcrumb-item>
+            <el-breadcrumb-item :to="{ path: '/' }"><el-tag size="small" closable>活动列表</el-tag></el-breadcrumb-item>
+            <el-breadcrumb-item :to="{ path: '/' }"><el-tag size="small" closable>活动详情</el-tag></el-breadcrumb-item>-->
           </el-breadcrumb>
         </template>
       </div>
@@ -83,23 +92,41 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      tagList: [
+        { name: "首页", type: "" },
+        { name: "活动管理", type: "" },
+        { name: "活动列表", type: "" },
+        { name: "活动详情", type: "" }
+      ]
+    };
   },
-  methods: {}
+  methods: {
+    handleClose(tag) {
+      this.tagList.splice(this.tagList.indexOf(tag), 1);
+    },
+    get(index) {
+      this.tagList[index].type = "info";
+    },
+    addTag(v) {
+      console.log("111");
+      this.tagList.push({ name: v, type: "" });
+    }
+  }
 };
 </script>
-<style lang="less">
+<style lang="less" scoped>
 .my-container {
   height: 100%;
   width: 100%;
   .el-aside {
     width: 210px;
     background-color: #304156;
-    height: 800px;
-    overflow: auto;
+    height: 1600px;
+    overflow: hidden;
     .title {
       color: #fff;
-      text-align:left;
+      text-align: left;
       height: 64px;
       line-height: 64px;
       font-size: 24px;
@@ -134,7 +161,7 @@ export default {
     justify-content: space-between;
     box-sizing: border-box;
     padding: 0 27px 0 40px;
-    box-shadow:0px 2px 6px 0px rgba(48,65,86,0.04);
+    box-shadow: 0px 2px 6px 0px rgba(48, 65, 86, 0.04);
     .left {
       display: flex;
       justify-content: center;
@@ -167,14 +194,14 @@ export default {
     padding: 0 30px;
     display: flex;
     align-items: center;
-    background-color: #FBFBFC;
+    background-color: #fbfbfc;
   }
 
   #main {
-  //  height: 696px;
+    //  height: 696px;
     height: 100%;
-   width: 100%;
-   padding: 0;
+    width: 100%;
+    padding: 0;
   }
 }
 </style>

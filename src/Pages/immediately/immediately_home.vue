@@ -60,7 +60,7 @@ export default {
   .el-aside {
     width: 210px;
     background-color: #304156;
-    height: 800px;
+    height: 1600px;
     .title {
       color: #fff;
       text-align:left;

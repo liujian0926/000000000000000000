@@ -102,12 +102,30 @@ import memberAdd from './Pages/system/member_add.vue';
 import memberDetail from './Pages/system/member_detail.vue';
 import roleDetail from './Pages/system/role_detail.vue';
 import visit from './Pages/system/visit.vue';
+import noticeContent from './Pages/system/notice_content.vue'
 
 // 信息审核模块
 import informationHome from './Pages/information/information_home.vue';
 import informationCash from './Pages/information/information_cash.vue';
 import ArealName from './Pages/information/A_real_name.vue';
+import Aunreviewed from './Pages/information/A_unreviewed.vue';
+import Areject from './Pages/information/A_reject.vue';
+import Apass from './Pages/information/A_pass.vue';
+import BrealName from './Pages/information/B_real_name.vue';
+import agencyApply from './Pages/information/agency_apply.vue';
+import agencyApplyDetail from './Pages/information/agency_apply_detail.vue';
+import handPass from './Pages/information/hand_pass.vue';
+import withdraw from './Pages/information/withdraw.vue';
+import aegncyAudit from './Pages/information/aegncy_audit.vue';
 
+// 申述管理模块
+import stateHome from './Pages/state-manager/state_home.vue';
+import untreated from './Pages/state-manager/untreated.vue';
+import processing from './Pages/state-manager/processing.vue';
+import completed from './Pages/state-manager/completed.vue';
+import undone from './Pages/state-manager/undone.vue';
+import takeOver from './Pages/state-manager/takeOver.vue';
+import processingDetail from './Pages/state-manager/processing_detail.vue'
 
 const routes = [
   {path:'/', component: index},
@@ -198,13 +216,35 @@ children:[
     {path:'/member_detail',component:memberDetail},
     {path:'/role_detail',component:roleDetail},
     {path:'/visit',component:visit},
+    {path:'/notice_content',component:noticeContent},
   ]
 },
 // 信息审核模块
 {path:'/information_home',component:informationHome,
   children:[
     {path:'/information_cash',component:informationCash},
-    {path:'/A_real_name',component:ArealName}
+    {path:'/A_real_name',component:ArealName},
+    {path:'/A_unreviewed',component:Aunreviewed},
+    {path:'/A_reject',component:Areject},
+    {path:'/A_pass',component:Apass},
+    {path:'/B_real_name',component:BrealName},
+    {path:'/agency_apply',component:agencyApply},
+    {path:'/agency_apply_detail',component:agencyApplyDetail},
+    {path:'/hand_pass',component:handPass},
+    {path:'/withdraw',component:withdraw},
+    {path:'/aegncy_audit',component:aegncyAudit},
+
+  ]
+},
+// 申述管理模块
+{path:'/state_home',component:stateHome,
+  children:[
+    {path:'/untreated',component:untreated},
+    {path:'/processing',component:processing},
+    {path:'/completed',component:completed},
+    {path:'/undone',component:undone},
+    {path:'/takeOver',component:takeOver},
+    {path:'/processing_detail',component:processingDetail},
   ]
 }
 

@@ -22,9 +22,6 @@
             <el-input v-model="input" placeholder="请输入内容"></el-input>
           </el-form-item>
           <el-form-item>
-            <el-input v-model="input" placeholder="请输入内容"></el-input>
-          </el-form-item>
-          <el-form-item>
             <el-button type="primary">查询</el-button>
           </el-form-item>
         </el-form>
@@ -45,15 +42,7 @@
           <el-table-column prop="dl_name" label="代理名称" align="center"></el-table-column>
           <el-table-column prop="dl_id" label="代理ID" align="center"></el-table-column>
           <el-table-column prop="real_name" label="是否实名" align="center"></el-table-column>
-
-          <el-table-column prop="status" label="实名信息" align="center">
-            <template scope="scope">
-              <router-link :to="{path:'/A_unreviewed'}">
-                <span style="color:blue">{{ scope.row.status }}</span>
-              </router-link>
-            </template>
-          </el-table-column>
-
+          <el-table-column prop="status" label="账户状态" align="center"></el-table-column>
           <el-table-column prop="pass,reject" label="操作" align="center">
             <template scope="scope">
               <span style="color:#20d179">{{ scope.row.pass }}</span>
@@ -99,9 +88,6 @@
             <el-input v-model="input" placeholder="请输入内容"></el-input>
           </el-form-item>
           <el-form-item>
-            <el-input v-model="input" placeholder="请输入内容"></el-input>
-          </el-form-item>
-          <el-form-item>
             <el-button type="primary">查询</el-button>
           </el-form-item>
         </el-form>
@@ -122,18 +108,9 @@
           <el-table-column prop="dl_name" label="代理名称" align="center"></el-table-column>
           <el-table-column prop="dl_id" label="代理ID" align="center"></el-table-column>
           <el-table-column prop="real_name" label="是否实名" align="center"></el-table-column>
-
-          <el-table-column prop="status" label="实名信息" align="center">
+          <el-table-column prop="status" label="账户状态" align="center"></el-table-column>
+          <el-table-column prop="reject" label="操作" align="center">
             <template scope="scope">
-              <router-link :to="{path:'/A_reject'}">
-                <span style="color:blue">{{ scope.row.status }}</span>
-              </router-link>
-            </template>
-          </el-table-column>
-
-          <el-table-column prop="pass,reject" label="操作" align="center">
-            <template scope="scope">
-              <span style="color:#20d179">{{ scope.row.pass }}</span>
               <span style="color:red; marginLeft:20px ;">{{ scope.row.reject }}</span>
             </template>
           </el-table-column>
@@ -175,9 +152,6 @@
             <el-input v-model="input" placeholder="请输入内容"></el-input>
           </el-form-item>
           <el-form-item>
-            <el-input v-model="input" placeholder="请输入内容"></el-input>
-          </el-form-item>
-          <el-form-item>
             <el-button type="primary">查询</el-button>
           </el-form-item>
         </el-form>
@@ -198,19 +172,10 @@
           <el-table-column prop="dl_name" label="代理名称" align="center"></el-table-column>
           <el-table-column prop="dl_id" label="代理ID" align="center"></el-table-column>
           <el-table-column prop="real_name" label="是否实名" align="center"></el-table-column>
-
-          <el-table-column prop="status" label="实名信息" align="center">
+          <el-table-column prop="status" label="账户状态" align="center"></el-table-column>
+          <el-table-column prop="pass" label="操作" align="center">
             <template scope="scope">
-              <router-link :to="{path:'/A_pass'}">
-                <span style="color:blue">{{ scope.row.status }}</span>
-              </router-link>
-            </template>
-          </el-table-column>
-
-          <el-table-column prop="pass,reject" label="操作" align="center">
-            <template scope="scope">
-              <span style="color:#20d179">{{ scope.row.pass }}</span>
-              <span style="color:red; marginLeft:20px ;">{{ scope.row.reject }}</span>
+              <span style="color:#20d179; marginLeft:20px ;">{{ scope.row.pass }}</span>
             </template>
           </el-table-column>
         </el-table>
@@ -251,7 +216,7 @@ export default {
           dl_name: "ffff",
           dl_id: "666",
           real_name: "是",
-          status: "查看",
+          status: "正常",
           operation: "详情"
         },
         {
@@ -266,7 +231,7 @@ export default {
           dl_name: "ffff",
           dl_id: "666",
           real_name: "是",
-          status: "查看",
+          status: "正常",
           operation: "详情"
         },
         {
@@ -281,7 +246,7 @@ export default {
           dl_name: "ffff",
           dl_id: "666",
           real_name: "是",
-          status: "查看",
+          status: "正常",
           operation: "详情"
         },
         {
@@ -296,7 +261,7 @@ export default {
           dl_name: "ffff",
           dl_id: "666",
           real_name: "是",
-          status: "查看",
+          status: "正常",
           operation: "详情"
         },
         {
@@ -311,7 +276,7 @@ export default {
           dl_name: "ffff",
           dl_id: "666",
           real_name: "是",
-          status: "查看",
+          status: "正常",
           operation: "详情"
         },
         {
@@ -326,7 +291,7 @@ export default {
           dl_name: "ffff",
           dl_id: "666",
           real_name: "是",
-          status: "查看",
+          status: "正常",
           operation: "详情"
         },
         {
@@ -341,7 +306,7 @@ export default {
           dl_name: "ffff",
           dl_id: "666",
           real_name: "是",
-          status: "查看",
+          status: "正常",
           operation: "详情"
         },
         {
@@ -356,7 +321,7 @@ export default {
           dl_name: "ffff",
           dl_id: "666",
           real_name: "是",
-          status: "查看",
+          status: "正常",
           operation: "详情"
         },
         {
@@ -371,7 +336,7 @@ export default {
           dl_name: "ffff",
           dl_id: "666",
           real_name: "是",
-          status: "查看",
+          status: "正常",
           operation: "详情"
         },
         {
@@ -386,7 +351,7 @@ export default {
           dl_name: "ffff",
           dl_id: "666",
           real_name: "是",
-          status: "查看",
+          status: "正常",
           operation: "详情"
         }
       ],

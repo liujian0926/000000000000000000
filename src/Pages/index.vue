@@ -49,7 +49,7 @@
           <span>信息审核管理</span>
         </div>
       </router-link>
-      <router-link :to="{path:'/home'}" class="text">
+      <router-link :to="{path:'/state_home'}" class="text">
         <div class="box">
           <img src="../assets/images/appeal_1.png" alt>
           <span>申诉管理</span>

@@ -30,7 +30,7 @@
             @change="onEditorChange($event)"
           ></quill-editor>
         </div>
-        <el-button type="primary" @click="submit">发送公告</el-button>
+       <router-link :to="{path:'/notice_content'}"><el-button type="primary" @click="submit">发送公告</el-button></router-link>
       </el-tab-pane>
       <el-tab-pane label="推送历史" name="second">
         <el-form :inline="true" class="demo-form-inline my-form-users">

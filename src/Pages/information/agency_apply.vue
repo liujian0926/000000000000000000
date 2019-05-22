@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <el-tabs v-model="activeName" @tab-click="handleClick">
-      <el-tab-pane label="未审核" name="first">
+      <el-tab-pane label="未缴纳保证金" name="first">
         <el-form :inline="true" class="demo-form-inline my-form-users">
           <el-form-item label="申请时间">
             <el-input
@@ -48,7 +48,7 @@
 
           <el-table-column prop="status" label="实名信息" align="center">
             <template scope="scope">
-              <router-link :to="{path:'/A_unreviewed'}">
+              <router-link :to="{path:'/agency_apply_detail'}">
                 <span style="color:blue">{{ scope.row.status }}</span>
               </router-link>
             </template>
@@ -56,8 +56,9 @@
 
           <el-table-column prop="pass,reject" label="操作" align="center">
             <template scope="scope">
-              <span style="color:#20d179">{{ scope.row.pass }}</span>
-              <span style="color:red; marginLeft:20px ;">{{ scope.row.reject }}</span>
+              <router-link :to="{path:'/hand_pass'}">
+                <span style="color:#20d179">{{ scope.row.pass }}</span>
+              </router-link>
             </template>
           </el-table-column>
         </el-table>
@@ -78,7 +79,7 @@
         </div>
       </el-tab-pane>
 
-      <el-tab-pane label="已拒绝" name="second">
+      <el-tab-pane label="缴纳保证金自动通过" name="second">
         <el-form :inline="true" class="demo-form-inline my-form-users">
           <el-form-item label="申请时间">
             <el-input
@@ -154,7 +155,7 @@
           </div>
         </div>
       </el-tab-pane>
-      <el-tab-pane label="已通过" name="third">
+      <el-tab-pane label="未缴纳保证金手动通过" name="third">
         <el-form :inline="true" class="demo-form-inline my-form-users">
           <el-form-item label="申请时间">
             <el-input
@@ -186,31 +187,33 @@
           class="table"
           :data="tableData"
           border
-          style="width: 100% ;"
+          style="font-size: 14px"
           :header-cell-style="{background:'#eef1f6',color:'#606266'}"
+          align="center"
+          row-style="height:40px"
+          cell-style="padding:0"
         >
-          <el-table-column prop="username" label="用户名" align="center"></el-table-column>
-          <el-table-column prop="user_id" label="用户ID" align="center"></el-table-column>
-          <el-table-column prop="tel" label="电话" align="center"></el-table-column>
-          <el-table-column prop="time" label="加入时间" align="center"></el-table-column>
-          <el-table-column prop="pro_name" label="项目方名称" align="center"></el-table-column>
-          <el-table-column prop="pro_id" label="项目方ID" align="center"></el-table-column>
-          <el-table-column prop="dl_name" label="代理名称" align="center"></el-table-column>
-          <el-table-column prop="dl_id" label="代理ID" align="center"></el-table-column>
-          <el-table-column prop="real_name" label="是否实名" align="center"></el-table-column>
-
-          <el-table-column prop="status" label="实名信息" align="center">
+          <el-table-column prop="username" label="代理类型" align="center"></el-table-column>
+          <el-table-column prop="user_id" label="代理名称" align="center"></el-table-column>
+          <el-table-column prop="tel" label="代理ID" align="center"></el-table-column>
+          <el-table-column prop="time" label="联系人" align="center"></el-table-column>
+          <el-table-column prop="pro_name" label="电话" align="center"></el-table-column>
+          <el-table-column prop="pro_id" label="邮箱" align="center"></el-table-column>
+          <el-table-column prop="dl_name" label="已缴纳代理费" align="center"></el-table-column>
+          <el-table-column prop="dl_id" label="申请时间" align="center"></el-table-column>
+          <el-table-column prop="real_name" label="代理信息" align="center">
             <template scope="scope">
-              <router-link :to="{path:'/A_pass'}">
-                <span style="color:blue">{{ scope.row.status }}</span>
-              </router-link>
+              <span style="color:blue">{{ scope.row.status }}</span>
             </template>
           </el-table-column>
 
+          <el-table-column prop="status" label="状态" align="center"></el-table-column>
+          <el-table-column prop="real_name" label="审核人" align="center"></el-table-column>
           <el-table-column prop="pass,reject" label="操作" align="center">
             <template scope="scope">
-              <span style="color:#20d179">{{ scope.row.pass }}</span>
-              <span style="color:red; marginLeft:20px ;">{{ scope.row.reject }}</span>
+              <router-link :to="{path:'/withdraw'}">
+                <span style="color:#20d179">{{ scope.row.reject }}</span>
+              </router-link>
             </template>
           </el-table-column>
         </el-table>

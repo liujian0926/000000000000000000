@@ -1,29 +1,26 @@
 <template>
   <el-container class="container">
     <el-aside width="210px">
-      <div class="title">信息审核</div>
+      <div class="title">申诉管理</div>
       <el-menu class="el-menu" router default-active="data">
-        <el-menu-item index="information_cash" @click="getinfo($event)" class="active">
+        <el-menu-item index="untreated" @click="getinfo($event)" class="active">
           <!-- <i class="el-icon-document"></i> -->
           <img src="../../assets/images/white.png" alt>
-          <span slot="title">项目方提现</span>
+          <span slot="title">未处理</span>
         </el-menu-item>
-        <el-menu-item index="A_real_name">
+        <el-menu-item index="processing">
           <img src="../../assets/images/white.png" alt>
-          <span slot="title">A端实名审核</span>
+          <span slot="title">处理中</span>
         </el-menu-item>
-        <el-menu-item index="B_real_name">
+        <el-menu-item index="completed">
           <img src="../../assets/images/white.png" alt>
-          <span slot="title">B端实名审核</span>
+          <span slot="title">已完成</span>
         </el-menu-item>
-        <el-menu-item index="agency_apply">
+        <el-menu-item index="undone">
           <img src="../../assets/images/white.png" alt>
-          <span slot="title">代理申请审核</span>
+          <span slot="title">已撤销</span>
         </el-menu-item>
-        <el-menu-item index="aegncy_audit">
-          <img src="../../assets/images/white.png" alt>
-          <span slot="title">代理提现审核</span>
-        </el-menu-item>
+       
       </el-menu>
     </el-aside>
     <el-container>

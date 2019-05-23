@@ -43,16 +43,15 @@ export default {
         if (valid) {
           this.$post("/api/login/index", this.loginForm)
             .then(res => {
-             
               localStorage.setItem("token", res.data.data.admin.token);
               // 跳转到首页
               this.$router.push("/");
             })
             .catch(e => {
               this.$message.error(e.data.msg);
-            });
+            })
         }
-      });
+      })
     },
     resetForm(formName) {
       this.$refs[formName].resetFields();

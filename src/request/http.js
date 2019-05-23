@@ -93,11 +93,11 @@ export function getHttp (url, params = {}) {
         .then(res => {
           if (res.data.code ===0) {
             resolve(res)
-          } 
+          } else {
+            reject(res)
+          }
         }, (err) => {
-          
           reject(err)
-          
         })
     })
   }

@@ -4,11 +4,11 @@
     <el-aside width="210px">
       <div class="title">用户管理</div>
       <el-menu class="el-menu" router default-active="data">
-        <el-menu-item index="A_userManager">
-          <!-- <i class="el-icon-document"></i> -->
-          <img src="../../assets/images/blue.png" alt>
-          <span slot="title">A端用户管理</span>
-        </el-menu-item>
+        <!-- <el-menu-item index="A_userManager">
+           <i class="el-icon-document"></i> -->
+          <!-- <img src="../../assets/images/blue.png" alt>
+          <span slot="title">A端用户管理</span> -->
+        <!-- </el-menu-item> -->
         <el-menu-item index="B_userManager">
           <img src="../../assets/images/white.png" alt>
           <span slot="title">B端用户管理</span>

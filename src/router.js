@@ -164,9 +164,9 @@ const routes = [
 // 用户管理模块
 {path:'/users_home',component:usersHome,
 children:[
-  {path:'/A_userManager',component:AuserManager},
+  // {path:'/A_userManager',component:AuserManager},
   {path:'/B_userManager',component:BuserManager},
-  {path:'/A_detail',component:Adetail},
+  // {path:'/A_detail',component:Adetail},
   {path:'/B_detail',component:Bdetail},
 ]
 

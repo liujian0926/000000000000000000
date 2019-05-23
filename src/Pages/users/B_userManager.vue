@@ -8,10 +8,10 @@
         <el-button type="warning">返回</el-button>
       </el-form-item>
       <el-form-item label="日期">
-       <el-date-picker type="date" placeholder="选择日期"  v-model="form.date1" style="width: 100%;"></el-date-picker>
+        <el-date-picker type="date" placeholder="选择日期" v-model="form.date1" style="width: 100%;"></el-date-picker>
       </el-form-item>
       <el-form-item>
-        <el-date-picker type="date" placeholder="选择日期"  v-model="form.date1" style="width: 100%;"></el-date-picker>
+        <el-date-picker type="date" placeholder="选择日期" v-model="form.date1" style="width: 100%;"></el-date-picker>
       </el-form-item>
       <!--类型选择 -->
       <el-form-item>
@@ -66,9 +66,6 @@
           background
           @size-change="handleSizeChange"
           @current-change="handleCurrentChange"
-          :current-page="currentPage4"
-          :page-sizes="[10, 20, 30, 40]"
-          :page-size="100"
           layout="total, sizes, prev, pager, next, jumper"
           :total="100"
         ></el-pagination>
@@ -81,6 +78,7 @@
 export default {
   data() {
     return {
+      input: ",",
       tableData: [
         {
           username: "xxxxx",
@@ -247,8 +245,14 @@ export default {
     },
     resetForm(formName) {
       this.$refs[formName].resetFields();
-    }
-  }
+    },
+    handleSizeChange() {},
+    handleCurrentChange() {}
+  },
+  created() {
+   
+  },
+  mounted() {}
 };
 </script>
 

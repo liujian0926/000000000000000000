@@ -43,7 +43,6 @@ export default {
         if (valid) {
           this.$post("/api/login/index", this.loginForm)
             .then(res => {
-             
               localStorage.setItem("token", res.data.data.admin.token);
               // 跳转到首页
               this.$router.push("/");

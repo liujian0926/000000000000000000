@@ -91,14 +91,15 @@ export default {
   methods: {
     getList() {
       // 处理
-      let token = localStorage.getItem('token')
-      this.$post("api/user/bList", {token:token}).then(res=>{
+      
+      this.$post("api/user/bList", {token:localStorage.getItem("token")}).then(res=>{
         console.log(1111)
         console.log(res)
       })
     },
     loginOut() {
-      this.$post("api/auth/out", { token: localStorage.getItem("token") }).then(
+      
+      this.$post("api/auth/out", {token:localStorage.getItem("token")}).then(
         res => {
           if (res.data.code === 0) {
             localStorage.removeItem("token");

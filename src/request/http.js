@@ -56,6 +56,7 @@ axios.interceptors.request.use(config => {
     // }else{
     //   Vue.prototype.$message.warning(response.meta.msg)
     // }
+    
     // 清除token
     localStorage.removeItem('token')
     // 页面跳转
@@ -87,11 +88,11 @@ export function getHttp (url, params = {}) {
         .then(res => {
           if (res.data.code === 0) {
             resolve(res)
-          } 
-        }, (err) => {
-          
-          reject(err)
-          
+          }else{
+            reject(err)
+          }
+        }, (err) => { 
+          reject(err)        
         })
     })
   }

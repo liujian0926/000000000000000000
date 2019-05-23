@@ -11,6 +11,10 @@ import './assets/less/base.less'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
+// 导入请求
+import { getHttp, postHttp } from './request/http';
+Vue.prototype.$get=getHttp;
+Vue.prototype.$post=postHttp;
 // 富文本
 import  VueQuillEditor from 'vue-quill-editor'
 // require styles 引入样式

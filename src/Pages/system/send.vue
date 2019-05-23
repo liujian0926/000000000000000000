@@ -16,9 +16,9 @@
           </el-form-item>
         </el-form>
         <span class="notice">公告类型:</span>
-        <el-radio v-model="radio" label="1">备选项</el-radio>
-        <el-radio v-model="radio" label="2">备选项</el-radio>
-        <el-radio v-model="radio" label="3">备选项</el-radio>
+        <el-radio v-model="radio" label="1">通知消息</el-radio>
+        <el-radio v-model="radio" label="2">版本更新</el-radio>
+        <el-radio v-model="radio" label="3">营销活动</el-radio>
         <!-- 富文本 -->
         <div class="editor">
           <quill-editor
@@ -57,7 +57,7 @@
             </el-select>
           </el-form-item>
           <el-form-item>
-            <el-button type="primary">查询</el-button>
+            <el-button type="primary" style="marginTop:0;">查询</el-button>
           </el-form-item>
         </el-form>
         <!-- 表格-->

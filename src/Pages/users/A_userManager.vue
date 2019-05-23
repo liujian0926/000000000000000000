@@ -3,7 +3,7 @@
     <el-form :inline="true" class="demo-form-inline my-form-users">
       <!--时间日期-->
       <!-- <div class="title">日期</div> -->
-      <el-form-item label="日期">
+      <el-form-item label="加入时间">
         <el-date-picker type="date" placeholder="选择日期"  v-model="form.date1" style="width: 100%;"></el-date-picker>
       </el-form-item>
       <el-form-item>

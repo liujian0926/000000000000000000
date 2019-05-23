@@ -190,14 +190,19 @@ export default {
     resetForm(formName) {
       this.$refs[formName].resetFields();
     }
-  }
+  },
+  mounted() {
+    // this.$get().then(res=>{
+    //   console.log('111')
+    // })
+  },
 };
 </script>
 
 <style lang="less" scoped>
 
 .container {
-  height: 700px;
+  height: 100%;
   background-color: #f5f6fa;
   color: #333;
   padding: 0 30px;

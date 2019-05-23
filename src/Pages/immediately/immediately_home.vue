@@ -19,7 +19,7 @@
     <el-container>
       <el-header style="height:64px;" class="header">
         <div class="left">
-          <img src="../../assets/images/contr.png" alt>
+          <img src="../../assets/images/top-control.svg" alt>
           <span>控制台</span>
         </div>
         <div class="right">
@@ -110,6 +110,9 @@ export default {
       font-size: 14px;
       img {
         margin-right: 10px;
+      }
+      span {
+        color: #979DAC;
       }
     }
     .right {

@@ -15,7 +15,8 @@
     <div class="content">
       <router-link :to="{path:'/home'}" class="text">
         <div class="box" id="active">
-          <img src="../assets/images/wallet.png" alt>
+          <!-- <img src="../assets/images/wallet.png" alt> -->
+          <span class="pic"></span>
           <span>平台钱包管理</span>
         </div>
       </router-link>
@@ -27,31 +28,31 @@
       </router-link>
       <router-link :to="{path:'/terminal_home'}" class="text">
         <div class="box">
-          <img src="../assets/images/terminal_1.png" alt>
+          <span class="pic"></span>
           <span>终端管理</span>
         </div>
       </router-link>
       <router-link :to="{path:'/users_home'}" class="text">
         <div class="box">
-          <img src="../assets/images/user_1.png" alt>
+          <span class="pic"></span>
           <span>用户管理</span>
         </div>
       </router-link>
       <router-link :to="{path:'/immediately_home'}" class="text">
         <div class="box">
-          <img src="../assets/images/deal_1.png" alt>
+          <span class="pic"></span>
           <span>即时交易数据</span>
         </div>
       </router-link>
       <router-link :to="{path:'/information_home'}" class="text">
         <div class="box">
-          <img src="../assets/images/info_1.png" alt>
+          <span class="pic"></span>
           <span>信息审核管理</span>
         </div>
       </router-link>
       <router-link :to="{path:'/state_home'}" class="text">
         <div class="box">
-          <img src="../assets/images/appeal_1.png" alt>
+          <span class="pic"></span>
           <span>申诉管理</span>
         </div>
       </router-link>
@@ -122,10 +123,10 @@ export default {};
     box-sizing: border-box;
     background-color: #f5f6fa;
     overflow: auto;
-    #active {
-      background-color: #419eff;
-      color: #fff;
-    }
+    // #active {
+    //   background-color: #419eff;
+    //   color: #fff;
+    // }
     .box {
       width: 320px;
       height: 180px;
@@ -144,7 +145,7 @@ export default {};
       img {
         margin-bottom: 27px;
       }
-      span {
+      .pic {
         display: inline-block;
         width: 114px;
         height: 25px;
@@ -155,6 +156,12 @@ export default {};
     .box:hover {
       background-color: #419eff;
       color: #fff;
+      .pic {
+        display: inline-block;
+        width: 64px;
+        height: 64px;
+        background: url("../assets/images/wallet.png") no-repeat center;
+      }
     }
   }
 }

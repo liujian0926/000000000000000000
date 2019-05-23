@@ -7,7 +7,7 @@
           <el-form-item>
             <el-button type="warning">返回</el-button>
           </el-form-item>
-          <el-form-item label="日期">
+          <el-form-item label="下单时间">
             <el-date-picker type="date" placeholder="选择日期"  v-model="form.date1" style="width: 100%;"></el-date-picker>
           </el-form-item>
           <el-form-item>
@@ -22,10 +22,6 @@
           </el-form-item>
           <el-form-item>
             <el-input v-model="input" placeholder="请输入内容"></el-input>
-          </el-form-item>
-
-          <el-form-item>
-            <el-button @click="resetForm">重置</el-button>
           </el-form-item>
           <el-form-item>
             <el-button type="primary">查询</el-button>
@@ -82,7 +78,7 @@
           <el-form-item>
             <el-button type="warning">返回</el-button>
           </el-form-item>
-          <el-form-item label="日期">
+          <el-form-item label="下单时间">
             <el-date-picker type="date" placeholder="选择日期"  v-model="form.date1" style="width: 100%;"></el-date-picker>
           </el-form-item>
           <el-form-item>
@@ -99,9 +95,6 @@
             <el-input v-model="input" placeholder="请输入内容"></el-input>
           </el-form-item>
 
-          <el-form-item>
-            <el-button @click="resetForm">重置</el-button>
-          </el-form-item>
           <el-form-item>
             <el-button type="primary">查询</el-button>
           </el-form-item>
@@ -360,13 +353,9 @@ export default {
       width: 100px !important;
       height: 28px;
       padding: 0;
+      margin-left: 42px;
     }
-    .el-button--default {
-      margin-left: 46px;
-      width: 50px !important;
-      height: 28px;
-      padding: 0;
-    }
+   
   }
 
   .page {

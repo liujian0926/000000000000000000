@@ -28,6 +28,16 @@
           ></el-option>
         </el-select>
       </el-form-item>
+       <el-form-item>
+        <el-select v-model="value" placeholder="请选择">
+          <el-option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+          ></el-option>
+        </el-select>
+      </el-form-item>
       <el-form-item>
         <el-button type="primary">查询</el-button>
       </el-form-item>
@@ -53,7 +63,7 @@
       <el-table-column prop="status" label="账户状态" align="center"></el-table-column>
       <el-table-column prop="operation,check" label="操作" align="center">
         <template scope="scope">
-          <router-link></router-link><span style="color:#419EFF;marginLeft:10px;">{{ scope.row.check }}</span></router-link>
+          <router-link><span style="color:#419EFF;marginLeft:10px;">{{ scope.row.check }}</span></router-link>
         </template>
       </el-table-column>
     </el-table>

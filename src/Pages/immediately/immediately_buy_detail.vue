@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <el-button type="warning">返回</el-button>
-    <div class="title">用户信息</div>
+    <div class="title">A端用户信息</div>
     <!-- 表格-->
     <el-table
       class="table"
@@ -14,7 +14,7 @@
       <el-table-column prop="username" label="用户名" align="center"></el-table-column>
       <el-table-column prop="user_id" label="用户ID" align="center"></el-table-column>
     </el-table>
-    <div class="title">订单信息</div>
+    <div class="title">A端订单信息</div>
     <!-- 表格-->
     <el-table
       class="table"
@@ -27,7 +27,20 @@
       <el-table-column prop="username" label="用户名" align="center"></el-table-column>
       <el-table-column prop="user_id" label="用户ID" align="center"></el-table-column>
     </el-table>
-    <div class="title">关联订单</div>
+    <div class="title">B端用户信息</div>
+    <!-- 表格-->
+    <el-table
+      class="table"
+      :data="tableData"
+      border
+      style="width: 100% ;"
+      :header-cell-style="{background:'#eef1f6',color:'#606266'}"
+      row-style="height:30px"
+    >
+      <el-table-column prop="username" label="用户名" align="center"></el-table-column>
+      <el-table-column prop="user_id" label="用户ID" align="center"></el-table-column>
+    </el-table>
+    <div class="title">B端订单信息</div>
     <!-- 表格-->
     <el-table
       class="table"
@@ -61,12 +74,12 @@ export default {};
     border-radius: 2px;
   }
   .title {
-      width: 59px;
-      height: 20px;
-      color: #253444;
-      font-size: 14px;
-      font-weight: bold;
-      margin: 20px 0 10px 0;
+    width: 100%;
+    height: 20px;
+    color: #253444;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 20px 0 10px 0;
   }
 }
 </style>

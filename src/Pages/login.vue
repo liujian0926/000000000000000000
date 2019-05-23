@@ -65,21 +65,23 @@ export default {
     resetForm(formName) {
       this.$refs[formName].resetFields();
     }
-  }
+  },
+  mounted() {
+    this.$post('/api/auth/adminList').then(res=>{
+      console.log(res)
+    })
+  },
 };
 </script>
 <style lang="less" scoped>
 .container {
   height: 100%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: linear-gradient(
-    134deg,
-    rgba(13, 36, 64, 1) 0%,
-    rgba(22, 36, 54, 1) 100%
-  );
+  background: url('../assets/images/loginbgc.jpg') no-repeat center/cover; 
   .title {
     height: 58px;
     margin-bottom: 30px;

@@ -35,7 +35,7 @@ export default {};
 <style lang="less" scoped>
 .container {
   width: 100%;
-  height: 696px;
+  height: 100%;
   padding: 20px 30px 0 30px;
   background-color: #f5f6fa;
   box-sizing: border-box;

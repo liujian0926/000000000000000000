@@ -3,7 +3,7 @@
     <el-form :inline="true" class="demo-form-inline my-form-users">
       <!--类型选择 -->
       <el-form-item>
-        <el-input v-model="value1" type="" placeholder="请输入时间"></el-input>
+        <el-input v-model="value1" type="" placeholder="请输入内容"></el-input>
       </el-form-item>
       <el-form-item>
         <el-input v-model="input" placeholder="请输入内容"></el-input>

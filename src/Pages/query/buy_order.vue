@@ -25,9 +25,6 @@
           </el-form-item>
 
           <el-form-item>
-            <el-button @click="resetForm">重置</el-button>
-          </el-form-item>
-          <el-form-item>
             <el-button type="primary">查询</el-button>
           </el-form-item>
         </el-form>
@@ -99,9 +96,6 @@
             <el-input v-model="input" placeholder="请输入内容"></el-input>
           </el-form-item>
 
-          <el-form-item>
-            <el-button @click="resetForm">重置</el-button>
-          </el-form-item>
           <el-form-item>
             <el-button type="primary">查询</el-button>
           </el-form-item>
@@ -360,13 +354,9 @@ export default {
       width: 100px !important;
       height: 28px;
       padding: 0;
+      margin-left: 42px;
     }
-    .el-button--default {
-      margin-left: 46px;
-      width: 50px !important;
-      height: 28px;
-      padding: 0;
-    }
+   
   }
 
   .page {

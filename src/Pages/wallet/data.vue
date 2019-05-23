@@ -41,7 +41,7 @@ export default {
 </script>
 <style lang="less" scoped>
     .container{
-        height: 700px;
+        height: 100%;
         padding:20px 0 0 30px;
         box-sizing: border-box;
         background-color: #F5F6FA;

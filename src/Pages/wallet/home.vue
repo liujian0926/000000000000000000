@@ -4,50 +4,48 @@
     <el-aside width="210px">
       <div class="title">钱包管理</div>
       <el-menu class="el-menu-vertical-demo" router default-active="data">
-
         <el-menu-item index="data" @click="addTag('平台钱包数据')">
-          <img src="../../assets/images/wallet_blue .png" alt>
+          <span class="icon"></span>
           <span slot="title">平台钱包数据</span>
         </el-menu-item>
-        
         <el-menu-item index="income">
-          <img src="../../assets/images/wallet_white.png" alt>
+          <span class="icon"></span>
           <span slot="title">平台USDT收入支出</span>
         </el-menu-item>
         <el-menu-item index="platform_cash">
-          <img src="../../assets/images/wallet_white.png" alt>
+          <span class="icon"></span>
           <span slot="title">平台USDT提现记录</span>
         </el-menu-item>
         <el-menu-item index="platform_earnings">
-          <img src="../../assets/images/wallet_white.png" alt>
+          <span class="icon"></span>
           <span slot="title">平台积分收益记录</span>
         </el-menu-item>
         <el-menu-item index="project_usdt">
-          <img src="../../assets/images/wallet_white.png" alt>
+          <span class="icon"></span>
           <span slot="title">项目方USDT充提记录</span>
         </el-menu-item>
         <el-menu-item index="project_exchange">
-          <img src="../../assets/images/wallet_white.png" alt>
+          <span class="icon"></span>
           <span slot="title">项目方积分兑换记录</span>
         </el-menu-item>
         <el-menu-item index="project_recharge">
-          <img src="../../assets/images/wallet_white.png" alt>
+          <span class="icon"></span>
           <span slot="title">项目方积分充提记录</span>
         </el-menu-item>
         <el-menu-item index="B_usdt">
-          <img src="../../assets/images/wallet_white.png" alt>
+          <span class="icon"></span>
           <span slot="title">B端USDT充提记录</span>
         </el-menu-item>
         <el-menu-item index="B_exchange">
-          <img src="../../assets/images/wallet_white.png" alt>
+          <span class="icon"></span>
           <span slot="title">B端积分兑换记录</span>
         </el-menu-item>
         <el-menu-item index="B_deal">
-          <img src="../../assets/images/wallet_white.png" alt>
+          <span class="icon"></span>
           <span slot="title">B端积分买卖记录</span>
         </el-menu-item>
         <el-menu-item index="platform_usdt">
-          <img src="../../assets/images/wallet_white.png" alt>
+          <span class="icon"></span>
           <span slot="title">平台USDT提现</span>
         </el-menu-item>
       </el-menu>
@@ -55,7 +53,7 @@
     <el-container>
       <el-header style="height:64px;" class="header">
         <div class="left">
-          <img src="../../assets/images/contr.png" alt>
+          <img src="../../assets/images/top-control.svg" alt>
           <span>控制台</span>
         </div>
         <div class="right">
@@ -144,6 +142,13 @@ export default {
         img {
           margin-right: 16px;
         }
+        .icon{
+          background: url('../../assets/images/wallet_blue .png') no-repeat center;
+          display: inline-block;
+          width: 15px;
+          height: 15px;
+          margin-right: 16px;
+        }
 
         &:hover {
           background-color: #1e2c3c;
@@ -173,6 +178,10 @@ export default {
       font-size: 14px;
       img {
         margin-right: 10px;
+      }
+      span {
+        color: #979DAC;
+        
       }
     }
     .right {

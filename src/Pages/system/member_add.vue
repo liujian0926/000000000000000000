@@ -63,7 +63,7 @@ export default {
 <style lang="less" scoped>
 .container {
   width: 100%;
-  height: 696px;
+  height: 100%;
   background-color: #f5f6fa;
   padding: 20px 30px 0 30px;
   box-sizing: border-box;

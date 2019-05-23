@@ -37,8 +37,8 @@
     <el-container>
       <el-header style="height:64px;">
         <div class="left">
-          <img src="../../assets/images/contr.png" alt>
-          控制台
+          <img src="../../assets/images/top-control.svg" alt>
+          <span>控制台</span>
         </div>
         <div class="right">
           <img class="man" src="../../assets/images/man.png" alt>
@@ -106,6 +106,9 @@ export default {
       img {
         margin-right: 3px;
       }
+      span {
+        color: #979DAC;
+      }
     }
 
     .right {
@@ -139,7 +142,9 @@ export default {
     background-color: #304156;
     .title {
       color: #fff;
-      text-align: center;
+      text-align: left;
+      padding-left: 30px;
+      box-sizing: border-box;
       height: 64px;
       line-height: 64px;
       font-size: 24px;

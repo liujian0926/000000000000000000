@@ -29,8 +29,8 @@
     <el-container>
       <el-header style="height:64px;">
         <div class="left">
-          <img src="../../assets/images/contr.png" alt>
-          控制台
+          <img src="../../assets/images/top-control.svg" alt>
+          <span>控制台</span>
         </div>
         <div class="right">
           <img class="man" src="../../assets/images/man.png" alt>
@@ -97,6 +97,9 @@ export default {
 
       img {
         margin-right: 3px;
+      }
+      span {
+        color: #979DAC;
       }
     }
 

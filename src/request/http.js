@@ -1,5 +1,5 @@
 
-
+import Vue from 'vue';
 // 导入axios
 import axios from 'axios'
 import { Message, MessageBox} from 'element-ui'
@@ -43,24 +43,18 @@ axios.interceptors.request.use(config => {
   // 响应拦截器
   axios.interceptors.response.use(response=> {
     // 同意设置状态码
-    // if(response.data.meta.msg=='无效token' && response.data.meta.status == 400){
-      // 提视
+    // if(response.data.code != 0){
     //  Vue.prototype.$message.error('非法token,请登陆')
-    // Message({
-    //     message:'非法token,请登陆',
-    //     duration:3000
-    // })
-      // 清除非法token
-      // sessionStorage.removeItem('token')
-      // 返回登陆
-      // router.push('/login')
-      // Vue.prototype.$router.push('/login')
+    //   // 清除非法token
+    //   sessionStorage.removeItem('token')
+    //   // 返回登陆
+    //   Vue.prototype.$router.push('/login')
     // }
     // if([200,201,204].indexOf(response.data.meta.status!=-1)){
 
-    //   Vue.prototype.$message.success(response.data.meta.msg)
+    //   Vue.prototype.$message.success(response.data.msg)
     // }else{
-    //   Vue.prototype.$message.warning(response.data.meta.msg)
+    //   Vue.prototype.$message.warning(response.meta.msg)
     // }
     // 清除token
     localStorage.removeItem('token')
@@ -91,7 +85,7 @@ export function getHttp (url, params = {}) {
     return new Promise((resolve, reject) => {
       axios.post(url, data)
         .then(res => {
-          if (res.data.code ===0) {
+          if (res.data.code === 0) {
             resolve(res)
           } else {
             reject(res)

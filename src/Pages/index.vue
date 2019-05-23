@@ -98,14 +98,14 @@ export default {
       })
     },
     loginOut() {
-      let token = localStorage.getItem('token')
-      this.$post("api/auth/out", {token:token}).then(res=>{
-        if(res.data.code === 0){
-          localStorage.removeItem(token)
-           this.$router.push("login");
+      this.$post("api/auth/out", { token: localStorage.getItem("token") }).then(
+        res => {
+          if (res.data.code === 0) {
+            localStorage.removeItem("token");
+            this.$router.push("login");
+          }
         }
-        
-      })
+      );
       
     }
   }

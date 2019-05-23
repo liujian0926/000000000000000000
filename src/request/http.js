@@ -2,7 +2,8 @@
 import Vue from 'vue';
 // 导入axios
 import axios from 'axios'
-import { Message,MessageBox} from 'element-ui'
+import { Message, MessageBox} from 'element-ui'
+import router from '../router'
 
 //根据不同的环境更改不同的baseUrl
 let baseUrl = 'http://management.service.168mi.cn';
@@ -18,14 +19,21 @@ let baseUrl = 'http://management.service.168mi.cn';
 
 axios.defaults.baseURL = baseUrl;//设置默认接口地址
 axios.defaults.timeout = 10000
+
 // 请求头信息是为post请求设置
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8'
+
 // 请求拦截
-axios.interceptors.request.use(config=>{
-   if(config){
+axios.interceptors.request.use(config => {
+  if(localStorage.getItem('token')){
+    // 请求之前设置token
+    console.log(localStorage.getItem('token'));
+    
     config.headers.Authorization = window.localStorage.getItem("token")
-   }
-    return config;
+  }
+
+  return config;
+
   },  (error)=> {
    
     return Promise.reject(error);
@@ -48,7 +56,10 @@ axios.interceptors.request.use(config=>{
     // }else{
     //   Vue.prototype.$message.warning(response.meta.msg)
     // }
-
+    // 清除token
+    localStorage.removeItem('token')
+    // 页面跳转
+    router.push('/login')
     return response;
   }, error=> {
     
@@ -57,23 +68,16 @@ axios.interceptors.request.use(config=>{
 
 // get方法
 export function getHttp (url, params = {}) {
-   
-    return new Promise((resolve, reject) => {
-      axios.get(url, {
-        params: params
+  return new Promise((resolve, reject) => {
+    axios.get(url, { params: params })
+      .then(res => {
+        resolve(res)
       })
-        .then(res => {
-            
-          resolve(res)
-           
-        })
-        .catch(err => {
-            
-          reject(err)
-         
-        })
-    })
-  }
+      .catch(err => {
+        reject(err)
+      })
+  })
+}
 
    // post方法
   export function postHttp (url, data = {}) {

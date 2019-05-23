@@ -85,8 +85,18 @@ export default {
   data() {
     return {};
   },
-  created() {},
+  created () {
+    this.getList()
+  },
   methods: {
+    getList() {
+      // 处理
+      let token = localStorage.getItem('token')
+      this.$post("api/user/bList", {token:token}).then(res=>{
+        console.log(1111)
+        console.log(res)
+      })
+    },
     loginOut() {
       this.$post("api/auth/out", { token: localStorage.getItem("token") }).then(
         res => {

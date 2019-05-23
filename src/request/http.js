@@ -25,8 +25,6 @@ axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded
 
 // 请求拦截
 axios.interceptors.request.use(config => {
-  console.log('2.0 request')
-  console.log(localStorage.getItem('token'))
   if(localStorage.getItem('token')){
     // 请求之前设置token
     console.log(localStorage.getItem('token'));
@@ -64,8 +62,6 @@ axios.interceptors.request.use(config => {
     // }else{
     //   Vue.prototype.$message.warning(response.data.meta.msg)
     // }
-    console.log('3.0 response')
-    console.log(response)
     // 清除token
     localStorage.removeItem('token')
     // 页面跳转

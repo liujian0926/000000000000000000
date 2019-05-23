@@ -86,10 +86,10 @@ export default {
     return {};
   },
   created () {
-    this.xxx()
+    this.getList()
   },
   methods: {
-    xxx() {
+    getList() {
       // 处理
       let token = localStorage.getItem('token')
       this.$post("api/user/bList", {token:token}).then(res=>{

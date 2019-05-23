@@ -8,14 +8,14 @@
       <div class="right">
         <img src="../assets/images/man.png" alt>
         <span>Hank（002）</span>
-        <img src="../assets/images/out.png" alt>
+        <img src="../assets/images/out.png" alt @click="loginOut">
       </div>
     </div>
 
     <div class="content">
       <router-link :to="{path:'/home'}" class="text">
         <div class="box" id="active">
-          <!-- <img src="../assets/images/wallet.png" alt> -->
+          <img src="../assets/images/run-1.png" alt>
           <span class="pic"></span>
           <span>平台钱包管理</span>
         </div>
@@ -23,48 +23,56 @@
       <router-link :to="{path:'/run_home'}" class="text">
         <div class="box">
           <img src="../assets/images/run-1.png" alt>
+          <span class="pic"></span>
           <span>运营数据分析</span>
         </div>
       </router-link>
       <router-link :to="{path:'/terminal_home'}" class="text">
         <div class="box">
+          <img src="../assets/images/run-1.png" alt>
           <span class="pic"></span>
           <span>终端管理</span>
         </div>
       </router-link>
       <router-link :to="{path:'/users_home'}" class="text">
         <div class="box">
+          <img src="../assets/images/run-1.png" alt>
           <span class="pic"></span>
           <span>用户管理</span>
         </div>
       </router-link>
       <router-link :to="{path:'/immediately_home'}" class="text">
         <div class="box">
+          <img src="../assets/images/run-1.png" alt>
           <span class="pic"></span>
           <span>即时交易数据</span>
         </div>
       </router-link>
       <router-link :to="{path:'/information_home'}" class="text">
         <div class="box">
+          <img src="../assets/images/run-1.png" alt>
           <span class="pic"></span>
           <span>信息审核管理</span>
         </div>
       </router-link>
       <router-link :to="{path:'/state_home'}" class="text">
         <div class="box">
+          <img src="../assets/images/run-1.png" alt>
           <span class="pic"></span>
           <span>申诉管理</span>
         </div>
       </router-link>
       <router-link :to="{path:'/query_home'}" class="text">
         <div class="box">
-          <img src="../assets/images/deal_data_1.png" alt>
+          <img src="../assets/images/run-1.png" alt>
+          <span class="pic"></span>
           <span>交易数据查询</span>
         </div>
       </router-link>
       <router-link :to="{path:'/system_home'}" class="text">
         <div class="box">
-          <img src="../assets/images/system_1.png" alt>
+          <img src="../assets/images/run-1.png" alt>
+          <span class="pic"></span>
           <span>系统管理</span>
         </div>
       </router-link>
@@ -73,7 +81,24 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {};
+  },
+  methods: {
+    loginOut() {
+      let token = localStorage.getItem('token')
+      this.$post("api/auth/out", {token:token}).then(res=>{
+        if(res.data.code === 0){
+          localStorage.removeItem(token)
+           this.$router.push("login");
+        }
+        
+      })
+      
+    }
+  }
+};
 </script>
 
 <style lang="less" scoped>
@@ -161,6 +186,9 @@ export default {};
         width: 64px;
         height: 64px;
         background: url("../assets/images/wallet.png") no-repeat center;
+      }
+      img {
+        display: none;
       }
     }
   }

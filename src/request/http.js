@@ -23,10 +23,12 @@ axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded
 // 请求拦截
 axios.interceptors.request.use(config=>{
    
-    // if(sessionStorage.getItem){
-    //   // 请求之前同意设置token
-    // // config.headers.Authorization = window.sessionStorage.getItem("token")
-    // }
+    if(localStorage.getItem('token')){
+      // 请求之前设置token
+      console.log(localStorage.getItem('token'));
+      
+    config.headers.Authorization = window.localStorage.getItem("token")
+    }
     
   
     return config;
@@ -74,12 +76,12 @@ export function getHttp (url, params = {}) {
         params: params
       })
         .then(res => {
-            console.log(1111)
-          resolve(res.data)
+            
+          resolve(res)
            
         })
         .catch(err => {
-            console.log(err)
+            
           reject(err)
          
         })
@@ -92,13 +94,9 @@ export function getHttp (url, params = {}) {
     return new Promise((resolve, reject) => {
       axios.post(url, data)
         .then(res => {
-            console.log(res)
-          if (res.data.status == 1) {
-            resolve(res.data)
-          } else {
-            
-          }
-          
+          if (res.data.code ===0) {
+            resolve(res)
+          } 
         }, (err) => {
           
           reject(err)

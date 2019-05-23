@@ -10,13 +10,12 @@
       label-width="80px"
       label-position="right"
       :model="loginForm"
-      :rules="rules"
       ref="loginForm"
     >
-      <el-form-item label="账号" prop="username">
+      <el-form-item label="账号">
         <el-input v-model="loginForm.username" placeholder="请输入您的账号"></el-input>
       </el-form-item>
-      <el-form-item label="密码" prop="password">
+      <el-form-item label="密码">
         <el-input v-model="loginForm.password" placeholder="请输入密码"></el-input>
       </el-form-item>
       <el-button type="primary" class="login-btn" @click="submit('loginForm')">登录</el-button>
@@ -33,17 +32,6 @@ export default {
       loginForm: {
         username: "",
         password: ""
-      },
-      // 表单验证规则
-      rules: {
-        username: [
-          { required: true, message: "请输入用户名", trigger: "blur" },
-          { min: 4, message: "长度在4-20个字符", trigger: "blur" }
-        ],
-        password: [
-          { required: true, message: "请输入用密码", trigger: "blur" },
-          { min: 6, message: "长度在6-20个字符", trigger: "blur" }
-        ]
       }
     };
   },
@@ -53,12 +41,16 @@ export default {
     submit(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
-          // 跳转到首页
-          this.$router.push("/");
-        } else {
-          // 失败
-          this.$message.error("数据格式错误");
-          return false;
+          this.$post("/api/login/index", this.loginForm)
+            .then(res => {
+             
+              localStorage.setItem("token", res.data.data.admin.token);
+              // 跳转到首页
+              this.$router.push("/");
+            })
+            .catch(e => {
+              this.$message.error(e.data.msg);
+            });
         }
       });
     },
@@ -66,11 +58,7 @@ export default {
       this.$refs[formName].resetFields();
     }
   },
-  mounted() {
-    this.$post('/api/auth/adminList').then(res=>{
-      console.log(res)
-    })
-  },
+  mounted() {}
 };
 </script>
 <style lang="less" scoped>
@@ -81,7 +69,7 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: url('../assets/images/loginbgc.jpg') no-repeat center/cover; 
+  background: url("../assets/images/loginbgc.jpg") no-repeat center/cover;
   .title {
     height: 58px;
     margin-bottom: 30px;
@@ -90,8 +78,8 @@ export default {
     align-items: center;
     justify-content: center;
     img {
-     width: 400px;
-     height: 58px;
+      width: 400px;
+      height: 58px;
     }
   }
 }

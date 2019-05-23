@@ -14,7 +14,35 @@
               <span class="username">HAJSK</span>
             </div>
             <div class="content">
-              <span class="title">用户电话:</span>
+              <span class="title">电话:</span>
+              <span class="username">HAJSK</span>
+            </div>
+            <div class="content">
+              <span class="title">邮箱:</span>
+              <span class="username">HAJSK</span>
+            </div>
+            <div class="content">
+              <span class="title">会员级别:</span>
+              <span class="username">HAJSK</span>
+            </div>
+            <div class="content">
+              <span class="title">推荐方:</span>
+              <span class="username">HAJSK</span>
+            </div>
+            <div class="content">
+              <span class="title">推荐人ID:</span>
+              <span class="username">HAJSK</span>
+            </div>
+            <div class="content">
+              <span class="title">直推人数:</span>
+              <span class="username">HAJSK</span>
+            </div>
+            <div class="content">
+              <span class="title">三级人数:</span>
+              <span class="username">HAJSK</span>
+            </div>
+            <div class="content">
+              <span class="title">保证金:</span>
               <span class="username">HAJSK</span>
             </div>
             <div class="content">
@@ -41,14 +69,15 @@
               <span class="title">是否实名:</span>
               <span class="username">HAJSK</span>
             </div>
-            <div class="content">
-              <span class="title">账户状态:</span>
-              <span class="username">HAJSK</span>
-            </div>
+
             <div class="content" id="status">
-              <span class="title">申诉次数:</span>
+              <span class="title">账户状态:</span>
               <span class="username">禁止（剩余23小时58分）</span>
               <el-button type="primary">解除禁止</el-button>
+            </div>
+            <div class="content">
+              <span class="title">申诉次数:</span>
+              <span class="username">HAJSK</span>
             </div>
             <div class="content">
               <span class="title">被起诉次数:</span>
@@ -117,6 +146,29 @@
       </el-table>
     </div>
     <div class="section3">
+      <div class="title">手动增减USDT数量</div>
+      <div class="input">
+        <el-input v-model="input" placeholder="请输入内容" style="width:265px"></el-input>
+        <span>当前USDT余额83872</span>
+      </div>
+      <div class="input">
+        <el-input v-model="input" placeholder="请输入内容" style="width:265px"></el-input>
+      </div>
+      <span></span>
+      <div class="btn">
+        <el-button type="primary">扣除</el-button>
+        <el-button type="danger">减少</el-button>
+      </div>
+      <el-table :data="dataList" border style="width: 100%">
+        <el-table-column prop="date" label="日期"></el-table-column>
+        <el-table-column prop="name" label="姓名"></el-table-column>
+        <el-table-column prop="name" label="姓名"></el-table-column>
+        <el-table-column prop="name" label="姓名"></el-table-column>
+        <el-table-column prop="name" label="姓名"></el-table-column>
+        <el-table-column prop="name" label="姓名"></el-table-column>
+      </el-table>
+    </div>
+    <div class="section4">
       <div class="title">手动扣除保证金</div>
       <div class="input">
         <el-input v-model="input" placeholder="请输入内容" style="width:265px"></el-input>
@@ -162,7 +214,7 @@ export default {
 <style lang="less" scoped>
 .container {
   width: 100%;
-  height: 1616px;
+  height: 1871px;
   padding: 0 7px;
   background-color: #fff;
   .section1 {
@@ -297,6 +349,45 @@ export default {
     }
   }
   .section3 {
+    height: 374px;
+    width: 100%;
+    padding-top: 21px;
+    .title {
+      width: 169px;
+      height: 25px;
+      color: #979dac;
+      font-size: 18px;
+    }
+    .input {
+      margin: 15px 0 10px 0;
+      span {
+        color: #979dac;
+        font-size: 12px;
+        margin-left: 19px;
+      }
+      .circle {
+        transform: translateY(2px);
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: 1px solid #979797;
+      }
+      .email {
+        margin-left: 4px;
+      }
+    }
+    .btn {
+      margin: 20px 0 24px 0;
+      .el-button--primary,
+      .el-button--danger {
+        width: 80px;
+        height: 32px;
+        padding: 0;
+      }
+    }
+  }
+  .section4 {
     height: 71px;
     width: 100%;
     padding-top: 21px;
@@ -321,8 +412,8 @@ export default {
         border-radius: 50%;
         border: 1px solid #979797;
       }
-      .email{
-          margin-left: 4px;
+      .email {
+        margin-left: 4px;
       }
     }
     .btn {

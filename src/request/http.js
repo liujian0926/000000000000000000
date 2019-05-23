@@ -56,13 +56,15 @@ axios.interceptors.request.use(config => {
     // }else{
     //   Vue.prototype.$message.warning(response.meta.msg)
     // }
-    // 清除token
-    localStorage.removeItem('token')
-    // 页面跳转
-    router.push('/login')
+    if (response.data.code !== 0) {
+      Message.error('登录超时，请重新登录')
+      // 清除token
+      localStorage.removeItem('token')
+      // 页面跳转
+      router.push('/login')
+    }
     return response;
   }, error=> {
-    
     return Promise.reject(error);
   });
 

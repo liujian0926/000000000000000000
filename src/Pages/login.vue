@@ -49,9 +49,9 @@ export default {
             })
             .catch(e => {
               this.$message.error(e.data.msg);
-            });
+            })
         }
-      });
+      })
     },
     resetForm(formName) {
       this.$refs[formName].resetFields();

@@ -7,13 +7,13 @@
       </div>
       <div class="right">
         <img src="../assets/images/man.png" alt>
-        <span>Hank（002）</span>
+        <span>admin</span>
         <img src="../assets/images/out.png" alt @click="loginOut">
       </div>
     </div>
 
     <div class="content">
-      <router-link :to="{path:'/home'}" class="text">
+      <!-- <router-link :to="{path:'/home'}" class="text">
         <div class="box" id="active">
           <img src="../assets/images/run-1.png" alt>
           <span class="pic"></span>
@@ -33,7 +33,7 @@
           <span class="pic"></span>
           <span>终端管理</span>
         </div>
-      </router-link>
+      </router-link> -->
       <router-link :to="{path:'/users_home'}" class="text">
         <div class="box">
           <img src="../assets/images/run-1.png" alt>
@@ -41,7 +41,7 @@
           <span>用户管理</span>
         </div>
       </router-link>
-      <router-link :to="{path:'/immediately_home'}" class="text">
+      <!-- <router-link :to="{path:'/immediately_home'}" class="text">
         <div class="box">
           <img src="../assets/images/run-1.png" alt>
           <span class="pic"></span>
@@ -61,7 +61,7 @@
           <span class="pic"></span>
           <span>申诉管理</span>
         </div>
-      </router-link>
+      </router-link> -->
       <router-link :to="{path:'/query_home'}" class="text">
         <div class="box">
           <img src="../assets/images/run-1.png" alt>
@@ -69,13 +69,13 @@
           <span>交易数据查询</span>
         </div>
       </router-link>
-      <router-link :to="{path:'/system_home'}" class="text">
+      <!-- <router-link :to="{path:'/system_home'}" class="text">
         <div class="box">
           <img src="../assets/images/run-1.png" alt>
           <span class="pic"></span>
           <span>系统管理</span>
         </div>
-      </router-link>
+      </router-link> -->
     </div>
   </div>
 </template>

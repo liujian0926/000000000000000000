@@ -101,17 +101,24 @@ export default {
       })
     },
     loginOut() {
-      
-      this.$post("api/auth/out", {token:localStorage.getItem("token")}).then(
-        res => {
-          if (res.data.code === 0) {
+      this.$post("api/auth/out", {token:localStorage.getItem("token")})
+        .then(
+          res => {
+            const codes = parseInt(res.data.code)
+            if (codes === 0 || codes === 4) {
+              localStorage.removeItem("token");
+              this.$router.push("login");
+            }
+          }
+        )
+        .catch(e => {
+          const codes = parseInt(e.data.code)
+          if (codes === 0 || codes === 4) {
             localStorage.removeItem("token");
             this.$router.push("login");
           }
-        }
-      );
-      
-    }
+        })
+    },
   }
 };
 </script>

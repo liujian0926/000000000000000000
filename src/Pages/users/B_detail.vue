@@ -1,73 +1,89 @@
 <template>
   <div class="container">
     <div class="section1">
-      <el-button type="warning">返回</el-button>
+      <router-link :to="{path:'/B_userManager'}">
+        <el-button type="warning">返回</el-button>
+      </router-link>
+
       <template>
-        <el-tabs v-model="activeName" @tab-click="handleClick">
+        <el-tabs v-model="activeName">
           <el-tab-pane label="基本信息" name="first">
             <div class="content">
               <span class="title">用户名称:</span>
-              <span class="username">HAJSK</span>
+              <span class="username">{{infoData.name}}</span>
             </div>
             <div class="content">
               <span class="title">用户ID:</span>
-              <span class="username">HAJSK</span>
+              <span class="username">{{infoData.id}}</span>
             </div>
-            <div class="content">
+            <!-- <div class="content">
               <span class="title">电话:</span>
-              <span class="username">HAJSK</span>
-            </div>
+              <span class="username">{{infoData.name}}</span>
+            </div>-->
             <div class="content">
               <span class="title">邮箱:</span>
-              <span class="username">HAJSK</span>
+              <span class="username">{{infoData.email}}</span>
             </div>
             <div class="content">
               <span class="title">会员级别:</span>
-              <span class="username">HAJSK</span>
+              <span class="username">{{infoData.grant_text}}</span>
             </div>
             <div class="content">
               <span class="title">推荐方:</span>
-              <span class="username">HAJSK</span>
+              <span class="username">{{infoData.pid_name}}</span>
             </div>
             <div class="content">
               <span class="title">推荐人ID:</span>
-              <span class="username">HAJSK</span>
+              <span class="username">{{infoData.pid}}</span>
             </div>
             <div class="content">
               <span class="title">直推人数:</span>
-              <span class="username">HAJSK</span>
+              <span class="username">{{infoData.child_num}}</span>
             </div>
             <div class="content">
               <span class="title">三级人数:</span>
-              <span class="username">HAJSK</span>
+              <span class="username">{{infoData.child_three_num}}</span>
             </div>
             <div class="content">
               <span class="title">保证金:</span>
-              <span class="username">HAJSK</span>
+              <span class="username">{{infoData.deposit}}</span>
             </div>
             <div class="content">
               <span class="title">加入时间:</span>
-              <span class="username">HAJSK</span>
+              <span class="username">{{infoData.add_time}}</span>
             </div>
             <div class="content">
+              <span class="title">接单总收益:</span>
+              <span class="username">{{infoData.total_receipts}}</span>
+            </div>
+            <div class="content">
+              <span class="title">团队奖励总收益:</span>
+              <span class="username">{{infoData.total_reward_team_award}}</span>
+            </div>
+            <div class="content">
+              <span class="title">usdt余额:</span>
+              <span class="username">{{infoData.usdt_num}}</span>
+            </div>
+            <!-- <div class="content">
               <span class="title">项目方名称:</span>
-              <span class="username">HAJSK</span>
+              <span class="username">{{infoData.name}}</span>
             </div>
             <div class="content">
               <span class="title">项目方ID:</span>
-              <span class="username">HAJSK</span>
+              <span class="username">{{infoData.name}}</span>
             </div>
             <div class="content">
               <span class="title">代理名称:</span>
-              <span class="username">HAJSK</span>
+              <span class="username">{{infoData.name}}</span>
             </div>
             <div class="content">
               <span class="title">代理ID:</span>
-              <span class="username">HAJSK</span>
-            </div>
-            <div class="content">
+              <span class="username">{{infoData.name}}</span>
+            </div>-->
+
+            <!-- <div class="content">
               <span class="title">是否实名:</span>
-              <span class="username">HAJSK</span>
+              <span class="username">{{infoData.name}}</span>
             </div>
 
             <div class="content" id="status">
@@ -77,14 +93,15 @@
             </div>
             <div class="content">
               <span class="title">申诉次数:</span>
-              <span class="username">HAJSK</span>
+              <span class="username">{{infoData.name}}</span>
             </div>
             <div class="content">
               <span class="title">被起诉次数:</span>
-              <span class="username">HAJSK</span>
-            </div>
+              <span class="username">{{infoData.name}}</span>
+            </div>-->
           </el-tab-pane>
-          <el-tab-pane label="下级成员" name="second">
+
+          <!-- <el-tab-pane label="下级成员" name="second">
             <div class="box">
               <div class="recommend">
                 <div class="person">直推人数</div>
@@ -106,18 +123,18 @@
                 <div class="person">直推人数</div>
                 <div class="number">259</div>
               </div>
-            </div>
-            <!-- 选择框 -->
-            <el-select v-model="value" placeholder="直推下级">
-              <el-option
+          </div>-->
+          <!-- 选择框 -->
+          <!-- <el-select v-model="value" placeholder="直推下级"> -->
+          <!-- <el-option
                 v-for="item in options"
                 :key="item.value"
                 :label="item.label"
                 :value="item.value"
-              ></el-option>
-            </el-select>
-            <!-- 表格 -->
-            <el-table :data="dataList1" border style="width: 100%" class="my-table">
+          ></el-option>-->
+          <!-- </el-select> -->
+          <!-- 表格 -->
+          <!-- <el-table :data="dataList1" border style="width: 100%" class="my-table">
               <el-table-column prop="date" label="日期"></el-table-column>
               <el-table-column prop="name" label="姓名"></el-table-column>
               <el-table-column prop="name" label="姓名"></el-table-column>
@@ -129,12 +146,12 @@
               <el-table-column prop="name" label="姓名"></el-table-column>
               <el-table-column prop="name" label="姓名"></el-table-column>
               <el-table-column prop="name" label="姓名"></el-table-column>
-            </el-table>
-          </el-tab-pane>
+          </el-table>-->
+          <!-- </el-tab-pane>  -->
         </el-tabs>
       </template>
     </div>
-    <div class="section2">
+    <!-- <div class="section2">
       <div class="btn">
         <el-button type="primary">禁止交易</el-button>
         <el-button>设置禁止时长（小时）</el-button>
@@ -144,31 +161,32 @@
         <el-table-column prop="date" label="日期"></el-table-column>
         <el-table-column prop="name" label="姓名"></el-table-column>
       </el-table>
-    </div>
+    </div>-->
+
     <div class="section3">
       <div class="title">手动增减USDT数量</div>
       <div class="input">
-        <el-input v-model="input" placeholder="请输入内容" style="width:265px"></el-input>
+        <el-input v-model="input" placeholder="输入增减USDT数量" style="width:265px" @input="handleInput"></el-input>
         <span>当前USDT余额83872</span>
       </div>
       <div class="input">
-        <el-input v-model="input" placeholder="请输入内容" style="width:265px"></el-input>
+        <el-input v-model="inputRemark" placeholder="输入原因" style="width:265px"></el-input>
       </div>
       <span></span>
       <div class="btn">
-        <el-button type="primary">扣除</el-button>
-        <el-button type="danger">减少</el-button>
+        <el-button type="primary" @click="addNum(1)">增加</el-button>
+        <el-button type="danger" @click="addNum(0)">减少</el-button>
       </div>
-      <el-table :data="dataList" border style="width: 100%">
-        <el-table-column prop="date" label="日期"></el-table-column>
-        <el-table-column prop="name" label="姓名"></el-table-column>
-        <el-table-column prop="name" label="姓名"></el-table-column>
-        <el-table-column prop="name" label="姓名"></el-table-column>
-        <el-table-column prop="name" label="姓名"></el-table-column>
-        <el-table-column prop="name" label="姓名"></el-table-column>
+      <el-table :data="addTable" border style="width: 100%">
+        <el-table-column prop="num" label="金额"></el-table-column>
+        <el-table-column prop="flag" label="类型"></el-table-column>
+        <el-table-column prop="admin_id" label="操作员ID"></el-table-column>
+        <el-table-column prop="remark" label="原因"></el-table-column>
+        <el-table-column prop="create_time" label="操作时间"></el-table-column>
       </el-table>
     </div>
-    <div class="section4">
+
+    <!-- <div class="section4">
       <div class="title">手动扣除保证金</div>
       <div class="input">
         <el-input v-model="input" placeholder="请输入内容" style="width:265px"></el-input>
@@ -191,13 +209,19 @@
         <el-table-column prop="name" label="姓名"></el-table-column>
         <el-table-column prop="name" label="姓名"></el-table-column>
       </el-table>
-    </div>
+    </div>-->
   </div>
 </template>
 <script>
+import { Message } from "element-ui";
 export default {
   data() {
     return {
+      infoData: {},
+      addTable: [],
+      input: "",
+      inputRemark: "",
+      value: 0,
       activeName: "first",
       dataList: [
         {
@@ -207,6 +231,58 @@ export default {
       ],
       dataList1: [{}, {}, {}, {}, {}, {}, {}]
     };
+  },
+  mounted() {
+    this.detailList();
+    this.addList();
+    // this.addNum();
+  },
+  methods: {
+    detailList() {
+      const data = {
+        token: localStorage.getItem("token"),
+        user_id: this.$route.query.id
+      };
+      this.$post("/api/user/bInfo", data).then(res => {
+        this.infoData = res.data.data;
+      });
+    },
+    addList() {
+      const data = {
+        token: localStorage.getItem("token"),
+        user_id: this.$route.query.id
+      };
+      this.$post("/api/user/usdtChangeList", data).then(res => {
+        this.addTable = res.data.data;
+      });
+    },
+
+    //
+    addNum(val) {
+      const data = {
+        token: localStorage.getItem("token"),
+        user_id: this.$route.query.id,
+        type: val,
+        usdt_num: this.input,
+        remark: this.inputRemark
+      };
+      this.$post("/api/user/usdtChange", data).then(res => {
+        if (res.data.code === 0) {
+          this.$message({
+            message: "添加成功",
+            type: "success"
+          });
+          this.addList();
+        } else {
+          this.$message.error("添加失败");
+        }
+      });
+    },
+    handleInput(e) {
+      this.input = this.input.replace(/[^\d]/g, "");
+      this.input = this.input.replace(".", "");
+      this.input = parseInt(this.input) || "";
+    }
   }
 };
 </script>
@@ -214,11 +290,11 @@ export default {
 <style lang="less" scoped>
 .container {
   width: 100%;
-  height: 1871px;
+  // height: 1271px;// 1871px;
   padding: 0 7px;
   background-color: #fff;
   .section1 {
-    height: 733px;
+    height: 633px; // 733px;
     width: 100%;
     border-bottom: 1px solid #cbcfdc;
     box-sizing: border-box;
@@ -238,7 +314,7 @@ export default {
       .title {
         display: inline-block;
         height: 21px;
-        width: 78px;
+        width: 120px; //78px;
         color: #979dac;
         font-size: 14px;
         line-height: 21px;

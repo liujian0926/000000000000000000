@@ -46,14 +46,14 @@
       <el-table-column prop="pid_name" label="推荐人" align="center"></el-table-column>
       <el-table-column prop="child_num" label="直推人数" align="center"></el-table-column>
       <el-table-column prop="child_three_num" label="三级人数" align="center"></el-table-column>
-      <!--      
-      <el-table-column prop="" label="操作" align="center">
+           
+      <el-table-column prop="详情" label="操作" align="center">
         <template scope="scope">
-          <router-link :to="{path:'/B_detail'}">
-            <span style="color:#419EFF">{{ scope.row.operation }}</span>
-          </router-link>
+          <!-- <router-link :to="{}">
+          </router-link> -->
+          <span style="color:#419EFF" @click="jump(scope.row.id)">详情</span>
         </template>
-      </el-table-column>-->
+      </el-table-column>
     </el-table>
 
     <!--分页 -->
@@ -62,8 +62,7 @@
         <el-pagination
           @current-change="handleCurrentChange"
           :current-page="1"
-          :page-sizes="15"
-          :page-size="15"
+          :page-sizes='[15]'
           layout="total, sizes, prev, pager, next, jumper"
           :total="total"
         ></el-pagination>
@@ -90,11 +89,15 @@ export default {
       }
     };
   },
-  created() {},
+
   mounted() {
     this.getList();
   },
   methods: {
+    jump (id) {
+       
+      this.$router.push({ path: '/B_detail', query: { id: id } })
+    },
     onSubmit() {
       console.log("submit!");
     },
@@ -103,8 +106,6 @@ export default {
     },
     
     handleCurrentChange(current) {
-      console.log(222);
-      
       this.pagenum = current;
       this.getList();
     },
@@ -114,10 +115,10 @@ export default {
         limit: this.pagesize,
         token: localStorage.getItem("token")
       }
+
+
       this.$post("api/user/bList", data)
         .then(res => {
-          console.log('post: ')
-          console.log(res.data.data.current_page);
           this.tableData = res.data.data.data;
           this.total = res.data.data.total;
         });

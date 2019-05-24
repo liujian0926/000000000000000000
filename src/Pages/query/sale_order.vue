@@ -4,9 +4,6 @@
       <el-tab-pane label="已完成" name="first">
         <!-- 表单 -->
         <el-form :inline="true" class="demo-form-inline my-form-users">
-          <el-form-item>
-            <el-button type="warning">返回</el-button>
-          </el-form-item>
           <el-form-item label="接单时间">
             <el-date-picker
               type="date"
@@ -46,39 +43,28 @@
           border
           style="width: 100% ;"
           :header-cell-style="{background:'#eef1f6',color:'#606266'}"
-          row-style="height:30px"
         >
-          <el-table-column prop="username" label="用户名" align="center"></el-table-column>
-          <el-table-column prop="user_id" label="用户ID" align="center"></el-table-column>
-          <el-table-column prop="tel" label="电话" align="center"></el-table-column>
-          <el-table-column prop="time" label="加入时间" align="center"></el-table-column>
-          <el-table-column prop="pro_name" label="项目方名称" align="center"></el-table-column>
-          <el-table-column prop="pro_id" label="项目方ID" align="center"></el-table-column>
-          <el-table-column prop="dl_name" label="代理名称" align="center"></el-table-column>
-          <el-table-column prop="dl_id" label="代理ID" align="center"></el-table-column>
-          <el-table-column prop="real_name" label="是否实名" align="center"></el-table-column>
-          <el-table-column prop="status" label="账户状态" align="center"></el-table-column>
-          <el-table-column prop="operation" label="操作" align="center">
-            <template scope="scope">
-              <router-link :to="{path:'/sale_detail'}">
-                <span style="color:#419EFF">{{ scope.row.operation }}</span>
-              </router-link>
-            </template>
-          </el-table-column>
+         <el-table-column prop="name" label="用户名称" align="center"></el-table-column>
+          <el-table-column prop="uid" label="用户ID" align="center"></el-table-column>
+          <el-table-column prop="order_no" label="买入单号" align="center"></el-table-column>
+          <el-table-column prop="seller_status" label="订单状态" align="center"></el-table-column>
+          <el-table-column prop="order_amount" label="买入积分" align="center"></el-table-column>
+           <el-table-column prop="pay_type" label="支付方式" align="center"></el-table-column>
+          <el-table-column prop="reward_amount" label=" 团队奖励 " align="center"></el-table-column>
+          <el-table-column prop="add_time" label=" 接单时间 " align="center"></el-table-column>
+          <el-table-column prop="update_time" label=" 完成时间 " align="center"></el-table-column>
         </el-table>
 
         <!--分页 -->
         <div class="page">
           <div class="pagination">
             <el-pagination
-              background
-              @size-change="handleSizeChange"
+               background
               @current-change="handleCurrentChange"
-              :current-page="currentPage4"
-              :page-sizes="[10, 20, 30, 40]"
-              :page-size="100"
+              :current-page="1"
+              :page-sizes="[15]"
               layout="total, sizes, prev, pager, next, jumper"
-              :total="100"
+              :total="total"
             ></el-pagination>
           </div>
         </div>
@@ -86,9 +72,7 @@
       <el-tab-pane label="已取消" name="second">
         <!-- 表单 -->
         <el-form :inline="true" class="demo-form-inline my-form-users">
-          <el-form-item>
-            <el-button type="warning">返回</el-button>
-          </el-form-item>
+         
           <el-form-item label="接单时间">
             <el-date-picker
               type="date"
@@ -124,43 +108,33 @@
         <!-- 表格-->
         <el-table
           class="table"
-          :data="tableData"
+          :data="tableData2"
           border
           style="width: 100% ;"
           :header-cell-style="{background:'#eef1f6',color:'#606266'}"
-          row-style="height:30px"
+
         >
-          <el-table-column prop="username" label="用户名" align="center"></el-table-column>
-          <el-table-column prop="user_id" label="用户ID" align="center"></el-table-column>
-          <el-table-column prop="tel" label="电话" align="center"></el-table-column>
-          <el-table-column prop="time" label="加入时间" align="center"></el-table-column>
-          <el-table-column prop="pro_name" label="项目方名称" align="center"></el-table-column>
-          <el-table-column prop="pro_id" label="项目方ID" align="center"></el-table-column>
-          <el-table-column prop="dl_name" label="代理名称" align="center"></el-table-column>
-          <el-table-column prop="dl_id" label="代理ID" align="center"></el-table-column>
-          <el-table-column prop="real_name" label="是否实名" align="center"></el-table-column>
-          <el-table-column prop="status" label="账户状态" align="center"></el-table-column>
-          <el-table-column prop="operation" label="操作" align="center">
-            <template scope="scope">
-              <router-link :to="{path:'/sale_cancel'}">
-                <span style="color:#419EFF">{{ scope.row.operation }}</span>
-              </router-link>
-            </template>
-          </el-table-column>
+         <el-table-column prop="name" label="用户名称" align="center"></el-table-column>
+          <el-table-column prop="uid" label="用户ID" align="center"></el-table-column>
+          <el-table-column prop="order_no" label="买入单号" align="center"></el-table-column>
+          <el-table-column prop="seller_status" label="订单状态" align="center"></el-table-column>
+          <el-table-column prop="order_amount" label="买入积分" align="center"></el-table-column>
+           <el-table-column prop="pay_type" label="支付方式" align="center"></el-table-column>
+          <el-table-column prop="reward_amount" label=" 团队奖励 " align="center"></el-table-column>
+          <el-table-column prop="add_time" label=" 接单时间 " align="center"></el-table-column>
+          <el-table-column prop="update_time" label=" 完成时间 " align="center"></el-table-column>
         </el-table>
 
         <!--分页 -->
         <div class="page">
           <div class="pagination">
             <el-pagination
-              background
-              @size-change="handleSizeChange"
+                background
               @current-change="handleCurrentChange"
-              :current-page="currentPage4"
-              :page-sizes="[10, 20, 30, 40]"
-              :page-size="100"
+              :current-page="1"
+              :page-sizes="[15]"
               layout="total, sizes, prev, pager, next, jumper"
-              :total="100"
+              :total="total2"
             ></el-pagination>
           </div>
         </div>
@@ -173,172 +147,72 @@ export default {
   data() {
     return {
       activeName: "first",
-      tableData: [
-        {
-          username: "xxxxx",
-          user_id: "1222",
-          tel: "1887656799",
-          time: "2019-12-04 12:30",
-          pro_name: "xxx",
-          pro_id: "3333",
-          dl_name: "ffff",
-          dl_id: "666",
-          real_name: "是",
-          status: "正常",
-          operation: "详情"
-        },
-        {
-          username: "xxxxx",
-          user_id: "1222",
-          tel: "1887656799",
-          time: "2019-12-04 12:30",
-          pro_name: "xxx",
-          pro_id: "3333",
-          dl_name: "ffff",
-          dl_id: "666",
-          real_name: "是",
-          status: "正常",
-          operation: "详情"
-        },
-        {
-          username: "xxxxx",
-          user_id: "1222",
-          tel: "1887656799",
-          time: "2019-12-04 12:30",
-          pro_name: "xxx",
-          pro_id: "3333",
-          dl_name: "ffff",
-          dl_id: "666",
-          real_name: "是",
-          status: "正常",
-          operation: "详情"
-        },
-        {
-          username: "xxxxx",
-          user_id: "1222",
-          tel: "1887656799",
-          time: "2019-12-04 12:30",
-          pro_name: "xxx",
-          pro_id: "3333",
-          dl_name: "ffff",
-          dl_id: "666",
-          real_name: "是",
-          status: "正常",
-          operation: "详情"
-        },
-        {
-          username: "xxxxx",
-          user_id: "1222",
-          tel: "1887656799",
-          time: "2019-12-04 12:30",
-          pro_name: "xxx",
-          pro_id: "3333",
-          dl_name: "ffff",
-          dl_id: "666",
-          real_name: "是",
-          status: "正常",
-          operation: "详情"
-        },
-        {
-          username: "xxxxx",
-          user_id: "1222",
-          tel: "1887656799",
-          time: "2019-12-04 12:30",
-          pro_name: "xxx",
-          pro_id: "3333",
-          dl_name: "ffff",
-          dl_id: "666",
-          real_name: "是",
-          status: "正常",
-          operation: "详情"
-        },
-        {
-          username: "xxxxx",
-          user_id: "1222",
-          tel: "1887656799",
-          time: "2019-12-04 12:30",
-          pro_name: "xxx",
-          pro_id: "3333",
-          dl_name: "ffff",
-          dl_id: "666",
-          real_name: "是",
-          status: "正常",
-          operation: "详情"
-        },
-        {
-          username: "xxxxx",
-          user_id: "1222",
-          tel: "1887656799",
-          time: "2019-12-04 12:30",
-          pro_name: "xxx",
-          pro_id: "3333",
-          dl_name: "ffff",
-          dl_id: "666",
-          real_name: "是",
-          status: "正常",
-          operation: "详情"
-        },
-        {
-          username: "xxxxx",
-          user_id: "1222",
-          tel: "1887656799",
-          time: "2019-12-04 12:30",
-          pro_name: "xxx",
-          pro_id: "3333",
-          dl_name: "ffff",
-          dl_id: "666",
-          real_name: "是",
-          status: "正常",
-          operation: "详情"
-        },
-        {
-          username: "xxxxx",
-          user_id: "1222",
-          tel: "1887656799",
-          time: "2019-12-04 12:30",
-          pro_name: "xxx",
-          pro_id: "3333",
-          dl_name: "ffff",
-          dl_id: "666",
-          real_name: "是",
-          status: "正常",
-          operation: "详情"
-        }
-      ],
+      input: "",
+      tableData: [],
+      tableData2:[],
+      // 页码
+      pagenum: 1,
+      // 页容量
+      pagesize: 15,
+      // 总数量
+      total: 0,
+      total2:0,
       form: {
         data1: "",
         data2: ""
-      },
-      options: [
-        {
-          value: "选项1",
-          label: "黄金糕"
-        },
-        {
-          value: "选项2",
-          label: "双皮奶"
-        },
-        {
-          value: "选项3",
-          label: "蚵仔煎"
-        },
-        {
-          value: "选项4",
-          label: "龙须面"
-        },
-        {
-          value: "选项5",
-          label: "北京烤鸭"
-        }
-      ]
+      }
     };
   },
+
+  mounted() {
+    this.getList();
+    this.getList2();
+  },
   methods: {
+    handleClick() {},
     onSubmit() {
       console.log("submit!");
     },
     resetForm(formName) {
       this.$refs[formName].resetFields();
+    },
+
+    handleSizeChange() {},
+
+    handleCurrentChange(current) {
+      this.pagenum = current;
+      this.getList();
+    },
+      // 已完成
+    getList() {
+      const data = {
+        page: this.pagenum,
+        size: this.pagesize,
+        token: localStorage.getItem("token")
+      };
+
+      this.$post("api/order/purchaseOrderList", data).then(res => {
+        this.tableData = res.data.data.data;
+        console.log(this.tableData);
+        
+        this.total = res.data.data.total;
+      });
+    },
+
+    // 已取消
+      getList2() {
+      const data = {
+        page: this.pagenum,
+        size: this.pagesize,
+        token: localStorage.getItem("token"),
+        status:2
+      };
+
+      this.$post("api/order/purchaseOrderList", data).then(res => {
+        this.tableData2 = res.data.data.data;
+
+        this.total2 = res.data.data.total;
+      });
     }
   }
 };

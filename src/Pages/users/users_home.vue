@@ -25,8 +25,8 @@
         </div>
         <div class="right">
           <img class="man" src="../../assets/images/man.png" alt>
-          Hank（002）
-          <img class="out" src="../../assets/images/out.png" alt>
+          {{userName}}
+          <img class="out" src="../../assets/images/out.png" alt @click="loginOut">
         </div>
       </el-header>
       <!-- 面包屑导航 -->
@@ -53,10 +53,27 @@
 
 <script>
 export default {
-  data() {
-    return {};
+  created() {
+    console.log('cccccccc')
+    this.userName = localStorage.getItem('user')
   },
-  methods: {}
+  data() {
+    return {
+      userName: ''
+    };
+  },
+  methods: {
+    loginOut() {
+      this.$post("api/auth/out", {token:localStorage.getItem("token")}).then(
+        res => {
+          if (res.data.code === 0) {
+            localStorage.removeItem("token");
+            this.$router.push("login");
+          }
+        }
+      )
+    }
+  }
 };
 </script>
 <style lang="less" scope>

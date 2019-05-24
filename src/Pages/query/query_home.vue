@@ -13,14 +13,14 @@
           <img src="../../assets/images/white.png" alt>
           <span slot="title">卖出订单记录</span>
         </el-menu-item>
-        <el-menu-item index="recharge_order">
+        <!-- <el-menu-item index="recharge_order">
           <img src="../../assets/images/white.png" alt>
           <span slot="title">充值订单记录</span>
         </el-menu-item>
         <el-menu-item index="cash_order">
           <img src="../../assets/images/white.png" alt>
           <span slot="title">提现订单记录</span>
-        </el-menu-item>
+        </el-menu-item> -->
       </el-menu>
     </el-aside>
 
@@ -33,8 +33,8 @@
         </div>
         <div class="right">
           <img class="man" src="../../assets/images/man.png" alt>
-          Hank（002）
-          <img class="out" src="../../assets/images/out.png" alt>
+          {{userName}}
+          <img class="out" src="../../assets/images/out.png" alt @click="loginOut">
         </div>
       </el-header>
       <!-- 面包屑导航 -->
@@ -60,10 +60,27 @@
 
 <script>
 export default {
-  data() {
-    return {};
+  created() {
+    this.userName = localStorage.getItem('user')
   },
-  methods: {}
+  data() {
+    return {
+      userName: ''
+    }
+  },
+  methods: {
+    loginOut() {
+      this.$post("api/auth/out", {token:localStorage.getItem("token")}).then(
+        res => {
+          if (res.data.code === 0) {
+            localStorage.removeItem("token");
+            this.$router.push("login");
+          }
+        }
+      );
+      
+    }
+  }
 };
 </script>
 <style lang="less" scoped>

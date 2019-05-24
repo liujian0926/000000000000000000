@@ -34,7 +34,7 @@
           <span>终端管理</span>
         </div>
       </router-link> -->
-      <router-link :to="{path:'/users_home'}" class="text">
+      <router-link :to="{path:'/B_userManager'}" class="text">
         <div class="box">
           <img src="../assets/images/run-1.png" alt>
           <span class="pic"></span>
@@ -62,7 +62,7 @@
           <span>申诉管理</span>
         </div>
       </router-link> -->
-      <router-link :to="{path:'/query_home'}" class="text">
+      <router-link :to="{path:'/buy_order'}" class="text">
         <div class="box">
           <img src="../assets/images/run-1.png" alt>
           <span class="pic"></span>
@@ -86,15 +86,18 @@ export default {
     return {};
   },
   created () {
+    // 暂时默认进入
+    // this.comein()
     this.getList()
   },
   methods: {
+    // comein () {
+    //   this.$router.push({path:'/users_home'})
+    // },
     getList() {
       // 处理
       
       this.$post("api/user/bList", {token:localStorage.getItem("token")}).then(res=>{
-        console.log(1111)
-        console.log(res)
       })
     },
     loginOut() {

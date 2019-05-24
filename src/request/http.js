@@ -56,7 +56,7 @@ axios.interceptors.request.use(config => {
     // }else{
     //   Vue.prototype.$message.warning(response.meta.msg)
     // }
-    if (response.data.code !== 0) {
+    if (response.data.code === 1) {
       Message.error('登录超时，请重新登录')
       // 清除token
       localStorage.removeItem('token')

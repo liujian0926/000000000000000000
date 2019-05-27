@@ -16,23 +16,23 @@
             <el-date-picker
               type="date"
               placeholder="选择日期"
-              v-model="form.date1"
+              v-model="form.date2"
               style="width: 100%;"
             ></el-date-picker>
           </el-form-item>
           <!--类型选择 -->
           <el-form-item>
-            <el-input v-model="input" placeholder="请输入内容"></el-input>
+            <el-input v-model="form.input1" placeholder="请输入内容"></el-input>
           </el-form-item>
           <el-form-item>
-            <el-input v-model="input" placeholder="请输入内容"></el-input>
+            <el-input v-model="form.input2" placeholder="请输入内容"></el-input>
           </el-form-item>
           <el-form-item>
-            <el-input v-model="input" placeholder="请输入内容"></el-input>
+            <el-input v-model="form.input3" placeholder="请输入内容"></el-input>
           </el-form-item>
 
           <el-form-item>
-            <el-button type="primary">查询</el-button>
+            <el-button type="primary" @click="onSubmit(form)">查询</el-button>
           </el-form-item>
         </el-form>
 
@@ -44,12 +44,12 @@
           style="width: 100% ;"
           :header-cell-style="{background:'#eef1f6',color:'#606266'}"
         >
-         <el-table-column prop="name" label="用户名称" align="center"></el-table-column>
+          <el-table-column prop="name" label="用户名称" align="center"></el-table-column>
           <el-table-column prop="uid" label="用户ID" align="center"></el-table-column>
           <el-table-column prop="order_no" label="买入单号" align="center"></el-table-column>
           <el-table-column prop="seller_status" label="订单状态" align="center"></el-table-column>
           <el-table-column prop="order_amount" label="买入积分" align="center"></el-table-column>
-           <el-table-column prop="pay_type" label="支付方式" align="center"></el-table-column>
+          <el-table-column prop="pay_type" label="支付方式" align="center"></el-table-column>
           <el-table-column prop="reward_amount" label=" 团队奖励 " align="center"></el-table-column>
           <el-table-column prop="add_time" label=" 接单时间 " align="center"></el-table-column>
           <el-table-column prop="update_time" label=" 完成时间 " align="center"></el-table-column>
@@ -59,7 +59,7 @@
         <div class="page">
           <div class="pagination">
             <el-pagination
-               background
+              background
               @current-change="handleCurrentChange"
               :current-page="1"
               :page-sizes="[15]"
@@ -72,7 +72,6 @@
       <el-tab-pane label="已取消" name="second">
         <!-- 表单 -->
         <el-form :inline="true" class="demo-form-inline my-form-users">
-         
           <el-form-item label="接单时间">
             <el-date-picker
               type="date"
@@ -91,13 +90,13 @@
           </el-form-item>
           <!--类型选择 -->
           <el-form-item>
-            <el-input v-model="input" placeholder="请输入内容"></el-input>
+            <el-input v-model="form.input" placeholder="请输入内容"></el-input>
           </el-form-item>
           <el-form-item>
-            <el-input v-model="input" placeholder="请输入内容"></el-input>
+            <el-input v-model="form.input" placeholder="请输入内容"></el-input>
           </el-form-item>
           <el-form-item>
-            <el-input v-model="input" placeholder="请输入内容"></el-input>
+            <el-input v-model="form.input" placeholder="请输入内容"></el-input>
           </el-form-item>
 
           <el-form-item>
@@ -112,14 +111,13 @@
           border
           style="width: 100% ;"
           :header-cell-style="{background:'#eef1f6',color:'#606266'}"
-
         >
-         <el-table-column prop="name" label="用户名称" align="center"></el-table-column>
+          <el-table-column prop="name" label="用户名称" align="center"></el-table-column>
           <el-table-column prop="uid" label="用户ID" align="center"></el-table-column>
           <el-table-column prop="order_no" label="买入单号" align="center"></el-table-column>
           <el-table-column prop="seller_status" label="订单状态" align="center"></el-table-column>
           <el-table-column prop="order_amount" label="买入积分" align="center"></el-table-column>
-           <el-table-column prop="pay_type" label="支付方式" align="center"></el-table-column>
+          <el-table-column prop="pay_type" label="支付方式" align="center"></el-table-column>
           <el-table-column prop="reward_amount" label=" 团队奖励 " align="center"></el-table-column>
           <el-table-column prop="add_time" label=" 接单时间 " align="center"></el-table-column>
           <el-table-column prop="update_time" label=" 完成时间 " align="center"></el-table-column>
@@ -129,7 +127,7 @@
         <div class="page">
           <div class="pagination">
             <el-pagination
-                background
+              background
               @current-change="handleCurrentChange"
               :current-page="1"
               :page-sizes="[15]"
@@ -147,19 +145,23 @@ export default {
   data() {
     return {
       activeName: "first",
-      input: "",
+
       tableData: [],
-      tableData2:[],
+      tableData2: [],
       // 页码
       pagenum: 1,
       // 页容量
       pagesize: 15,
       // 总数量
       total: 0,
-      total2:0,
+      total2: 0,
       form: {
-        data1: "",
-        data2: ""
+        date1: "",
+        date2: "",
+        input: "",
+        input1: "",
+        input2: "",
+        input3: ""
       }
     };
   },
@@ -170,45 +172,44 @@ export default {
   },
   methods: {
     handleClick() {},
-    onSubmit() {
-      console.log("submit!");
+    onSubmit(value) {
+      console.log(value);
+      console.log(value.date1);
+      console.log(value.date2);
+      console.log(value.input1);
+      console.log(value.input2);
+      console.log(value.input3);
     },
-    resetForm(formName) {
-      this.$refs[formName].resetFields();
-    },
-
-    handleSizeChange() {},
 
     handleCurrentChange(current) {
       this.pagenum = current;
       this.getList();
     },
-      // 已完成
+    // 已完成
     getList() {
       const data = {
         page: this.pagenum,
         size: this.pagesize,
         token: localStorage.getItem("token")
       };
-
-      this.$post("api/order/purchaseOrderList", data).then(res => {
+      this.$post("api/order/rechargeOrderList", data).then(res => {
         this.tableData = res.data.data.data;
         console.log(this.tableData);
-        
+
         this.total = res.data.data.total;
       });
     },
 
     // 已取消
-      getList2() {
+    getList2() {
       const data = {
         page: this.pagenum,
         size: this.pagesize,
         token: localStorage.getItem("token"),
-        status:2
+        status: 2
       };
 
-      this.$post("api/order/purchaseOrderList", data).then(res => {
+      this.$post("api/order/rechargeOrderList", data).then(res => {
         this.tableData2 = res.data.data.data;
 
         this.total2 = res.data.data.total;

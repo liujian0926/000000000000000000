@@ -16,6 +16,14 @@ body {
   padding-left: 20px;
   text-align: center;
 }
+.my-tab .el-cascader .el-input__inner {
+  width: 120px;
+  height: 28px;
+  line-height: 28px;
+}
+.my-tab .el-cascader .el-input__icon {
+  line-height: 28px;
+}
 .my-tab-big /deep/ .el-tabs__item {
   width: 216px !important;
   height: 49px;
@@ -169,4 +177,9 @@ body {
   background-color: #419EFF;
   font-size: 16px;
   margin-left: 0;
+}
+.el-menu-item:focus,
+.el-menu-item:hover {
+  outline: none;
+  background-color: white;
 }

@@ -167,7 +167,7 @@
       <div class="title">手动增减USDT数量</div>
       <div class="input">
         <el-input v-model="input" placeholder="输入增减USDT数量" style="width:265px" @input="handleInput"></el-input>
-        <span>当前USDT余额83872</span>
+        <span>当前USDT余额{{infoData.usdt_num}}</span>
       </div>
       <div class="input">
         <el-input v-model="inputRemark" placeholder="输入原因" style="width:265px"></el-input>

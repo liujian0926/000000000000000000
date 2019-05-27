@@ -4,9 +4,6 @@
       <el-tab-pane label="已完成" name="first">
         <!-- 表单 -->
         <el-form :inline="true" class="demo-form-inline my-form-users">
-          <el-form-item>
-            <el-button type="warning">返回</el-button>
-          </el-form-item>
           <el-form-item label="下单时间">
             <el-date-picker type="date" placeholder="选择日期"  v-model="form.date1" style="width: 100%;"></el-date-picker>
           </el-form-item>
@@ -75,9 +72,6 @@
       <el-tab-pane label="已取消" name="second">
         <!-- 表单 -->
         <el-form :inline="true" class="demo-form-inline my-form-users">
-          <el-form-item>
-            <el-button type="warning">返回</el-button>
-          </el-form-item>
           <el-form-item label="下单时间">
            <el-date-picker type="date" placeholder="选择日期"  v-model="form.date1" style="width: 100%;"></el-date-picker>
           </el-form-item>

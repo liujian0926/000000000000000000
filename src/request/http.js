@@ -6,7 +6,8 @@ import { Message, MessageBox} from 'element-ui'
 import router from '../router'
 
 //根据不同的环境更改不同的baseUrl
-let baseUrl = 'http://management.service.168mi.cn';
+let baseUrl = 'http://management.service.qmjtpl.com';
+// let baseUrl = 'http://management.service.168mi.cn';
 
 // if (process.env.NODE_ENV == 'development') {
 //     baseUrl = '/api';
@@ -27,7 +28,7 @@ axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded
 axios.interceptors.request.use(config => {
   if(localStorage.getItem('token')){
     // 请求之前设置token
-    console.log(localStorage.getItem('token'));
+    // console.log(localStorage.getItem('token'));
     
     config.headers.Authorization = window.localStorage.getItem("token")
   }

@@ -4,23 +4,23 @@
       <!--时间日期-->
       <!-- <div class="title">日期</div> -->
       <el-form-item label="日期">
-        <el-date-picker type="date" placeholder="选择日期" v-model="form.date1" style="width: 100%;"></el-date-picker>
+        <el-date-picker type="date" placeholder="选择日期" v-model="startTime" style="width: 100%;"></el-date-picker>
       </el-form-item>
       <el-form-item>
-        <el-date-picker type="date" placeholder="选择日期" v-model="form.date1" style="width: 100%;"></el-date-picker>
+        <el-date-picker type="date" placeholder="选择日期" v-model="endTime" style="width: 100%;"></el-date-picker>
       </el-form-item>
       <!--类型选择 -->
       <el-form-item>
+        <el-input v-model="userName" placeholder="用户名称"></el-input>
+      </el-form-item>
+      <el-form-item>
+        <el-input v-model="userID" placeholder="用户ID"></el-input>
+      </el-form-item>
+      <el-form-item v-if="0">
         <el-input v-model="input" placeholder="请输入内容"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-input v-model="input" placeholder="请输入内容"></el-input>
-      </el-form-item>
-      <el-form-item>
-        <el-input v-model="input" placeholder="请输入内容"></el-input>
-      </el-form-item>
-      <el-form-item>
-        <el-button type="primary">查询</el-button>
+        <el-button type="primary" @click="query()">查询</el-button>
       </el-form-item>
     </el-form>
 
@@ -34,23 +34,20 @@
     >
       <el-table-column prop="name" label="用户名称" align="center"></el-table-column>
       <el-table-column prop="id" label="用户编号" align="center"></el-table-column>
-      <el-table-column prop="mobile" label="点话" align="center"></el-table-column>
+      <el-table-column prop="mobile" label="电话" align="center"></el-table-column>
       <el-table-column prop="email" label="邮箱" align="center"></el-table-column>
       <el-table-column prop="add_time" label="注册时间" align="center"></el-table-column>
 
       <el-table-column prop="pid" label="推荐人ID" align="center"></el-table-column>
       <el-table-column prop="deposit" label="保证金" align="center"></el-table-column>
       <el-table-column prop="status_text" label="审核状态" align="center"></el-table-column>
-      <el-table-column prop="grant_status_text" label="会员状态" align="center"></el-table-column>
+      <!-- <el-table-column prop="grant_status_text" label="会员状态" align="center"></el-table-column> -->
       <el-table-column prop="grant_text" label="会员等级" align="center"></el-table-column>
-      <el-table-column prop="pid_name" label="推荐人" align="center"></el-table-column>
       <el-table-column prop="child_num" label="直推人数" align="center"></el-table-column>
       <el-table-column prop="child_three_num" label="三级人数" align="center"></el-table-column>
            
       <el-table-column prop="详情" label="操作" align="center">
         <template scope="scope">
-          <!-- <router-link :to="{}">
-          </router-link> -->
           <span style="color:#419EFF" @click="jump(scope.row.id)">详情</span>
         </template>
       </el-table-column>
@@ -76,17 +73,17 @@ export default {
   data() {
     return {
       input: "",
+      userName: '',
+      userID: '',
+      startTime: '',
+      endTime: '',
       tableData: [],
       // 页码
       pagenum: 1,
       // 页容量
       pagesize: 15,
       // 总数量
-      total: 0,
-      form: {
-        data1: "",
-        data2: ""
-      }
+      total: 0
     };
   },
 
@@ -107,7 +104,7 @@ export default {
     
     handleCurrentChange(current) {
       this.pagenum = current;
-      this.getList();
+      this.query();
     },
     getList() {
       const data =  {
@@ -117,6 +114,33 @@ export default {
       }
 
 
+      this.$post("api/user/bList", data)
+        .then(res => {
+          this.tableData = res.data.data.data;
+          this.total = res.data.data.total;
+        });
+    },
+    query() {
+      console.log(this.startTime,this.endTime);
+      var startT = this.startTime
+      var endT = this.endTime
+      if (this.startTime) {
+        console.log('startTime');
+        startT=this.startTime.getFullYear() + '-' + (this.startTime.getMonth() + 1) + '-' + this.startTime.getDate();
+      }
+      if (this.endTime) {
+        console.log('endTime');
+        endT=this.endTime.getFullYear() + '-' + (this.endTime.getMonth() + 1) + '-' + this.endTime.getDate(); 
+      }
+      const data =  {
+        page: this.pagenum,
+        limit: this.pagesize,
+        start: startT,
+        end: endT,
+        name: this.userName,
+        id: this.userID,
+        token: localStorage.getItem("token")
+      }
       this.$post("api/user/bList", data)
         .then(res => {
           this.tableData = res.data.data.data;

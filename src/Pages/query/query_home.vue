@@ -3,24 +3,23 @@
     <!-- 侧边栏 -->
     <el-aside width="210px">
       <div class="title">交易数据查询</div>
-      <el-menu class="el-menu" router default-active="data">
-        <el-menu-item index="buy_order">
-          <!-- <i class="el-icon-document"></i> -->
-          <img src="../../assets/images/blue.png" alt>
+      <el-menu class="el-menu el-menu-vertical-demo" router default-active="data" @open="handleOpen" @close="handleClose">
+        <el-menu-item index="buy_order" @click="cli('buy_order')" :class="{'el-text-active':tabActive=='buy_order'}">
+          <i class="el-icon" :class="{'el-icon-active':tabActive=='buy_order'}"></i>
           <span slot="title">买入订单记录</span>
         </el-menu-item>
-        <el-menu-item index="sale_order">
-          <img src="../../assets/images/white.png" alt>
+        <el-menu-item index="sale_order" @click="cli('sale_order')" :class="{'el-text-active':tabActive=='sale_order'}">
+           <i class="el-icon" :class="{'el-icon-active':tabActive=='sale_order'}"></i>
           <span slot="title">卖出订单记录</span>
-        </el-menu-item>
-        <!-- <el-menu-item index="recharge_order">
-          <img src="../../assets/images/white.png" alt>
+        </el-menu-item> 
+       <el-menu-item index="recharge_order" @click="cli('recharge_order')" :class="{'el-text-active':tabActive=='recharge_order'}">
+           <i class="el-icon" :class="{'el-icon-active':tabActive=='recharge_order'}"></i>
           <span slot="title">充值订单记录</span>
-        </el-menu-item>
-        <el-menu-item index="cash_order">
-          <img src="../../assets/images/white.png" alt>
+        </el-menu-item> 
+        <el-menu-item index="cash_order" @click="cli('cash_order')" :class="{'el-text-active':tabActive=='cash_order'}">
+          <i class="el-icon" :class="{'el-icon-active':tabActive=='cash_order'}"></i>
           <span slot="title">提现订单记录</span>
-        </el-menu-item> -->
+        </el-menu-item>
       </el-menu>
     </el-aside>
 
@@ -65,7 +64,8 @@ export default {
   },
   data() {
     return {
-      userName: ''
+      userName: '',
+      tabActive: 'buy_order'
     }
   },
   methods: {
@@ -77,8 +77,16 @@ export default {
             this.$router.push("login");
           }
         }
-      );
-      
+      )
+    },
+    handleOpen(key, keyPath) {
+      console.log(key, keyPath, '4552552----3-3-3');
+    },
+    handleClose(key, keyPath) {
+      console.log(key, keyPath);
+    },
+    cli(ve) {
+     this.tabActive = ve
     }
   }
 };
@@ -183,5 +191,19 @@ export default {
     width: 100%;
     padding: 0 23px;
   }
+}
+.el-icon{
+  display: inline-block;
+  width: 14px;
+  height: 16px;
+  background: url('../../assets/images/white.png') center / 100% no-repeat;
+  margin-right: 16px;
+}
+.el-icon-active{
+  background: url('../../assets/images/blue.png') center / 100% no-repeat !important;
+}
+.el-text-active{
+  color: #419EFF !important;
+
 }
 </style>

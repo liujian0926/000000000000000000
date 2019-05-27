@@ -9,8 +9,8 @@
           <!-- <img src="../../assets/images/blue.png" alt>
           <span slot="title">A端用户管理</span> -->
         <!-- </el-menu-item> -->
-        <el-menu-item index="B_userManager">
-          <img src="../../assets/images/white.png" alt>
+        <el-menu-item index="B_userManager"  @click="cli('B_userManager')" :class="{'el-text-active':tabActive =='B_userManager'}">
+          <i class="el-icon" :class="{'el-icon-active':tabActive =='B_userManager'}"></i>
           <span slot="title">B端用户管理</span>
         </el-menu-item>
       </el-menu>
@@ -53,13 +53,15 @@
 
 <script>
 export default {
+
   created() {
     console.log('cccccccc')
     this.userName = localStorage.getItem('user')
   },
   data() {
     return {
-      userName: ''
+      userName: '',
+      tabActive:''
     };
   },
   methods: {
@@ -72,6 +74,9 @@ export default {
           }
         }
       )
+    },
+     cli(ve) {
+     this.tabActive = ve
     }
   }
 };
@@ -174,5 +179,19 @@ export default {
   }
 
   
+}
+.el-icon{
+  display: inline-block;
+  width: 14px;
+  height: 16px;
+  background: url('../../assets/images/white.png') center / 100% no-repeat;
+  margin-right: 16px;
+}
+.el-icon-active{
+  background: url('../../assets/images/blue.png') center / 100% no-repeat !important;
+}
+.el-text-active{
+  color: #419EFF !important;
+
 }
 </style>

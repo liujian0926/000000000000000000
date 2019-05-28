@@ -1,6 +1,6 @@
 // 导入顶级vue
 import Vue from 'vue';
-import { Message, MessageBox} from 'element-ui'
+import { Message, MessageBox} from 'element-ui';
 
 // 导入app.vue
 import App from './App.vue';
@@ -25,6 +25,10 @@ import 'quill/dist/quill.snow.css'
 import 'quill/dist/quill.bubble.css'
 Vue.prototype.$message = Message;
 Vue.use(VueQuillEditor)
+// 头部公共组件
+import myHeader from './components/header.vue';
+Vue.component('my-header',myHeader)
+
 new Vue({
   el: '#app',
   render: h => h(App),

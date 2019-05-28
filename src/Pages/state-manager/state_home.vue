@@ -23,9 +23,12 @@
        
       </el-menu>
     </el-aside>
+    
     <el-container>
-      <el-header style="height:64px;">
-        <div class="left">
+      
+     <el-header style="height:64px;">
+       <my-header></my-header>
+        <!-- <div class="left">
           <img src="../../assets/images/top-control.svg" alt>
           <span>控制台</span>
         </div>
@@ -33,8 +36,9 @@
           <img class="man" src="../../assets/images/man.png" alt>
           Hank（002）
           <img class="out" src="../../assets/images/out.png" alt>
-        </div>
-      </el-header>
+        </div> -->
+      </el-header> 
+     
       <div class="nav">
         <template>
           <el-breadcrumb separator-class="el-icon-arrow-right">

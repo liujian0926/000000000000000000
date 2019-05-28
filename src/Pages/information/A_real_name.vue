@@ -1,13 +1,23 @@
 <template>
   <div class="container">
-    <el-tabs v-model="activeName" @tab-click="handleClick" class="my-tab">
+    <el-tabs v-model="activeName" class="my-tab">
       <el-tab-pane label="未审核" name="first">
         <el-form :inline="true" class="demo-form-inline my-form-users">
           <el-form-item label="申请时间">
-           <el-date-picker type="date" placeholder="选择日期"  v-model="form.date1" style="width: 100%;"></el-date-picker>
+            <el-date-picker
+              type="date"
+              placeholder="选择日期"
+              v-model="form.date1"
+              style="width: 100%;"
+            ></el-date-picker>
           </el-form-item>
           <el-form-item>
-            <el-date-picker type="date" placeholder="选择日期"  v-model="form.date1" style="width: 100%;"></el-date-picker>
+            <el-date-picker
+              type="date"
+              placeholder="选择日期"
+              v-model="form.date1"
+              style="width: 100%;"
+            ></el-date-picker>
           </el-form-item>
           <!--类型选择 -->
           <el-form-item>
@@ -26,20 +36,17 @@
         <!-- 表格-->
         <el-table
           class="table"
-          :data="tableData"
+          :data="unreviewed.tableData1"
           border
           style="width: 100% ;"
           :header-cell-style="{background:'#eef1f6',color:'#606266'}"
         >
-          <el-table-column prop="username" label="用户名" align="center"></el-table-column>
           <el-table-column prop="user_id" label="用户ID" align="center"></el-table-column>
-          <el-table-column prop="tel" label="电话" align="center"></el-table-column>
-          <el-table-column prop="time" label="加入时间" align="center"></el-table-column>
-          <el-table-column prop="pro_name" label="项目方名称" align="center"></el-table-column>
-          <el-table-column prop="pro_id" label="项目方ID" align="center"></el-table-column>
-          <el-table-column prop="dl_name" label="代理名称" align="center"></el-table-column>
-          <el-table-column prop="dl_id" label="代理ID" align="center"></el-table-column>
-          <el-table-column prop="real_name" label="是否实名" align="center"></el-table-column>
+          <el-table-column prop="name" label="用户名称" align="center"></el-table-column>
+          <el-table-column prop="mobile" label="用户手机号" align="center"></el-table-column>
+          <el-table-column prop="add_time" label="申请时间" align="center"></el-table-column>
+          <el-table-column prop="merchant_code" label="项目方ID" align="center"></el-table-column>
+          <el-table-column prop="merchant_name" label="项目方名称" align="center"></el-table-column>
 
           <el-table-column prop="status" label="实名信息" align="center">
             <template scope="scope">
@@ -63,7 +70,7 @@
               background
               @size-change="handleSizeChange"
               @current-change="handleCurrentChange"
-              :current-page="currentPage4"
+              :current-page="1"
               :page-sizes="[10, 20, 30, 40]"
               :page-size="100"
               layout="total, sizes, prev, pager, next, jumper"
@@ -76,10 +83,20 @@
       <el-tab-pane label="已拒绝" name="second">
         <el-form :inline="true" class="demo-form-inline my-form-users">
           <el-form-item label="申请时间">
-            <el-date-picker type="date" placeholder="选择日期"  v-model="form.date1" style="width: 100%;"></el-date-picker>
+            <el-date-picker
+              type="date"
+              placeholder="选择日期"
+              v-model="form.date1"
+              style="width: 100%;"
+            ></el-date-picker>
           </el-form-item>
           <el-form-item>
-            <el-date-picker type="date" placeholder="选择日期"  v-model="form.date1" style="width: 100%;"></el-date-picker>
+            <el-date-picker
+              type="date"
+              placeholder="选择日期"
+              v-model="form.date1"
+              style="width: 100%;"
+            ></el-date-picker>
           </el-form-item>
           <!--类型选择 -->
           <el-form-item>
@@ -96,9 +113,9 @@
           </el-form-item>
         </el-form>
         <!-- 表格-->
-        <el-table
+        <!-- <el-table
           class="table"
-          :data="tableData"
+          :data="unreviewed.tableData1"
           border
           style="width: 100% ;"
           :header-cell-style="{background:'#eef1f6',color:'#606266'}"
@@ -127,7 +144,7 @@
               <span style="color:red; marginLeft:20px ;">{{ scope.row.reject }}</span>
             </template>
           </el-table-column>
-        </el-table>
+        </el-table>-->
         <!--分页 -->
         <div class="page">
           <div class="pagination">
@@ -135,7 +152,7 @@
               background
               @size-change="handleSizeChange"
               @current-change="handleCurrentChange"
-              :current-page="currentPage4"
+              :current-page="1"
               :page-sizes="[10, 20, 30, 40]"
               :page-size="100"
               layout="total, sizes, prev, pager, next, jumper"
@@ -147,10 +164,20 @@
       <el-tab-pane label="已通过" name="third">
         <el-form :inline="true" class="demo-form-inline my-form-users">
           <el-form-item label="申请时间">
-            <el-date-picker type="date" placeholder="选择日期"  v-model="form.date1" style="width: 100%;"></el-date-picker>
+            <el-date-picker
+              type="date"
+              placeholder="选择日期"
+              v-model="form.date1"
+              style="width: 100%;"
+            ></el-date-picker>
           </el-form-item>
           <el-form-item>
-            <el-date-picker type="date" placeholder="选择日期"  v-model="form.date1" style="width: 100%;"></el-date-picker>
+            <el-date-picker
+              type="date"
+              placeholder="选择日期"
+              v-model="form.date1"
+              style="width: 100%;"
+            ></el-date-picker>
           </el-form-item>
           <!--类型选择 -->
           <el-form-item>
@@ -167,9 +194,9 @@
           </el-form-item>
         </el-form>
         <!-- 表格-->
-        <el-table
+        <!-- <el-table
           class="table"
-          :data="tableData"
+          :data="unreviewed.tableData1"
           border
           style="width: 100% ;"
           :header-cell-style="{background:'#eef1f6',color:'#606266'}"
@@ -198,7 +225,7 @@
               <span style="color:red; marginLeft:20px ;">{{ scope.row.reject }}</span>
             </template>
           </el-table-column>
-        </el-table>
+        </el-table>-->
         <!--分页 -->
         <div class="page">
           <div class="pagination">
@@ -206,7 +233,7 @@
               background
               @size-change="handleSizeChange"
               @current-change="handleCurrentChange"
-              :current-page="currentPage4"
+              :current-page="1"
               :page-sizes="[10, 20, 30, 40]"
               :page-size="100"
               layout="total, sizes, prev, pager, next, jumper"
@@ -223,185 +250,41 @@ export default {
   data() {
     return {
       activeName: "first",
-      tableData: [
-        {
-          pass: "通过",
-          reject: "拒绝",
-          username: "xxxxx",
-          user_id: "1222",
-          tel: "1887656799",
-          time: "2019-12-04 12:30",
-          pro_name: "xxx",
-          pro_id: "3333",
-          dl_name: "ffff",
-          dl_id: "666",
-          real_name: "是",
-          status: "查看",
-          operation: "详情"
-        },
-        {
-          pass: "通过",
-          reject: "拒绝",
-          username: "xxxxx",
-          user_id: "1222",
-          tel: "1887656799",
-          time: "2019-12-04 12:30",
-          pro_name: "xxx",
-          pro_id: "3333",
-          dl_name: "ffff",
-          dl_id: "666",
-          real_name: "是",
-          status: "查看",
-          operation: "详情"
-        },
-        {
-          pass: "通过",
-          reject: "拒绝",
-          username: "xxxxx",
-          user_id: "1222",
-          tel: "1887656799",
-          time: "2019-12-04 12:30",
-          pro_name: "xxx",
-          pro_id: "3333",
-          dl_name: "ffff",
-          dl_id: "666",
-          real_name: "是",
-          status: "查看",
-          operation: "详情"
-        },
-        {
-          pass: "通过",
-          reject: "拒绝",
-          username: "xxxxx",
-          user_id: "1222",
-          tel: "1887656799",
-          time: "2019-12-04 12:30",
-          pro_name: "xxx",
-          pro_id: "3333",
-          dl_name: "ffff",
-          dl_id: "666",
-          real_name: "是",
-          status: "查看",
-          operation: "详情"
-        },
-        {
-          pass: "通过",
-          reject: "拒绝",
-          username: "xxxxx",
-          user_id: "1222",
-          tel: "1887656799",
-          time: "2019-12-04 12:30",
-          pro_name: "xxx",
-          pro_id: "3333",
-          dl_name: "ffff",
-          dl_id: "666",
-          real_name: "是",
-          status: "查看",
-          operation: "详情"
-        },
-        {
-          pass: "通过",
-          reject: "拒绝",
-          username: "xxxxx",
-          user_id: "1222",
-          tel: "1887656799",
-          time: "2019-12-04 12:30",
-          pro_name: "xxx",
-          pro_id: "3333",
-          dl_name: "ffff",
-          dl_id: "666",
-          real_name: "是",
-          status: "查看",
-          operation: "详情"
-        },
-        {
-          pass: "通过",
-          reject: "拒绝",
-          username: "xxxxx",
-          user_id: "1222",
-          tel: "1887656799",
-          time: "2019-12-04 12:30",
-          pro_name: "xxx",
-          pro_id: "3333",
-          dl_name: "ffff",
-          dl_id: "666",
-          real_name: "是",
-          status: "查看",
-          operation: "详情"
-        },
-        {
-          pass: "通过",
-          reject: "拒绝",
-          username: "xxxxx",
-          user_id: "1222",
-          tel: "1887656799",
-          time: "2019-12-04 12:30",
-          pro_name: "xxx",
-          pro_id: "3333",
-          dl_name: "ffff",
-          dl_id: "666",
-          real_name: "是",
-          status: "查看",
-          operation: "详情"
-        },
-        {
-          pass: "通过",
-          reject: "拒绝",
-          username: "xxxxx",
-          user_id: "1222",
-          tel: "1887656799",
-          time: "2019-12-04 12:30",
-          pro_name: "xxx",
-          pro_id: "3333",
-          dl_name: "ffff",
-          dl_id: "666",
-          real_name: "是",
-          status: "查看",
-          operation: "详情"
-        },
-        {
-          pass: "通过",
-          reject: "拒绝",
-          username: "xxxxx",
-          user_id: "1222",
-          tel: "1887656799",
-          time: "2019-12-04 12:30",
-          pro_name: "xxx",
-          pro_id: "3333",
-          dl_name: "ffff",
-          dl_id: "666",
-          real_name: "是",
-          status: "查看",
-          operation: "详情"
-        }
-      ],
+      input: "",
+      total1: "",
+      //未审核
+      unreviewed: {
+        tableData1: "",
+        page: 1,
+        limit: 15
+      },
+      // 已拒绝
+      rejected: {},
+
       form: {
         data1: "",
         data2: ""
-      },
-      options: [
-        {
-          value: "选项1",
-          label: "黄金糕"
-        },
-        {
-          value: "选项2",
-          label: "双皮奶"
-        },
-        {
-          value: "选项3",
-          label: "蚵仔煎"
-        },
-        {
-          value: "选项4",
-          label: "龙须面"
-        },
-        {
-          value: "选项5",
-          label: "北京烤鸭"
-        }
-      ]
+      }
     };
+  },
+  mounted() {
+    this.getNnreviewed();
+  },
+  methods: {
+    handleSizeChange() {},
+    handleCurrentChange() {},
+    getNnreviewed() {
+      let data = {
+        page: this.unreviewed.page,
+        limit: this.unreviewed.limit,
+        token: localStorage.getItem("token"),
+        status: 0
+      };
+      this.$post("/api/user/auserAuthList", data).then(res => {
+        this.unreviewed.tableData1 = res.data.data.data;
+        this.total1 = res.data.data.total;
+      });
+    }
   }
 };
 </script>

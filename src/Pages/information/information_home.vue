@@ -3,41 +3,50 @@
     <el-aside width="210px">
       <div class="title">信息审核</div>
       <el-menu class="el-menu" router default-active="data">
-        <el-menu-item index="information_cash" @click="getinfo($event)" class="active">
-          <!-- <i class="el-icon-document"></i> -->
-          <img src="../../assets/images/white.png" alt>
+        <el-menu-item
+          index="information_cash"
+          @click="cil('information_cash')"
+          :class="{'el-text-active':tabActive=='information_cash'}"
+        >
+          <i class="el-icon" :class="{'el-icon-active':tabActive=='information_cash'}"></i>
           <span slot="title">项目方提现</span>
         </el-menu-item>
-        <el-menu-item index="A_real_name">
-          <img src="../../assets/images/white.png" alt>
+        <el-menu-item
+          index="A_real_name"
+          @click="cil('A_real_name')"
+          :class="{'el-text-active':tabActive=='A_real_name'}"
+        >
+          <i class="el-icon" :class="{'el-icon-active':tabActive=='A_real_name'}"></i>
           <span slot="title">A端实名审核</span>
         </el-menu-item>
-        <el-menu-item index="B_real_name">
-          <img src="../../assets/images/white.png" alt>
+        <el-menu-item
+          index="B_real_name"
+          @click="cil('B_real_name')"
+          :class="{'el-text-active':tabActive=='B_real_name'}"
+        >
+          <i class="el-icon" :class="{'el-icon-active':tabActive=='B_real_name'}"></i>
           <span slot="title">B端实名审核</span>
         </el-menu-item>
-        <el-menu-item index="agency_apply">
-          <img src="../../assets/images/white.png" alt>
+        <el-menu-item
+          index="agency_apply"
+          @click="cil('agency_apply')"
+          :class="{'el-text-active':tabActive=='agency_apply'}"
+        >
+          <i class="el-icon" :class="{'el-icon-active':tabActive=='agency_apply'}"></i>
           <span slot="title">代理申请审核</span>
         </el-menu-item>
-        <el-menu-item index="aegncy_audit">
-          <img src="../../assets/images/white.png" alt>
+        <el-menu-item
+          index="aegncy_audit"
+          @click="cil('aegncy_audit')"
+          :class="{'el-text-active':tabActive=='aegncy_audit'}"
+        >
+          <i class="el-icon" :class="{'el-icon-active':tabActive=='aegncy_audit'}"></i>
           <span slot="title">代理提现审核</span>
         </el-menu-item>
       </el-menu>
     </el-aside>
-    <el-container>
-      <el-header style="height:64px;">
-        <div class="left">
-          <img src="../../assets/images/top-control.svg" alt>
-          <span>控制台</span>
-        </div>
-        <div class="right">
-          <img class="man" src="../../assets/images/man.png" alt>
-          Hank（002）
-          <img class="out" src="../../assets/images/out.png" alt>
-        </div>
-      </el-header>
+    <div style="width: 100%">
+      <my-header></my-header>
       <div class="nav">
         <template>
           <el-breadcrumb separator-class="el-icon-arrow-right">
@@ -51,25 +60,20 @@
       <el-main id="main">
         <router-view></router-view>
       </el-main>
-    </el-container>
+    </div>
   </el-container>
 </template>
 
 <script>
 export default {
   data() {
-    return {};
+    return {
+      tabActive: "information_cash"
+    };
   },
   methods: {
-    getinfo(event) {
-      // console.log(event.$el)
-      // console.log(event.$el.children[0])
-      // console.log(event.$el.children[1])
-      // event.$el.style.backgroundColor = "#253444";
-      // event.$el.
-      // console.log(event.$el)
-      // event.$el.children[0].setAttribute('src','../../assets/images/blue.png');
-      // event.$el.children[1].style.color = '#419EFF';
+    cil(value) {
+      this.tabActive = value;
     }
   }
 };
@@ -79,49 +83,7 @@ export default {
   padding: 0;
   height: 100%;
   background-color: #fff;
-  .el-header {
-    background-color: #fff;
-    color: #333;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-
-    .left {
-      height: 100%;
-      line-height: 64px;
-      font-size: 14px;
-      color: #333333;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      img {
-        margin-right: 3px;
-      }
-      span {
-        color: #979DAC;
-      }
-    }
-
-    .right {
-      height: 64px;
-      line-height: 64px;
-      font-size: 14px;
-      color: #333333;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      .man {
-        margin-right: 8px;
-      }
-
-      .out {
-        margin-left: 23px;
-      }
-    }
-  }
-
+ 
   .nav {
     height: 34px;
     padding: 0 24px;
@@ -169,6 +131,8 @@ export default {
   }
 
   #main {
+    width: 100%;
+    height: 100%;
     padding: 0;
     margin-top: 1px;
     background-color: #fff;

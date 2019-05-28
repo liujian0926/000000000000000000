@@ -6,8 +6,8 @@ import { Message, MessageBox } from 'element-ui'
 import router from '../router'
 
 //根据不同的环境更改不同的baseUrl
-let baseUrl = 'http://management.service.168mi.cn';
-// let baseUrl = 'http://management.service.qmjtpl.com'
+// let baseUrl = 'http://management.service.168mi.cn';
+let baseUrl = 'http://management.service.qmjtpl.com'
 
 // if (process.env.NODE_ENV == 'development') {
 //     baseUrl = '/api';

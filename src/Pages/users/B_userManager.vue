@@ -29,7 +29,6 @@
       class="table"
       :data="tableData"
       border
-      style="width: 100% ;"
       :header-cell-style="{background:'#eef1f6',color:'#606266'}"
     >
       <el-table-column prop="name" label="用户名称" align="center" width="160"></el-table-column>
@@ -143,6 +142,7 @@ export default {
   a {
     text-decoration: none;
   }
+ 
   .my-form-users {
     height: 75px;
     display: flex;

@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <el-tabs v-model="activeName" @tab-click="handleClick" class="my-tab">
+    <el-tabs v-model="activeName" class="my-tab">
       <el-tab-pane label="已完成" name="first">
         <!-- 表单 -->
         <el-form :inline="true" class="demo-form-inline my-form-users">
@@ -22,14 +22,14 @@
           </el-form-item>
 
           <el-form-item>
-            <el-button type="primary" @click="getList(1,1)">查询</el-button>
+            <el-button type="primary" @click="completeList">查询</el-button>
           </el-form-item>
         </el-form>
 
         <!-- 完成表格-->
         <el-table
           class="table"
-          :data="tableData"
+          :data="complete.tableData"
           border
           style="width: 100% ;"
           :header-cell-style="{background:'#eef1f6',color:'#606266'}"
@@ -42,7 +42,7 @@
           <el-table-column prop="add_time" label=" 接单时间 " align="center"></el-table-column>
           <el-table-column prop="update_time" label=" 完成时间 " align="center"></el-table-column>
           <el-table-column prop="详情" label="操作" align="center">
-            <template scope="">
+            <template scope>
               <span style="color:#419EFF">详情</span>
             </template>
           </el-table-column>
@@ -57,7 +57,7 @@
               :current-page="1"
               :page-sizes="[15]"
               layout="total, sizes, prev, pager, next, jumper"
-              :total="total"
+              :total="complete.total"
             ></el-pagination>
           </div>
         </div>
@@ -83,14 +83,14 @@
           </el-form-item>
 
           <el-form-item>
-            <el-button type="primary" @click="getList(1,2)">查询</el-button>
+            <el-button type="primary" @click="cancelList">查询</el-button>
           </el-form-item>
         </el-form>
 
         <!-- 取消表格-->
         <el-table
           class="table"
-          :data="tableData2"
+          :data="cancel.tableData"
           border
           style="width: 100% ;"
           :header-cell-style="{background:'#eef1f6',color:'#606266'}"
@@ -103,9 +103,9 @@
           <el-table-column prop="add_time" label=" 接单时间 " align="center"></el-table-column>
           <el-table-column prop="update_time" label=" 完成时间 " align="center"></el-table-column>
           <el-table-column prop="详情" label="操作" align="center">
-            <template scope="">
+            <template scope>
               <router-link to>
-                <span style="color:#419EFF" >详情</span>
+                <span style="color:#419EFF">详情</span>
               </router-link>
             </template>
           </el-table-column>
@@ -120,7 +120,7 @@
               :current-page="1"
               :page-sizes="[15]"
               layout="total, sizes, prev, pager, next, jumper"
-              :total="total2"
+              :total="cancel.total"
             ></el-pagination>
           </div>
         </div>
@@ -134,49 +134,38 @@ export default {
     return {
       activeName: "first",
       input: "",
-      tableData: [],
-      tableData2: [],
-      // 页码
+      // 已完成
+      complete: {
+        tableData: [],
+        total: 0
+      },
+      // 已取消
+      cancel: {
+        tableData: [],
+        total: 0
+      },
       pagenum: 1,
-      // 页容量
       pagesize: 15,
-      // 总数量
-      total: 0,
-      total2: 0,
-      uniID: "",
-      userID: "",
-      orderno: "",
       startTime: "",
-      endTime: ""
+      endTime: "",
+      orderno: "",
+      userID: ""
     };
   },
 
   mounted() {
-    this.getList();
-    this.getList2();
+    this.completeList();
+    this.cancelList();
   },
   methods: {
-    handleClick(tab, event) {
-      this.uniID = "";
-      this.userID = "";
-      this.orderno = "";
-      this.startTime = "";
-      this.endTime = "";
-      if (tab.index == 0) {
-      }
-    },
-    resetForm(formName) {
-      this.$refs[formName].resetFields();
-    },
-
     handleCurrentChange(current) {
       this.pagenum = current;
-      this.getList(current);
+      this.completeList(current);
     },
     // 已完成
-    getList(pagenum, idx) {
-      var startT = this.startTime;
-      var endT = this.endTime;
+    completeList() {
+      let startT = this.startTime;
+      let endT = this.endTime;
       if (this.startTime) {
         startT =
           this.startTime.getFullYear() +
@@ -193,35 +182,58 @@ export default {
           "-" +
           this.endTime.getDate();
       }
+
       const data = {
-        page: pagenum,
+        page: this.pagenum,
         size: this.pagesize,
         start: startT,
         end: endT,
         order_no: this.orderno,
         user_id: this.userID,
-        status: idx,
+        status: 1,
         token: localStorage.getItem("token")
       };
       this.$post("api/order/purchaseOrderList", data).then(res => {
-        this.tableData = res.data.data.data;
-        this.total = res.data.data.count;
+        this.complete.tableData = res.data.data.data;
+        this.complete.total = res.data.data.size;
       });
     },
 
     // 已取消
-    getList2() {
+    cancelList() {
+      let startT = this.startTime;
+      let endT = this.endTime;
+
+      if (this.startTime) {
+        startT =
+          this.startTime.getFullYear() +
+          "-" +
+          (this.startTime.getMonth() + 1) +
+          "-" +
+          this.startTime.getDate();
+      }
+      if (this.endTime) {
+        endT =
+          this.endTime.getFullYear() +
+          "-" +
+          (this.endTime.getMonth() + 1) +
+          "-" +
+          this.endTime.getDate();
+      }
+     
       const data = {
         page: this.pagenum,
         size: this.pagesize,
-        token: localStorage.getItem("token"),
-        status: 2
+        start: startT,
+        end: endT,
+        order_no: this.orderno,
+        user_id: this.userID,
+        status: 2,
+        token: localStorage.getItem("token")
       };
-
       this.$post("api/order/purchaseOrderList", data).then(res => {
-        this.tableData2 = res.data.data.data;
-
-        this.total2 = res.data.data.count;
+        this.cancel.tableData = res.data.data.data;
+        this.cancel.total = res.data.data.size;
       });
     }
   }

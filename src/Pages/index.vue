@@ -12,13 +12,14 @@
       </div>
     </div>
 
-    <div class="content">
+    <div class="content"> 
       <!-- <router-link :to="{path:'/home'}" class="text">
         <div class="box" id="active">
           <img src="../assets/images/run-1.png" alt>
           <span class="pic"></span>
           <span>平台钱包管理</span>
-        </div>
+        </div> -->
+        <!--
       </router-link>
       <router-link :to="{path:'/run_home'}" class="text">
         <div class="box">
@@ -46,16 +47,17 @@
           <img src="../assets/images/run-1.png" alt>
           <span class="pic"></span>
           <span>即时交易数据</span>
-        </div>
-      </router-link>
-      <router-link :to="{path:'/information_home'}" class="text">
+        </div>-->
+      <!-- </router-link> -->
+      <!-- <router-link :to="{path:'/information_cash'}" class="text">
         <div class="box">
           <img src="../assets/images/run-1.png" alt>
           <span class="pic"></span>
           <span>信息审核管理</span>
         </div>
-      </router-link>
-      <router-link :to="{path:'/state_home'}" class="text">
+      </router-link> -->
+
+      <!-- <router-link :to="{path:'/state_home'}" class="text">
         <div class="box">
           <img src="../assets/images/run-1.png" alt>
           <span class="pic"></span>

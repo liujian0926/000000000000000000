@@ -19,18 +19,21 @@ body {
     padding-left: 20px;
     text-align: center;
   }
-  .el-cascader{
-    .el-input__inner{
+
+  .el-cascader {
+    .el-input__inner {
       width: 120px;
       height: 28px;
       line-height: 28px;
     }
+
     .el-input__icon {
       line-height: 28px;
     }
-    
+
   }
 }
+
 .my-tab-big {
   /deep/ .el-tabs__item {
     width: 216px !important;
@@ -240,7 +243,26 @@ body {
     margin-left: 0;
   }
 }
-.el-menu-item:focus,.el-menu-item:hover{
+
+.el-menu-item:focus,
+.el-menu-item:hover {
   outline: none;
   background-color: white;
+}
+
+.el-icon {
+  display: inline-block;
+  width: 14px;
+  height: 16px;
+  background: url('../../assets/images/white.png') center / 100% no-repeat;
+  margin-right: 16px;
+}
+
+.el-icon-active {
+  background: url('../../assets/images/blue.png') center / 100% no-repeat !important;
+}
+
+.el-text-active {
+  color: #419EFF !important;
+
 }

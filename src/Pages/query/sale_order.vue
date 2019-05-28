@@ -8,7 +8,7 @@
             <el-date-picker
               type="date"
               placeholder="选择日期"
-              v-model="form.date1"
+              v-model="endTime"
               style="width: 100%;"
             ></el-date-picker>
           </el-form-item>
@@ -16,30 +16,30 @@
             <el-date-picker
               type="date"
               placeholder="选择日期"
-              v-model="form.date2"
+              v-model="startTime"
               style="width: 100%;"
             ></el-date-picker>
           </el-form-item>
           <!--类型选择 -->
           <el-form-item>
-            <el-input v-model="form.input1" placeholder="请输入内容"></el-input>
+            <el-input v-model="orderno" placeholder="卖出单号"></el-input>
           </el-form-item>
           <el-form-item>
-            <el-input v-model="form.input2" placeholder="请输入内容"></el-input>
+            <el-input v-model="userID" placeholder="用户ID"></el-input>
           </el-form-item>
-          <el-form-item>
+          <!-- <el-form-item>
             <el-input v-model="form.input3" placeholder="请输入内容"></el-input>
-          </el-form-item>
+          </el-form-item> -->
 
           <el-form-item>
-            <el-button type="primary" @click="onSubmit(form)">查询</el-button>
+            <el-button type="primary" @click="completeList">查询</el-button>
           </el-form-item>
         </el-form>
 
         <!-- 表格-->
         <el-table
           class="table"
-          :data="tableData"
+          :data="complete.tableData"
           border
           style="width: 100% ;"
           :header-cell-style="{background:'#eef1f6',color:'#606266'}"
@@ -76,7 +76,7 @@
             <el-date-picker
               type="date"
               placeholder="选择日期"
-              v-model="form.date1"
+              v-model="startTime"
               style="width: 100%;"
             ></el-date-picker>
           </el-form-item>
@@ -84,20 +84,20 @@
             <el-date-picker
               type="date"
               placeholder="选择日期"
-              v-model="form.date1"
+              v-model="endTime"
               style="width: 100%;"
             ></el-date-picker>
           </el-form-item>
           <!--类型选择 -->
           <el-form-item>
-            <el-input v-model="form.input" placeholder="请输入内容"></el-input>
+            <el-input v-model="orderno" placeholder="卖出单号"></el-input>
           </el-form-item>
           <el-form-item>
-            <el-input v-model="form.input" placeholder="请输入内容"></el-input>
+            <el-input v-model="userID" placeholder="用户ID"></el-input>
           </el-form-item>
-          <el-form-item>
+          <!-- <el-form-item>
             <el-input v-model="form.input" placeholder="请输入内容"></el-input>
-          </el-form-item>
+          </el-form-item> -->
 
           <el-form-item>
             <el-button type="primary">查询</el-button>
@@ -107,7 +107,7 @@
         <!-- 表格-->
         <el-table
           class="table"
-          :data="tableData2"
+          :data="cancel.tableData"
           border
           style="width: 100% ;"
           :header-cell-style="{background:'#eef1f6',color:'#606266'}"
@@ -132,7 +132,7 @@
               :current-page="1"
               :page-sizes="[15]"
               layout="total, sizes, prev, pager, next, jumper"
-              :total="total2"
+              :total="total"
             ></el-pagination>
           </div>
         </div>
@@ -145,74 +145,105 @@ export default {
   data() {
     return {
       activeName: "first",
-
-      tableData: [],
-      tableData2: [],
-      // 页码
+      // 已完成
+      complete: {
+        tableData: [],
+        total: 0
+      },
+      // 已取消
+      cancel: {
+        tableData: [],
+        total: 0
+      },
       pagenum: 1,
-      // 页容量
       pagesize: 15,
-      // 总数量
-      total: 0,
-      total2: 0,
-      form: {
-        date1: "",
-        date2: "",
-        input: "",
-        input1: "",
-        input2: "",
-        input3: ""
-      }
+      startTime: "",
+      endTime: "",
+      orderno: "",
+      userID: ""
     };
   },
 
   mounted() {
-    this.getList();
-    this.getList2();
+    this.completeList();
+    this.cancelList();
   },
   methods: {
-    handleClick() {},
-    onSubmit(value) {
-      console.log(value);
-      console.log(value.date1);
-      console.log(value.date2);
-      console.log(value.input1);
-      console.log(value.input2);
-      console.log(value.input3);
-    },
-
     handleCurrentChange(current) {
       this.pagenum = current;
-      this.getList();
+      this.completeList(current);
     },
     // 已完成
-    getList() {
+    completeList() {
+      let startT = this.startTime;
+      let endT = this.endT ;
+      if (this.startTime) {
+        startT =
+          this.startTime.getFullYear() +
+          "-" +
+          (this.startTime.getMonth() + 1) +
+          "-" +
+          this.startTime.getDate();
+      }
+      if (this.endTime) {
+        endT =
+          this.endTime.getFullYear() +
+          "-" +
+          (this.endTime.getMonth() + 1) +
+          "-" +
+          this.endTime.getDate();
+      }
       const data = {
         page: this.pagenum,
         size: this.pagesize,
+        start: startT,
+        end: endT,
+        order_no: this.orderno,
+        user_id: this.userID,
+        status: 1,
         token: localStorage.getItem("token")
       };
-      this.$post("api/order/rechargeOrderList", data).then(res => {
-        this.tableData = res.data.data.data;
-        console.log(this.tableData);
-
-        this.total = res.data.data.total;
+      this.$post("api/order/purchaseOrderList", data).then(res => {
+        this.complete.tableData = res.data.data.data;
+        this.complete.total = res.data.data.size;
       });
     },
 
     // 已取消
-    getList2() {
+    cancelList() {
+      let startT = this.startTime;
+      let endT = this.endT ;
+      if (this.startTime) {
+        startT =
+          this.startTime.getFullYear() +
+          "-" +
+          (this.startTime.getMonth() + 1) +
+          "-" +
+          this.complete.startTime.getDate();
+      }
+      if (this.endTime) {
+        endT =
+          this.endTime.getFullYear() +
+          "-" +
+          (this.endTime.getMonth() + 1) +
+          "-" +
+          this.endTime.getDate();
+      }
+     
+      
       const data = {
         page: this.pagenum,
         size: this.pagesize,
-        token: localStorage.getItem("token"),
-        status: 2
+        start: startT,
+        end: endT,
+        order_no: this.orderno,
+        user_id: this.userID,
+        status: 2,
+        token: localStorage.getItem("token")
       };
-
-      this.$post("api/order/rechargeOrderList", data).then(res => {
-        this.tableData2 = res.data.data.data;
-
-        this.total2 = res.data.data.total;
+      this.$post("api/order/purchaseOrderList", data).then(res => {
+        this.cancel.tableData = res.data.data.data;
+        this.cancel.total = res.data.data.size;
       });
     }
   }
